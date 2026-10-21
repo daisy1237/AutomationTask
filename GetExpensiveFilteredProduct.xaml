@@ -12,7 +12,7 @@
   <VisualBasic.Settings>
     <x:Null />
   </VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>1254,3842</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>1254,4738</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>GetExpensiveFilteredProduct_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <sco:Collection x:TypeArguments="x:String">
@@ -118,15 +118,11 @@
       <AssemblyReference>UiPath.Platform</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="GetExpensiveFilteredProduct" sap:VirtualizedContainerService.HintSize="720,4085" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="GetExpensiveFilteredProduct" sap:VirtualizedContainerService.HintSize="720,4673" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="x:String" Name="formattedCategory" />
       <Variable x:TypeArguments="sd:DataTable" Name="productsDataTable" />
-      <Variable x:TypeArguments="x:Int32" Name="mostExpensivePrice">
-        <Variable.Default>
-          <Literal x:TypeArguments="x:Int32" />
-        </Variable.Default>
-      </Variable>
+      <Variable x:TypeArguments="x:Int32" Default="0" Name="mostExpensivePrice" />
       <Variable x:TypeArguments="x:Boolean" Name="pageIsLoaded" />
     </Sequence.Variables>
     <sap:WorkflowViewStateService.ViewState>
@@ -264,7 +260,7 @@
                 <InArgument x:TypeArguments="x:Boolean">True</InArgument>
               </Assign.Value>
             </Assign>
-            <ui:InterruptibleWhile CurrentIndex="{x:Null}" DisplayName="While - There is a next page" sap:VirtualizedContainerService.HintSize="562,1928" sap2010:WorkflowViewState.IdRef="InterruptibleWhile_1" MaxIterations="15">
+            <ui:InterruptibleWhile CurrentIndex="{x:Null}" Condition="[hasNextPage]" DisplayName="While - There is a next page" sap:VirtualizedContainerService.HintSize="562,1928" sap2010:WorkflowViewState.IdRef="InterruptibleWhile_1" MaxIterations="15">
               <ui:InterruptibleWhile.Body>
                 <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="528,1792" sap2010:WorkflowViewState.IdRef="Sequence_27">
                   <sap:WorkflowViewStateService.ViewState>
@@ -282,7 +278,7 @@
                       </scg:Dictionary>
                     </sap:WorkflowViewStateService.ViewState>
                   </ui:ExtractData>
-                  <ui:LogMessage DisplayName="Log Message - Data extracted for category" sap:VirtualizedContainerService.HintSize="486,141" sap2010:WorkflowViewState.IdRef="LogMessage_14" Level="[UiPath.Core.Activities.LogLevel.Info]" Message="[String.Format(&quot;Successfully extracted {0}  products.&quot;,&#xD;&#xA;              productsDataTable.Rows.Count)]" />
+                  <ui:LogMessage DisplayName="Log Message - Data extracted for category" sap:VirtualizedContainerService.HintSize="486,141" sap2010:WorkflowViewState.IdRef="LogMessage_14" Level="[UiPath.Core.Activities.LogLevel.Info]" Message="[String.Format(&quot;Successfully extracted {0}  products.&quot;,&#xA;              productsDataTable.Rows.Count)]" />
                   <Sequence DisplayName="Filter and find product" sap:VirtualizedContainerService.HintSize="486,81" sap2010:WorkflowViewState.IdRef="Sequence_24">
                     <sap:WorkflowViewStateService.ViewState>
                       <scg:Dictionary x:TypeArguments="x:String, x:Object">
@@ -354,7 +350,7 @@
                                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                               </scg:Dictionary>
                             </sap:WorkflowViewStateService.ViewState>
-                            <If Condition="[CInt(product(&quot;NumericPrice&quot;)) &gt;= in_minBudget AndAlso CInt(product(&quot;NumericPrice&quot;)) &lt;= in_maxBudget AndAlso&#xD;&#xA;( String.IsNullOrWhiteSpace(in_brand) OrElse&#xD;&#xA;    product(&quot;Name&quot;).ToString.IndexOf(in_brand, StringComparison.OrdinalIgnoreCase) &gt;= 0 ) AndAlso&#xD;&#xA;&#x9;CInt(product(&quot;NumericPrice&quot;)) &gt; mostExpensivePrice]" DisplayName="If - Product matches filters and is more expensive" sap:VirtualizedContainerService.HintSize="510,899" sap2010:WorkflowViewState.IdRef="If_7">
+                            <If Condition="[CInt(product(&quot;NumericPrice&quot;)) &gt;= in_minBudget AndAlso CInt(product(&quot;NumericPrice&quot;)) &lt;= in_maxBudget AndAlso&#xA;( String.IsNullOrWhiteSpace(in_brand) OrElse&#xA;    product(&quot;Name&quot;).ToString.IndexOf(in_brand, StringComparison.OrdinalIgnoreCase) &gt;= 0 ) AndAlso&#xA;&#x9;CInt(product(&quot;NumericPrice&quot;)) &gt; mostExpensivePrice]" DisplayName="If - Product matches filters and is more expensive" sap:VirtualizedContainerService.HintSize="510,899" sap2010:WorkflowViewState.IdRef="If_7">
                               <If.Then>
                                 <Sequence sap:VirtualizedContainerService.HintSize="476,717" sap2010:WorkflowViewState.IdRef="Sequence_19">
                                   <sap:WorkflowViewStateService.ViewState>
@@ -492,9 +488,6 @@
                   </If>
                 </Sequence>
               </ui:InterruptibleWhile.Body>
-              <ui:InterruptibleWhile.Condition>
-                <VisualBasicValue x:TypeArguments="x:Boolean" ExpressionText="hasNextPage" />
-              </ui:InterruptibleWhile.Condition>
               <sap:WorkflowViewStateService.ViewState>
                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
                   <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -512,10 +505,10 @@
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
     </ui:BrowserScope>
-    <If Condition="[Not String.IsNullOrWhiteSpace(out_productName)]" DisplayName="If - Match found in products" sap:VirtualizedContainerService.HintSize="658,52" sap2010:WorkflowViewState.IdRef="If_6">
+    <If Condition="[Not String.IsNullOrWhiteSpace(out_productName)]" DisplayName="If - Match found in products" sap:VirtualizedContainerService.HintSize="658,640" sap2010:WorkflowViewState.IdRef="If_6">
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
-          <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
           <x:Boolean x:Key="IsPinned">False</x:Boolean>
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>

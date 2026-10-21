@@ -1,21 +1,18 @@
-# Task 1: demoblaze
+## Procesare fișier Excel – PO
 
-## Login:
-- Log in using any predefined credentials.
-- Open the website and verify that the logged-in username matches the expected one.
-- If the user is incorrect or not logged in, perform a logout and repeat the login step.
-## Verify Cart:
-- Navigate to the shopping cart page.
-- Check that the cart is empty or contains no products from previous sessions.
-- If products are found, remove all items before proceeding.
-## Scrape Products Table:
-- Extract product details from the table, including name, price, and description.
-- Filter the results based on three input parameters: Brand (e.g., Samsung) and Budget Range (min–max).
-- Identify the most expensive product that meets the criteria.
-## Add Product to Cart:
-- Select the identified phone from the filtered list.
-- Add it to the shopping cart.
-- Verify that the correct product appears in the cart after the action (validate name, price, and description).
-
-### Notes:
-- No modern activities.
+Robotul va primi PO-ul sub formă de fișier Excel.
+Pentru fiecare rând din Excel, robotul trebuie să:
+Identifice produsul corect după:
+- Category
+- Brand
+- Price în intervalul Min–Max
+Adauge produsul în coș de Qty ori (cantitatea din Excel)
+## Finalizare comandă
+După ce toate produsele au fost adăugate în coș, robotul finalizează comanda (Place Order).
+## E-mail Automation
+La final, robotul trimite un email de confirmare că achiziția a fost realizată cu succes, incluzând un screenshot.
+ 
+## Observații
+Se reutilizeaza automatizarea anterioară (Login + Cart handling + Add to Cart logic) din Task1
+Asigurați-vă că nu există produse rămase în coș din sesiuni anterioare
+Verificați că produsele selectate respectă criteriile din PO

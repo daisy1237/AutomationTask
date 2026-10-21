@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<!-- saved from url=(0014)about:internet -->
+<html>
+<head>
+    <meta charset="UTF-8">
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+        }
+
+        label {
+            display: block;
+            margin-top: 12px;
+            margin-bottom: 4px;
+        }
+
+        input {
+            width: 95%;
+            padding: 6px;
+        }
+
+        button {
+            margin-top: 20px;
+            padding: 8px 20px;
+        }
+    </style>
+
+   <script type="text/javascript">
+    function submitFilter() {
+
+        var brand = document.getElementById("brand").value;
+        var minBudget = document.getElementById("minBudget").value;
+        var maxBudget = document.getElementById("maxBudget").value;
+        var category = document.getElementById("category").value;
+
+        var result =
+            brand + ";" +
+            minBudget + ";" +
+            maxBudget + ";" +
+            category;
+
+        window.external.setResult(result);
+
+    }
+</script>
+</head>
+
+<body>
+
+    <h3>Product Filter</h3>
+
+    <label>
+        Category: (choose one of the provided categories: phones, laptops, monitors)
+    </label>
+    <input id="category" type="text">
+
+    <label>Brand:</label>
+    <input id="brand" type="text">
+
+    <label>Minimum budget:</label>
+    <input id="minBudget" type="number" min="0">
+
+    <label>Maximum budget:</label>
+    <input id="maxBudget" type="number" min="0">
+
+    <button type="button" onclick="submitFilter();">
+        Submit
+    </button>
+
+</body>
+</html>

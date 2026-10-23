@@ -1,7 +1,7 @@
 {
-  "name": "Task1",
+  "name": "Task2",
   "projectId": "30ad1fd5-928a-4a71-a271-3a99aefc0352",
-  "description": "Task 1 for Automatify Internship: automatizare pe demoblaze.com",
+  "description": "Task 2 for Automatify Internship: automatizare pe demoblaze.com",
   "main": "Main.xaml",
   "dependencies": {
     "UiPath.Credentials.Activities": "[3.1.1]",

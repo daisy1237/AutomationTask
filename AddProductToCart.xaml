@@ -10,7 +10,7 @@
   <VisualBasic.Settings>
     <x:Null />
   </VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>718,6145</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>1254,4780</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>AddProductToCart_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <sco:Collection x:TypeArguments="x:String">
@@ -93,20 +93,20 @@
       <AssemblyReference>UiPath.UIAutomationNext</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="AddProductToCart" sap:VirtualizedContainerService.HintSize="728,6080" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="AddProductToCart" sap:VirtualizedContainerService.HintSize="730,4715" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <ui:LogMessage DisplayName="Log Message - workflow started" sap:VirtualizedContainerService.HintSize="666,141" sap2010:WorkflowViewState.IdRef="LogMessage_3" Level="[UiPath.Core.Activities.LogLevel.Info]" Message="[String.Format(&quot;The AddProductToCart workflow started with {0}, {1}, {2} input arguments.&quot;,in_productName,in_productPrice,in_productDescription)]" />
-    <ui:BrowserScope SearchScope="{x:Null}" Selector="{x:Null}" TimeoutMS="{x:Null}" Browser="[io_browser]" BrowserType="Chrome" DisplayName="Attach Browser - Opened demoblaze website" sap:VirtualizedContainerService.HintSize="668,4334" sap2010:WorkflowViewState.IdRef="BrowserScope_1" UiBrowser="[io_browser]">
+    <ui:LogMessage DisplayName="Log Message - workflow started" sap:VirtualizedContainerService.HintSize="668,141" sap2010:WorkflowViewState.IdRef="LogMessage_3" Level="[UiPath.Core.Activities.LogLevel.Info]" Message="[String.Format(&quot;The AddProductToCart workflow started with {0}, {1}, {2} input arguments.&quot;,in_productName,in_productPrice,in_productDescription)]" />
+    <ui:BrowserScope SearchScope="{x:Null}" Selector="{x:Null}" TimeoutMS="{x:Null}" Browser="[io_browser]" BrowserType="Chrome" DisplayName="Attach Browser - Opened demoblaze website" sap:VirtualizedContainerService.HintSize="668,4242" sap2010:WorkflowViewState.IdRef="BrowserScope_1" UiBrowser="[io_browser]">
       <ui:BrowserScope.Body>
         <ActivityAction x:TypeArguments="x:Object">
           <ActivityAction.Argument>
             <DelegateInArgument x:TypeArguments="x:Object" Name="ContextTarget" />
           </ActivityAction.Argument>
-          <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="634,4225" sap2010:WorkflowViewState.IdRef="Sequence_2">
+          <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="634,4133" sap2010:WorkflowViewState.IdRef="Sequence_2">
             <Sequence.Variables>
               <Variable x:TypeArguments="x:Boolean" Name="pageIsLoaded" />
             </Sequence.Variables>
@@ -369,7 +369,7 @@
                   </Sequence>
                 </If.Else>
               </If>
-              <ui:InterruptibleWhile CurrentIndex="{x:Null}" DisplayName="While - Add requested quantity" sap:VirtualizedContainerService.HintSize="510,827" sap2010:WorkflowViewState.IdRef="InterruptibleWhile_2">
+              <ui:InterruptibleWhile CurrentIndex="{x:Null}" Condition="[in_quantity&lt;&gt;0]" DisplayName="While - Add requested quantity" sap:VirtualizedContainerService.HintSize="510,827" sap2010:WorkflowViewState.IdRef="InterruptibleWhile_2">
                 <ui:InterruptibleWhile.Body>
                   <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="476,691" sap2010:WorkflowViewState.IdRef="Sequence_21">
                     <sap:WorkflowViewStateService.ViewState>
@@ -415,90 +415,8 @@
                     </Assign>
                   </Sequence>
                 </ui:InterruptibleWhile.Body>
-                <ui:InterruptibleWhile.Condition>
-                  <VisualBasicValue x:TypeArguments="x:Boolean" ExpressionText="in_quantity&lt;&gt;0" />
-                </ui:InterruptibleWhile.Condition>
               </ui:InterruptibleWhile>
             </Sequence>
-            <ui:CommentOut DisplayName="Comment Out - Old cart validation (not useful anymore)" sap:VirtualizedContainerService.HintSize="572,52" sap2010:WorkflowViewState.IdRef="CommentOut_1">
-              <ui:CommentOut.Body>
-                <Sequence DisplayName="Ignored Activities" sap:VirtualizedContainerService.HintSize="534,1592" sap2010:WorkflowViewState.IdRef="Sequence_20">
-                  <sap:WorkflowViewStateService.ViewState>
-                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                    </scg:Dictionary>
-                  </sap:WorkflowViewStateService.ViewState>
-                  <Sequence DisplayName="Verify the product is in cart" sap:VirtualizedContainerService.HintSize="472,1481" sap2010:WorkflowViewState.IdRef="Sequence_17">
-                    <Sequence.Variables>
-                      <Variable x:TypeArguments="x:Boolean" Name="productIsInCart" />
-                    </Sequence.Variables>
-                    <sap:WorkflowViewStateService.ViewState>
-                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                        <x:Boolean x:Key="IsPinned">False</x:Boolean>
-                      </scg:Dictionary>
-                    </sap:WorkflowViewStateService.ViewState>
-                    <ui:LogMessage DisplayName="Log Message - Verify process started" sap:VirtualizedContainerService.HintSize="410,141" sap2010:WorkflowViewState.IdRef="LogMessage_11" Level="[UiPath.Core.Activities.LogLevel.Info]" Message="[&quot;Verifying if the product has been successfully added to the cart.&quot;]" />
-                    <ui:Click AlterIfDisabled="{x:Null}" DelayBefore="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" ClickType="CLICK_SINGLE" DisplayName="Click - Cart button" sap:VirtualizedContainerService.HintSize="410,107" sap2010:WorkflowViewState.IdRef="Click_5" KeyModifiers="None" MouseButton="BTN_LEFT" SimulateClick="True">
-                      <ui:Click.CursorPosition>
-                        <ui:CursorPosition Position="Center">
-                          <ui:CursorPosition.OffsetX>
-                            <InArgument x:TypeArguments="x:Int32" />
-                          </ui:CursorPosition.OffsetX>
-                          <ui:CursorPosition.OffsetY>
-                            <InArgument x:TypeArguments="x:Int32" />
-                          </ui:CursorPosition.OffsetY>
-                        </ui:CursorPosition>
-                      </ui:Click.CursorPosition>
-                      <ui:Click.Target>
-                        <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="f01c93ed-165e-4ce7-88cc-5d19eec54faf" InformativeScreenshot="d5c2c7bd40693220a37f4e0aa6adc2d2" Selector="&lt;html app='chrome.exe' url='*demoblaze*' /&gt;&lt;webctrl tag='A' innertext='Cart' /&gt;" TimeoutMS="5000" WaitForReady="COMPLETE" />
-                      </ui:Click.Target>
-                    </ui:Click>
-                    <ui:UiElementExists DisplayName="Element Exists - Product in cart" Exists="[productIsInCart]" sap:VirtualizedContainerService.HintSize="410,107" sap2010:WorkflowViewState.IdRef="UiElementExists_6">
-                      <ui:UiElementExists.Target>
-                        <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="e784cc3c-f3b9-46fa-9943-b501e48cebd1" InformativeScreenshot="4aff7ce95f2e76624ce67b0fcda3e61f" Selector="[string.Format(&quot;&lt;html app='chrome.exe' url='*demoblaze*' /&gt;&lt;webctrl tag='TABLE' /&gt;&lt;webctrl tag='TD' innertext='{0}' /&gt;&quot;, in_productName)]" TimeoutMS="10000" WaitForReady="COMPLETE" />
-                      </ui:UiElementExists.Target>
-                    </ui:UiElementExists>
-                    <If Condition="[not productIsInCart]" DisplayName="If - Product not in cart" sap:VirtualizedContainerService.HintSize="410,895" sap2010:WorkflowViewState.IdRef="If_6">
-                      <sap:WorkflowViewStateService.ViewState>
-                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                          <x:Boolean x:Key="IsPinned">False</x:Boolean>
-                        </scg:Dictionary>
-                      </sap:WorkflowViewStateService.ViewState>
-                      <If.Then>
-                        <Sequence sap:VirtualizedContainerService.HintSize="376,359" sap2010:WorkflowViewState.IdRef="Sequence_18">
-                          <sap:WorkflowViewStateService.ViewState>
-                            <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                            </scg:Dictionary>
-                          </sap:WorkflowViewStateService.ViewState>
-                          <ui:LogMessage DisplayName="Log Message - Product not in cart error" sap:VirtualizedContainerService.HintSize="334,141" sap2010:WorkflowViewState.IdRef="LogMessage_12" Level="[UiPath.Core.Activities.LogLevel.Error]" Message="[String.Format(&quot;An error occurred, the product was not added to the cart successfully.&quot;)]" />
-                          <Throw DisplayName="Throw - Product not in cart error" Exception="[new Exception(string.Format(&quot;An error occurred, the product({0}) was not added succesfully to the cart.&quot;,in_productName))]" sap:VirtualizedContainerService.HintSize="334,90" sap2010:WorkflowViewState.IdRef="Throw_5" />
-                        </Sequence>
-                      </If.Then>
-                      <If.Else>
-                        <Sequence sap:VirtualizedContainerService.HintSize="376,354" sap2010:WorkflowViewState.IdRef="Sequence_19">
-                          <sap:WorkflowViewStateService.ViewState>
-                            <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                            </scg:Dictionary>
-                          </sap:WorkflowViewStateService.ViewState>
-                          <ui:LogMessage DisplayName="Log Message - Product successfully in cart" sap:VirtualizedContainerService.HintSize="334,141" sap2010:WorkflowViewState.IdRef="LogMessage_13" Level="[UiPath.Core.Activities.LogLevel.Info]" Message="[String.format(&quot;The product ({0}) is currently in the cart. Verification successful.&quot;,in_productName)]" />
-                          <ui:MessageBox Caption="{x:Null}" ChosenButton="{x:Null}" AutoCloseAfter="00:00:00" DisplayName="Message Box - Product added successfully" sap:VirtualizedContainerService.HintSize="334,85" sap2010:WorkflowViewState.IdRef="MessageBox_3" Text="[string.Format(&quot;{0} was added to your cart for ${1}. Product description: {2}&quot;,in_productName,in_productPrice,in_productDescription)]" />
-                        </Sequence>
-                      </If.Else>
-                    </If>
-                  </Sequence>
-                </Sequence>
-              </ui:CommentOut.Body>
-              <sap:WorkflowViewStateService.ViewState>
-                <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                  <x:Boolean x:Key="IsExpanded">False</x:Boolean>
-                  <x:Boolean x:Key="IsPinned">False</x:Boolean>
-                </scg:Dictionary>
-              </sap:WorkflowViewStateService.ViewState>
-            </ui:CommentOut>
           </Sequence>
         </ActivityAction>
       </ui:BrowserScope.Body>
@@ -509,6 +427,6 @@
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
     </ui:BrowserScope>
-    <ui:LogMessage DisplayName="Log Message - Workflow reached end" sap:VirtualizedContainerService.HintSize="666,141" sap2010:WorkflowViewState.IdRef="LogMessage_14" Level="[UiPath.Core.Activities.LogLevel.Info]" Message="[&quot;The AddProductToCart workflow reached the end.&quot;]" />
+    <ui:LogMessage DisplayName="Log Message - Workflow reached end" sap:VirtualizedContainerService.HintSize="668,141" sap2010:WorkflowViewState.IdRef="LogMessage_14" Level="[UiPath.Core.Activities.LogLevel.Info]" Message="[&quot;The AddProductToCart workflow reached the end.&quot;]" />
   </Sequence>
 </Activity>

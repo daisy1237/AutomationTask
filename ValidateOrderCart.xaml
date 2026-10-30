@@ -6,7 +6,7 @@
   <VisualBasic.Settings>
     <x:Null />
   </VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>1254,3720</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>1254,4209</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>ValidateOrderCart_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <sco:Collection x:TypeArguments="x:String">
@@ -105,20 +105,20 @@
       <AssemblyReference>System.Linq.Queryable</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="ValidateOrderCart" sap:VirtualizedContainerService.HintSize="744,3655" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="ValidateOrderCart" sap:VirtualizedContainerService.HintSize="744,4144" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
     <ui:LogMessage DisplayName="Log Message - Workflow started" sap:VirtualizedContainerService.HintSize="682,141" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="[UiPath.Core.Activities.LogLevel.Info]" Message="[&quot;Validating the cart (for an order) workflow has started.&quot;]" />
-    <ui:BrowserScope SearchScope="{x:Null}" Selector="{x:Null}" TimeoutMS="{x:Null}" Browser="[io_browser]" BrowserType="Chrome" DisplayName="Attach Browser - Demoblaze" sap:VirtualizedContainerService.HintSize="682,3182" sap2010:WorkflowViewState.IdRef="BrowserScope_1" UiBrowser="[io_browser]">
+    <ui:BrowserScope SearchScope="{x:Null}" Selector="{x:Null}" TimeoutMS="{x:Null}" Browser="[io_browser]" BrowserType="Chrome" DisplayName="Attach Browser - Demoblaze" sap:VirtualizedContainerService.HintSize="682,3671" sap2010:WorkflowViewState.IdRef="BrowserScope_1" UiBrowser="[io_browser]">
       <ui:BrowserScope.Body>
         <ActivityAction x:TypeArguments="x:Object">
           <ActivityAction.Argument>
             <DelegateInArgument x:TypeArguments="x:Object" Name="ContextTarget" />
           </ActivityAction.Argument>
-          <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="648,3073" sap2010:WorkflowViewState.IdRef="Sequence_2">
+          <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="648,3562" sap2010:WorkflowViewState.IdRef="Sequence_2">
             <Sequence.Variables>
               <Variable x:TypeArguments="x:Boolean" Name="cartNotEmpty" />
               <Variable x:TypeArguments="x:Boolean" Name="pageLoaded" />
@@ -148,14 +148,7 @@
             </ui:Click>
             <ui:UiElementExists DisplayName="Element Exists - Label price" Exists="[pageLoaded]" sap:VirtualizedContainerService.HintSize="586,107" sap2010:WorkflowViewState.IdRef="UiElementExists_1">
               <ui:UiElementExists.Target>
-                <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="6972c527-18b3-40c2-b867-f85a19274154" InformativeScreenshot="a7ea1e763a557873fcb1afe09b5b4413" Selector="&lt;html app='chrome.exe' url='*demoblaze*cart*' /&gt;&lt;webctrl tag='H3' aaname='*' /&gt;">
-                  <ui:Target.TimeoutMS>
-                    <InArgument x:TypeArguments="x:Int32" />
-                  </ui:Target.TimeoutMS>
-                  <ui:Target.WaitForReady>
-                    <InArgument x:TypeArguments="ui:WaitForReady" />
-                  </ui:Target.WaitForReady>
-                </ui:Target>
+                <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="6972c527-18b3-40c2-b867-f85a19274154" InformativeScreenshot="a7ea1e763a557873fcb1afe09b5b4413" Selector="&lt;html app='chrome.exe' url='*demoblaze*cart*' /&gt;&lt;webctrl tag='DIV' visibleinnertext='*Total*Place*' /&gt;&lt;webctrl innertext='*' tag='H3' /&gt;" TimeoutMS="15000" WaitForReady="COMPLETE" />
               </ui:UiElementExists.Target>
             </ui:UiElementExists>
             <If Condition="[not pageLoaded]" DisplayName="If - Page not loaded" sap:VirtualizedContainerService.HintSize="586,52" sap2010:WorkflowViewState.IdRef="If_3">
@@ -305,10 +298,10 @@ Sum(Function(row) Convert.ToInt32(row("Qty")))]</InArgument>
                 <Sequence sap2010:WorkflowViewState.IdRef="Sequence_15" />
               </If.Else>
             </If>
-            <If Condition="[expectedTotal=0]" DisplayName="If - No products in cart" sap:VirtualizedContainerService.HintSize="586,52" sap2010:WorkflowViewState.IdRef="If_7">
+            <If Condition="[expectedTotal=0]" DisplayName="If - No products in cart" sap:VirtualizedContainerService.HintSize="586,541" sap2010:WorkflowViewState.IdRef="If_7">
               <sap:WorkflowViewStateService.ViewState>
                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                  <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                   <x:Boolean x:Key="IsPinned">False</x:Boolean>
                 </scg:Dictionary>
               </sap:WorkflowViewStateService.ViewState>

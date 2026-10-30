@@ -6,7 +6,7 @@
   <VisualBasic.Settings>
     <x:Null />
   </VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>1254,5727</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>1254,5003</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>ValidateOrderCart_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <sco:Collection x:TypeArguments="x:String">
@@ -105,20 +105,20 @@
       <AssemblyReference>System.Linq.Queryable</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="ValidateOrderCart" sap:VirtualizedContainerService.HintSize="744,5662" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="ValidateOrderCart" sap:VirtualizedContainerService.HintSize="744,4938" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
     <ui:LogMessage DisplayName="Log Message - Workflow started" sap:VirtualizedContainerService.HintSize="682,141" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="[UiPath.Core.Activities.LogLevel.Info]" Message="[&quot;Validating the cart (for an order) workflow has started.&quot;]" />
-    <ui:BrowserScope SearchScope="{x:Null}" Selector="{x:Null}" TimeoutMS="{x:Null}" Browser="[io_browser]" BrowserType="Chrome" DisplayName="Attach Browser - Demoblaze" sap:VirtualizedContainerService.HintSize="682,5189" sap2010:WorkflowViewState.IdRef="BrowserScope_1" UiBrowser="[io_browser]">
+    <ui:BrowserScope SearchScope="{x:Null}" Selector="{x:Null}" TimeoutMS="{x:Null}" Browser="[io_browser]" BrowserType="Chrome" DisplayName="Attach Browser - Demoblaze" sap:VirtualizedContainerService.HintSize="682,4465" sap2010:WorkflowViewState.IdRef="BrowserScope_1" UiBrowser="[io_browser]">
       <ui:BrowserScope.Body>
         <ActivityAction x:TypeArguments="x:Object">
           <ActivityAction.Argument>
             <DelegateInArgument x:TypeArguments="x:Object" Name="ContextTarget" />
           </ActivityAction.Argument>
-          <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="648,5080" sap2010:WorkflowViewState.IdRef="Sequence_2">
+          <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="648,4356" sap2010:WorkflowViewState.IdRef="Sequence_2">
             <Sequence.Variables>
               <Variable x:TypeArguments="x:Boolean" Name="cartNotEmpty" />
               <Variable x:TypeArguments="x:Boolean" Name="pageLoaded" />
@@ -178,8 +178,6 @@
                 <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="4ef0f0e9-4db6-4155-b1a6-690e742dab25" InformativeScreenshot="6d8c2a2cad7d85c32e90407d3451c98c" Selector="&lt;html app='chrome.exe' title='STORE' /&gt;&#xA;&lt;webctrl id='tbodyid' tag='TBODY' /&gt;" TimeoutMS="30000" WaitForReady="COMPLETE" />
               </ui:ExtractData.Target>
             </ui:ExtractData>
-            <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="586,141" sap2010:WorkflowViewState.IdRef="LogMessage_7" Level="[UiPath.Core.Activities.LogLevel.Info]" Message="[String.Format(&quot;Products extracted from cart: {0}&quot;, cartDataTable.Rows.Count)]" />
-            <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="586,141" sap2010:WorkflowViewState.IdRef="LogMessage_8" Level="[UiPath.Core.Activities.LogLevel.Info]" Message="[String.Join(&quot;, &quot;, cartDataTable.AsEnumerable().Select(Function(row) row(&quot;Title&quot;).ToString))]" />
             <Assign DisplayName="Assign - Expected total qty" sap:VirtualizedContainerService.HintSize="586,83" sap2010:WorkflowViewState.IdRef="Assign_5">
               <Assign.To>
                 <OutArgument x:TypeArguments="x:Int32">[expectedTotal]</OutArgument>
@@ -198,9 +196,9 @@ Sum(Function(row) Convert.ToInt32(row("Qty")))]</InArgument>
                 <InArgument x:TypeArguments="x:Int32">[cartDataTable.Rows.Count]</InArgument>
               </Assign.Value>
             </Assign>
-            <ui:InterruptibleWhile CurrentIndex="{x:Null}" DisplayName="While - Retry products scraping" sap:VirtualizedContainerService.HintSize="586,1116" sap2010:WorkflowViewState.IdRef="InterruptibleWhile_1" MaxIterations="4">
+            <ui:InterruptibleWhile CurrentIndex="{x:Null}" DisplayName="While - Retry products scraping" sap:VirtualizedContainerService.HintSize="586,754" sap2010:WorkflowViewState.IdRef="InterruptibleWhile_1" MaxIterations="4">
               <ui:InterruptibleWhile.Body>
-                <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="476,980" sap2010:WorkflowViewState.IdRef="Sequence_18">
+                <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="476,618" sap2010:WorkflowViewState.IdRef="Sequence_18">
                   <sap:WorkflowViewStateService.ViewState>
                     <scg:Dictionary x:TypeArguments="x:String, x:Object">
                       <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -213,8 +211,6 @@ Sum(Function(row) Convert.ToInt32(row("Qty")))]</InArgument>
                       <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="4ef0f0e9-4db6-4155-b1a6-690e742dab25" InformativeScreenshot="6d8c2a2cad7d85c32e90407d3451c98c" Selector="&lt;html app='chrome.exe' title='STORE' /&gt;&#xA;&lt;webctrl id='tbodyid' tag='TBODY' /&gt;" TimeoutMS="30000" WaitForReady="COMPLETE" />
                     </ui:ExtractData.Target>
                   </ui:ExtractData>
-                  <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="434,141" sap2010:WorkflowViewState.IdRef="LogMessage_10" Level="[UiPath.Core.Activities.LogLevel.Info]" Message="[String.Format(&quot;Products extracted from cart: {0}&quot;, cartDataTable.Rows.Count)]" />
-                  <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="434,141" sap2010:WorkflowViewState.IdRef="LogMessage_11" Level="[UiPath.Core.Activities.LogLevel.Info]" Message="[String.Join(&quot;, &quot;, cartDataTable.AsEnumerable().Select(Function(row) row(&quot;Title&quot;).ToString))]" />
                   <Assign DisplayName="Assign - Actual total qty" sap:VirtualizedContainerService.HintSize="434,82" sap2010:WorkflowViewState.IdRef="Assign_7">
                     <Assign.To>
                       <OutArgument x:TypeArguments="x:Int32">[actualTotal]</OutArgument>

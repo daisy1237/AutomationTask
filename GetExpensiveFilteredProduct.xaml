@@ -12,7 +12,7 @@
   <VisualBasic.Settings>
     <x:Null />
   </VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>1254,4738</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>1254,7141</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>GetExpensiveFilteredProduct_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <sco:Collection x:TypeArguments="x:String">
@@ -118,7 +118,7 @@
       <AssemblyReference>UiPath.Platform</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="GetExpensiveFilteredProduct" sap:VirtualizedContainerService.HintSize="720,4673" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="GetExpensiveFilteredProduct" sap:VirtualizedContainerService.HintSize="882,7076" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="x:String" Name="formattedCategory" />
       <Variable x:TypeArguments="sd:DataTable" Name="productsDataTable" />
@@ -130,8 +130,8 @@
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <ui:LogMessage DisplayName="Log Message - Workflow started" sap:VirtualizedContainerService.HintSize="658,141" sap2010:WorkflowViewState.IdRef="LogMessage_2" Level="[UiPath.Core.Activities.LogLevel.Info]" Message="[String.Format(&#xA;    &quot;The GetExpensiveFilteredProduct workflow has started. Category: {0}, Brand: {1}, Minimum budget: {2}, Maximum budget: {3}.&quot;,&#xA;    in_category,&#xA;    If(String.IsNullOrWhiteSpace(in_brand), &quot;Any&quot;, in_brand),&#xA;    in_minBudget,&#xA;    in_maxBudget&#xA;)]" />
-    <Sequence DisplayName="Initialize output arguments" sap:VirtualizedContainerService.HintSize="658,437" sap2010:WorkflowViewState.IdRef="Sequence_25">
+    <ui:LogMessage DisplayName="Log Message - Workflow started" sap:VirtualizedContainerService.HintSize="820,141" sap2010:WorkflowViewState.IdRef="LogMessage_2" Level="[UiPath.Core.Activities.LogLevel.Info]" Message="[String.Format(&#xA;    &quot;The GetExpensiveFilteredProduct workflow has started. Category: {0}, Brand: {1}, Minimum budget: {2}, Maximum budget: {3}.&quot;,&#xA;    in_category,&#xA;    If(String.IsNullOrWhiteSpace(in_brand), &quot;Any&quot;, in_brand),&#xA;    in_minBudget,&#xA;    in_maxBudget&#xA;)]" />
+    <Sequence DisplayName="Initialize output arguments" sap:VirtualizedContainerService.HintSize="820,437" sap2010:WorkflowViewState.IdRef="Sequence_25">
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
           <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -167,13 +167,13 @@
         </Assign.Value>
       </Assign>
     </Sequence>
-    <ui:BrowserScope SearchScope="{x:Null}" Selector="{x:Null}" TimeoutMS="{x:Null}" Browser="[io_browser]" BrowserType="Chrome" DisplayName="Attach Browser - Demoblaze opened page " sap:VirtualizedContainerService.HintSize="658,3132" sap2010:WorkflowViewState.IdRef="BrowserScope_2" UiBrowser="[io_browser]">
+    <ui:BrowserScope SearchScope="{x:Null}" Selector="{x:Null}" TimeoutMS="{x:Null}" Browser="[io_browser]" BrowserType="Chrome" DisplayName="Attach Browser - Demoblaze opened page " sap:VirtualizedContainerService.HintSize="820,5535" sap2010:WorkflowViewState.IdRef="BrowserScope_2" UiBrowser="[io_browser]">
       <ui:BrowserScope.Body>
         <ActivityAction x:TypeArguments="x:Object">
           <ActivityAction.Argument>
             <DelegateInArgument x:TypeArguments="x:Object" Name="ContextTarget" />
           </ActivityAction.Argument>
-          <Sequence DisplayName="Do - Scraping and filtering" sap:VirtualizedContainerService.HintSize="624,3023" sap2010:WorkflowViewState.IdRef="Sequence_16">
+          <Sequence DisplayName="Do - Scraping and filtering" sap:VirtualizedContainerService.HintSize="786,5426" sap2010:WorkflowViewState.IdRef="Sequence_16">
             <Sequence.Variables>
               <Variable x:TypeArguments="x:Boolean" Name="nextButtonActive" />
               <Variable x:TypeArguments="x:Boolean" Name="hasNextPage" />
@@ -184,7 +184,7 @@
                 <x:Boolean x:Key="IsPinned">False</x:Boolean>
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
-            <Sequence DisplayName="Select the category" sap:VirtualizedContainerService.HintSize="562,822" sap2010:WorkflowViewState.IdRef="Sequence_17">
+            <Sequence DisplayName="Select the category" sap:VirtualizedContainerService.HintSize="724,1130" sap2010:WorkflowViewState.IdRef="Sequence_17">
               <sap:WorkflowViewStateService.ViewState>
                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
                   <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -211,7 +211,7 @@
                   </ui:CursorPosition>
                 </ui:Click.CursorPosition>
                 <ui:Click.Target>
-                  <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="50b84bba-dad7-449c-9d08-2a1f2f87b512" InformativeScreenshot="bc0f386cf0303da84ee319689195964c" Selector="[string.Format(&quot;&lt;html app='chrome.exe' url='*demoblaze*' /&gt;&lt;webctrl aaname='{0}' tag='A' /&gt;&quot;, formattedCategory)]" TimeoutMS="5000" WaitForReady="COMPLETE" />
+                  <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="50b84bba-dad7-449c-9d08-2a1f2f87b512" InformativeScreenshot="bc0f386cf0303da84ee319689195964c" Selector="[string.Format(&quot;&lt;html app='chrome.exe' url='*demoblaze*' /&gt;&lt;webctrl aaname='{0}' tag='A' /&gt;&quot;, formattedCategory)]" TimeoutMS="7000" WaitForReady="COMPLETE" />
                 </ui:Click.Target>
                 <sap:WorkflowViewStateService.ViewState>
                   <scg:Dictionary x:TypeArguments="x:String, x:Object">
@@ -221,7 +221,7 @@
               </ui:Click>
               <ui:UiElementExists sap2010:Annotation.AnnotationText="To check if the page loaded the products." DisplayName="Element Exists - Product card" Exists="[pageIsLoaded]" sap:VirtualizedContainerService.HintSize="434,138" sap2010:WorkflowViewState.IdRef="UiElementExists_3">
                 <ui:UiElementExists.Target>
-                  <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="d3f2e793-801d-432c-b66f-482370074586" InformativeScreenshot="7e1257ee6dace11079c7536f720099c2" Selector="&lt;html app='chrome.exe' url='*demoblaze*' /&gt;&lt;webctrl tag='H5' aaname='$*' /&gt;" TimeoutMS="4000" WaitForReady="COMPLETE" />
+                  <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="d3f2e793-801d-432c-b66f-482370074586" InformativeScreenshot="7e1257ee6dace11079c7536f720099c2" Selector="&lt;html app='chrome.exe' url='*demoblaze*' /&gt;&lt;webctrl tag='H5' aaname='$*' /&gt;" TimeoutMS="10000" WaitForReady="COMPLETE" />
                 </ui:UiElementExists.Target>
                 <sap:WorkflowViewStateService.ViewState>
                   <scg:Dictionary x:TypeArguments="x:String, x:Object">
@@ -229,10 +229,10 @@
                   </scg:Dictionary>
                 </sap:WorkflowViewStateService.ViewState>
               </ui:UiElementExists>
-              <If Condition="[not pageIsLoaded]" DisplayName="If - Page not loaded" sap:VirtualizedContainerService.HintSize="434,52" sap2010:WorkflowViewState.IdRef="If_10">
+              <If Condition="[not pageIsLoaded]" DisplayName="If - Page not loaded" sap:VirtualizedContainerService.HintSize="434,360" sap2010:WorkflowViewState.IdRef="If_10">
                 <sap:WorkflowViewStateService.ViewState>
                   <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                    <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                     <x:Boolean x:Key="IsPinned">False</x:Boolean>
                   </scg:Dictionary>
                 </sap:WorkflowViewStateService.ViewState>
@@ -252,7 +252,7 @@
               </If>
               <ui:LogMessage DisplayName="Log Message - Category selected" sap:VirtualizedContainerService.HintSize="434,141" sap2010:WorkflowViewState.IdRef="LogMessage_13" Level="[UiPath.Core.Activities.LogLevel.Info]" Message="[String.Format(&quot;The {0} category has been selected on the browser.&quot;,in_category)]" />
             </Sequence>
-            <Assign DisplayName="Assign - Has a possible next page" sap:VirtualizedContainerService.HintSize="562,82" sap2010:WorkflowViewState.IdRef="Assign_22">
+            <Assign DisplayName="Assign - Has a possible next page" sap:VirtualizedContainerService.HintSize="724,82" sap2010:WorkflowViewState.IdRef="Assign_22">
               <Assign.To>
                 <OutArgument x:TypeArguments="x:Boolean">[hasNextPage]</OutArgument>
               </Assign.To>
@@ -260,17 +260,17 @@
                 <InArgument x:TypeArguments="x:Boolean">True</InArgument>
               </Assign.Value>
             </Assign>
-            <ui:InterruptibleWhile CurrentIndex="{x:Null}" Condition="[hasNextPage]" DisplayName="While - There is a next page" sap:VirtualizedContainerService.HintSize="562,1928" sap2010:WorkflowViewState.IdRef="InterruptibleWhile_1" MaxIterations="15">
+            <ui:InterruptibleWhile CurrentIndex="{x:Null}" Condition="[hasNextPage]" DisplayName="While - There is a next page" sap:VirtualizedContainerService.HintSize="724,4023" sap2010:WorkflowViewState.IdRef="InterruptibleWhile_1" MaxIterations="15">
               <ui:InterruptibleWhile.Body>
-                <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="528,1792" sap2010:WorkflowViewState.IdRef="Sequence_27">
+                <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="690,3887" sap2010:WorkflowViewState.IdRef="Sequence_27">
                   <sap:WorkflowViewStateService.ViewState>
                     <scg:Dictionary x:TypeArguments="x:String, x:Object">
                       <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                     </scg:Dictionary>
                   </sap:WorkflowViewStateService.ViewState>
-                  <ui:ExtractData NextLinkSelector="{x:Null}" sap2010:Annotation.AnnotationText="Name, Price, Description" DataTable="[productsDataTable]" DelayBetweenPagesMS="3000" DisplayName="Extract Structured Data - Products from category" ExtractMetadata="&lt;extract&gt;&lt;row exact='1'&gt;&lt;webctrl tag='div' /&gt;&lt;webctrl tag='div' idx='1' /&gt;&lt;webctrl tag='div' idx='1' /&gt;&lt;/row&gt;&lt;column exact='1' name='Name' attr='fulltext'&gt;&lt;webctrl tag='div' /&gt;&lt;webctrl tag='div' idx='1' /&gt;&lt;webctrl tag='div' idx='1' /&gt;&lt;webctrl tag='h4' idx='1' /&gt;&lt;webctrl tag='a' idx='1' /&gt;&lt;/column&gt;&lt;column exact='1' name='Price' attr='fulltext'&gt;&lt;webctrl tag='div' /&gt;&lt;webctrl tag='div' idx='1' /&gt;&lt;webctrl tag='div' idx='1' /&gt;&lt;webctrl tag='h5' idx='1' /&gt;&lt;/column&gt;&lt;column exact='1' name='Description' attr='fulltext'&gt;&lt;webctrl tag='div' /&gt;&lt;webctrl tag='div' idx='1' /&gt;&lt;webctrl tag='div' idx='1' /&gt;&lt;webctrl tag='p' idx='1' /&gt;&lt;/column&gt;&lt;/extract&gt;" sap:VirtualizedContainerService.HintSize="486,138" sap2010:WorkflowViewState.IdRef="ExtractData_3" MaxNumberOfResults="50" SimulateClick="True">
+                  <ui:ExtractData NextLinkSelector="{x:Null}" sap2010:Annotation.AnnotationText="Name, Price, Description" DataTable="[productsDataTable]" DelayBetweenPagesMS="3000" DisplayName="Extract Structured Data - Products from category" ExtractMetadata="&lt;extract&gt;&lt;row exact='1'&gt;&lt;webctrl tag='div' /&gt;&lt;webctrl tag='div' idx='1' /&gt;&lt;webctrl tag='div' idx='1' /&gt;&lt;/row&gt;&lt;column exact='1' name='Name' attr='fulltext'&gt;&lt;webctrl tag='div' /&gt;&lt;webctrl tag='div' idx='1' /&gt;&lt;webctrl tag='div' idx='1' /&gt;&lt;webctrl tag='h4' idx='1' /&gt;&lt;webctrl tag='a' idx='1' /&gt;&lt;/column&gt;&lt;column exact='1' name='Price' attr='fulltext'&gt;&lt;webctrl tag='div' /&gt;&lt;webctrl tag='div' idx='1' /&gt;&lt;webctrl tag='div' idx='1' /&gt;&lt;webctrl tag='h5' idx='1' /&gt;&lt;/column&gt;&lt;column exact='1' name='Description' attr='fulltext'&gt;&lt;webctrl tag='div' /&gt;&lt;webctrl tag='div' idx='1' /&gt;&lt;webctrl tag='div' idx='1' /&gt;&lt;webctrl tag='p' idx='1' /&gt;&lt;/column&gt;&lt;/extract&gt;" sap:VirtualizedContainerService.HintSize="648,138" sap2010:WorkflowViewState.IdRef="ExtractData_3" MaxNumberOfResults="50" SimulateClick="True">
                     <ui:ExtractData.Target>
-                      <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="11735c39-b370-4f5b-8eb0-8355354b392b" InformativeScreenshot="dec5edbfde982b505adec17727cfad5a" Selector="&lt;html app='chrome.exe' url='*demoblaze*' /&gt;&lt;webctrl id='tbodyid' tag='DIV' /&gt;" TimeoutMS="10000" WaitForReady="COMPLETE" />
+                      <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="11735c39-b370-4f5b-8eb0-8355354b392b" InformativeScreenshot="dec5edbfde982b505adec17727cfad5a" Selector="&lt;html app='chrome.exe' url='*demoblaze*' /&gt;&lt;webctrl id='tbodyid' tag='DIV' /&gt;" TimeoutMS="15000" WaitForReady="COMPLETE" />
                     </ui:ExtractData.Target>
                     <sap:WorkflowViewStateService.ViewState>
                       <scg:Dictionary x:TypeArguments="x:String, x:Object">
@@ -278,15 +278,15 @@
                       </scg:Dictionary>
                     </sap:WorkflowViewStateService.ViewState>
                   </ui:ExtractData>
-                  <ui:LogMessage DisplayName="Log Message - Data extracted for category" sap:VirtualizedContainerService.HintSize="486,141" sap2010:WorkflowViewState.IdRef="LogMessage_14" Level="[UiPath.Core.Activities.LogLevel.Info]" Message="[String.Format(&quot;Successfully extracted {0}  products.&quot;,&#xA;              productsDataTable.Rows.Count)]" />
-                  <Sequence DisplayName="Filter and find product" sap:VirtualizedContainerService.HintSize="486,81" sap2010:WorkflowViewState.IdRef="Sequence_24">
+                  <ui:LogMessage DisplayName="Log Message - Data extracted for category" sap:VirtualizedContainerService.HintSize="648,141" sap2010:WorkflowViewState.IdRef="LogMessage_14" Level="[UiPath.Core.Activities.LogLevel.Info]" Message="[String.Format(&quot;Successfully extracted {0}  products.&quot;,&#xA;              productsDataTable.Rows.Count)]" />
+                  <Sequence DisplayName="Filter and find product" sap:VirtualizedContainerService.HintSize="648,2176" sap2010:WorkflowViewState.IdRef="Sequence_24">
                     <sap:WorkflowViewStateService.ViewState>
                       <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                        <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                         <x:Boolean x:Key="IsPinned">False</x:Boolean>
                       </scg:Dictionary>
                     </sap:WorkflowViewStateService.ViewState>
-                    <If Condition="[Not productsDataTable.Columns.Contains(&quot;NumericPrice&quot;)]" DisplayName="If - No Numeric Price column" sap:VirtualizedContainerService.HintSize="410,456" sap2010:WorkflowViewState.IdRef="If_9">
+                    <If Condition="[Not productsDataTable.Columns.Contains(&quot;NumericPrice&quot;)]" DisplayName="If - No Numeric Price column" sap:VirtualizedContainerService.HintSize="586,456" sap2010:WorkflowViewState.IdRef="If_9">
                       <If.Then>
                         <Sequence sap:VirtualizedContainerService.HintSize="376,274" sap2010:WorkflowViewState.IdRef="Sequence_30">
                           <sap:WorkflowViewStateService.ViewState>
@@ -308,7 +308,7 @@
                         <Sequence sap2010:WorkflowViewState.IdRef="Sequence_31" />
                       </If.Else>
                     </If>
-                    <ui:ForEachRow ColumnNames="{x:Null}" CurrentIndex="{x:Null}" DataTable="[productsDataTable]" DisplayName="For Each Row in Data Table - Fill in numeric price column" sap:VirtualizedContainerService.HintSize="410,52" sap2010:WorkflowViewState.IdRef="ForEachRow_3">
+                    <ui:ForEachRow ColumnNames="{x:Null}" CurrentIndex="{x:Null}" DataTable="[productsDataTable]" DisplayName="For Each Row in Data Table - Fill in numeric price column" sap:VirtualizedContainerService.HintSize="586,356" sap2010:WorkflowViewState.IdRef="ForEachRow_3">
                       <ui:ForEachRow.Body>
                         <ActivityAction x:TypeArguments="sd:DataRow">
                           <ActivityAction.Argument>
@@ -333,12 +333,12 @@
                       </ui:ForEachRow.Body>
                       <sap:WorkflowViewStateService.ViewState>
                         <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                          <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                           <x:Boolean x:Key="IsPinned">False</x:Boolean>
                         </scg:Dictionary>
                       </sap:WorkflowViewStateService.ViewState>
                     </ui:ForEachRow>
-                    <ui:ForEachRow ColumnNames="{x:Null}" CurrentIndex="{x:Null}" DataTable="[productsDataTable]" DisplayName="For each row in data table - Find most expensive that matches filter" sap:VirtualizedContainerService.HintSize="410,52" sap2010:WorkflowViewState.IdRef="ForEachRow_4">
+                    <ui:ForEachRow ColumnNames="{x:Null}" CurrentIndex="{x:Null}" DataTable="[productsDataTable]" DisplayName="For each row in data table - Find most expensive that matches filter" sap:VirtualizedContainerService.HintSize="586,1173" sap2010:WorkflowViewState.IdRef="ForEachRow_4">
                       <ui:ForEachRow.Body>
                         <ActivityAction x:TypeArguments="sd:DataRow">
                           <ActivityAction.Argument>
@@ -402,18 +402,18 @@
                       </ui:ForEachRow.Body>
                       <sap:WorkflowViewStateService.ViewState>
                         <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                          <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                           <x:Boolean x:Key="IsPinned">False</x:Boolean>
                         </scg:Dictionary>
                       </sap:WorkflowViewStateService.ViewState>
                     </ui:ForEachRow>
                   </Sequence>
-                  <ui:UiElementExists DisplayName="Element Exists - Next button" Exists="[nextButtonActive]" sap:VirtualizedContainerService.HintSize="486,107" sap2010:WorkflowViewState.IdRef="UiElementExists_2">
+                  <ui:UiElementExists DisplayName="Element Exists - Next button" Exists="[nextButtonActive]" sap:VirtualizedContainerService.HintSize="648,107" sap2010:WorkflowViewState.IdRef="UiElementExists_2">
                     <ui:UiElementExists.Target>
-                      <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="19c46a09-fdf8-4bd5-98fe-fbc8cb069f5a" InformativeScreenshot="d9db7a95e964a77603f4de0e2cd6432b" Selector="&lt;html app='chrome.exe' url='*demoblaze*' /&gt;&lt;webctrl tag='BUTTON' aaname='Next' /&gt;" TimeoutMS="4000" WaitForReady="COMPLETE" />
+                      <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="19c46a09-fdf8-4bd5-98fe-fbc8cb069f5a" InformativeScreenshot="d9db7a95e964a77603f4de0e2cd6432b" Selector="&lt;html app='chrome.exe' url='*demoblaze*' /&gt;&lt;webctrl tag='BUTTON' aaname='Next' /&gt;" TimeoutMS="8000" WaitForReady="COMPLETE" />
                     </ui:UiElementExists.Target>
                   </ui:UiElementExists>
-                  <Assign DisplayName="Assign - Is there a next page" sap:VirtualizedContainerService.HintSize="486,82" sap2010:WorkflowViewState.IdRef="Assign_23">
+                  <Assign DisplayName="Assign - Is there a next page" sap:VirtualizedContainerService.HintSize="648,82" sap2010:WorkflowViewState.IdRef="Assign_23">
                     <Assign.To>
                       <OutArgument x:TypeArguments="x:Boolean">[hasNextPage]</OutArgument>
                     </Assign.To>
@@ -421,7 +421,7 @@
                       <InArgument x:TypeArguments="x:Boolean">[(productsDataTable.RowCount mod 9 = 0) AndAlso nextButtonActive]</InArgument>
                     </Assign.Value>
                   </Assign>
-                  <If Condition="[hasNextPage]" DisplayName="If - We have more products" sap:VirtualizedContainerService.HintSize="486,955" sap2010:WorkflowViewState.IdRef="If_8">
+                  <If Condition="[hasNextPage]" DisplayName="If - We have more products" sap:VirtualizedContainerService.HintSize="648,955" sap2010:WorkflowViewState.IdRef="If_8">
                     <If.Then>
                       <Sequence sap:VirtualizedContainerService.HintSize="452,773" sap2010:WorkflowViewState.IdRef="Sequence_28">
                         <sap:WorkflowViewStateService.ViewState>
@@ -441,7 +441,7 @@
                             </ui:CursorPosition>
                           </ui:Click.CursorPosition>
                           <ui:Click.Target>
-                            <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="01fa2eb0-c897-4bd3-83f6-d618d403670e" InformativeScreenshot="e93703fcad091b3ddbf8ae61fcb78e7f" Selector="&lt;html app='chrome.exe' url='*demoblaze*' /&gt;&lt;webctrl tag='BUTTON' aaname='Next' /&gt;" TimeoutMS="5000" WaitForReady="COMPLETE" />
+                            <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="01fa2eb0-c897-4bd3-83f6-d618d403670e" InformativeScreenshot="e93703fcad091b3ddbf8ae61fcb78e7f" Selector="&lt;html app='chrome.exe' url='*demoblaze*' /&gt;&lt;webctrl tag='BUTTON' aaname='Next' /&gt;" TimeoutMS="7000" WaitForReady="COMPLETE" />
                           </ui:Click.Target>
                         </ui:Click>
                         <ui:UiElementExists sap2010:Annotation.AnnotationText="To check if the page loaded the products." DisplayName="Element Exists - Product card" sap:VirtualizedContainerService.HintSize="410,138" sap2010:WorkflowViewState.IdRef="UiElementExists_4">
@@ -451,7 +451,7 @@
                             </OutArgument>
                           </ui:UiElementExists.Exists>
                           <ui:UiElementExists.Target>
-                            <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="d3f2e793-801d-432c-b66f-482370074586" InformativeScreenshot="7e1257ee6dace11079c7536f720099c2" Selector="&lt;html app='chrome.exe' url='*demoblaze*' /&gt;&lt;webctrl tag='H5' aaname='$*' /&gt;" TimeoutMS="4000" WaitForReady="COMPLETE" />
+                            <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="d3f2e793-801d-432c-b66f-482370074586" InformativeScreenshot="7e1257ee6dace11079c7536f720099c2" Selector="&lt;html app='chrome.exe' url='*demoblaze*' /&gt;&lt;webctrl tag='H5' aaname='$*' /&gt;" TimeoutMS="8000" WaitForReady="COMPLETE" />
                           </ui:UiElementExists.Target>
                           <sap:WorkflowViewStateService.ViewState>
                             <scg:Dictionary x:TypeArguments="x:String, x:Object">
@@ -505,7 +505,7 @@
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
     </ui:BrowserScope>
-    <If Condition="[Not String.IsNullOrWhiteSpace(out_productName)]" DisplayName="If - Match found in products" sap:VirtualizedContainerService.HintSize="658,640" sap2010:WorkflowViewState.IdRef="If_6">
+    <If Condition="[Not String.IsNullOrWhiteSpace(out_productName)]" DisplayName="If - Match found in products" sap:VirtualizedContainerService.HintSize="820,640" sap2010:WorkflowViewState.IdRef="If_6">
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
           <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -533,7 +533,7 @@
         </Sequence>
       </If.Else>
     </If>
-    <ui:LogMessage DisplayName="Log Message - Workflow ended" sap:VirtualizedContainerService.HintSize="658,52" sap2010:WorkflowViewState.IdRef="LogMessage_12" Level="[UiPath.Core.Activities.LogLevel.Info]" Message="[&quot;Finished GetExpensiveFilteredProduct workflow.&quot;]">
+    <ui:LogMessage DisplayName="Log Message - Workflow ended" sap:VirtualizedContainerService.HintSize="820,52" sap2010:WorkflowViewState.IdRef="LogMessage_12" Level="[UiPath.Core.Activities.LogLevel.Info]" Message="[&quot;Finished GetExpensiveFilteredProduct workflow.&quot;]">
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
           <x:Boolean x:Key="IsExpanded">False</x:Boolean>

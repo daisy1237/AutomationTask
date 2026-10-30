@@ -6,7 +6,7 @@
   <VisualBasic.Settings>
     <x:Null />
   </VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>1254,4209</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>1254,5727</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>ValidateOrderCart_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <sco:Collection x:TypeArguments="x:String">
@@ -105,20 +105,20 @@
       <AssemblyReference>System.Linq.Queryable</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="ValidateOrderCart" sap:VirtualizedContainerService.HintSize="744,4144" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="ValidateOrderCart" sap:VirtualizedContainerService.HintSize="744,5662" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
     <ui:LogMessage DisplayName="Log Message - Workflow started" sap:VirtualizedContainerService.HintSize="682,141" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="[UiPath.Core.Activities.LogLevel.Info]" Message="[&quot;Validating the cart (for an order) workflow has started.&quot;]" />
-    <ui:BrowserScope SearchScope="{x:Null}" Selector="{x:Null}" TimeoutMS="{x:Null}" Browser="[io_browser]" BrowserType="Chrome" DisplayName="Attach Browser - Demoblaze" sap:VirtualizedContainerService.HintSize="682,3671" sap2010:WorkflowViewState.IdRef="BrowserScope_1" UiBrowser="[io_browser]">
+    <ui:BrowserScope SearchScope="{x:Null}" Selector="{x:Null}" TimeoutMS="{x:Null}" Browser="[io_browser]" BrowserType="Chrome" DisplayName="Attach Browser - Demoblaze" sap:VirtualizedContainerService.HintSize="682,5189" sap2010:WorkflowViewState.IdRef="BrowserScope_1" UiBrowser="[io_browser]">
       <ui:BrowserScope.Body>
         <ActivityAction x:TypeArguments="x:Object">
           <ActivityAction.Argument>
             <DelegateInArgument x:TypeArguments="x:Object" Name="ContextTarget" />
           </ActivityAction.Argument>
-          <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="648,3562" sap2010:WorkflowViewState.IdRef="Sequence_2">
+          <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="648,5080" sap2010:WorkflowViewState.IdRef="Sequence_2">
             <Sequence.Variables>
               <Variable x:TypeArguments="x:Boolean" Name="cartNotEmpty" />
               <Variable x:TypeArguments="x:Boolean" Name="pageLoaded" />
@@ -148,7 +148,7 @@
             </ui:Click>
             <ui:UiElementExists DisplayName="Element Exists - Label price" Exists="[pageLoaded]" sap:VirtualizedContainerService.HintSize="586,107" sap2010:WorkflowViewState.IdRef="UiElementExists_1">
               <ui:UiElementExists.Target>
-                <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="6972c527-18b3-40c2-b867-f85a19274154" InformativeScreenshot="a7ea1e763a557873fcb1afe09b5b4413" Selector="&lt;html app='chrome.exe' url='*demoblaze*cart*' /&gt;&lt;webctrl tag='DIV' visibleinnertext='*Total*Place*' /&gt;&lt;webctrl innertext='*' tag='H3' /&gt;" TimeoutMS="15000" WaitForReady="COMPLETE" />
+                <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="6972c527-18b3-40c2-b867-f85a19274154" InformativeScreenshot="a7ea1e763a557873fcb1afe09b5b4413" Selector="&lt;html app='chrome.exe' url='*demoblaze*cart*' /&gt;&lt;webctrl id='tbodyid' tag='TBODY' /&gt;&lt;webctrl tag='TR' /&gt;" TimeoutMS="15000" WaitForReady="COMPLETE" />
               </ui:UiElementExists.Target>
             </ui:UiElementExists>
             <If Condition="[not pageLoaded]" DisplayName="If - Page not loaded" sap:VirtualizedContainerService.HintSize="586,52" sap2010:WorkflowViewState.IdRef="If_3">
@@ -178,6 +178,101 @@
                 <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="4ef0f0e9-4db6-4155-b1a6-690e742dab25" InformativeScreenshot="6d8c2a2cad7d85c32e90407d3451c98c" Selector="&lt;html app='chrome.exe' title='STORE' /&gt;&#xA;&lt;webctrl id='tbodyid' tag='TBODY' /&gt;" TimeoutMS="30000" WaitForReady="COMPLETE" />
               </ui:ExtractData.Target>
             </ui:ExtractData>
+            <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="586,141" sap2010:WorkflowViewState.IdRef="LogMessage_7" Level="[UiPath.Core.Activities.LogLevel.Info]" Message="[String.Format(&quot;Products extracted from cart: {0}&quot;, cartDataTable.Rows.Count)]" />
+            <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="586,141" sap2010:WorkflowViewState.IdRef="LogMessage_8" Level="[UiPath.Core.Activities.LogLevel.Info]" Message="[String.Join(&quot;, &quot;, cartDataTable.AsEnumerable().Select(Function(row) row(&quot;Title&quot;).ToString))]" />
+            <Assign DisplayName="Assign - Expected total qty" sap:VirtualizedContainerService.HintSize="586,83" sap2010:WorkflowViewState.IdRef="Assign_5">
+              <Assign.To>
+                <OutArgument x:TypeArguments="x:Int32">[expectedTotal]</OutArgument>
+              </Assign.To>
+              <Assign.Value>
+                <InArgument x:TypeArguments="x:Int32" xml:space="preserve">[in_productsDataTable.AsEnumerable().
+Where(Function(row) row("Product found").ToString.Trim &lt;&gt; "-1").
+Sum(Function(row) Convert.ToInt32(row("Qty")))]</InArgument>
+              </Assign.Value>
+            </Assign>
+            <Assign DisplayName="Assign - Actual total qty" sap:VirtualizedContainerService.HintSize="586,82" sap2010:WorkflowViewState.IdRef="Assign_6">
+              <Assign.To>
+                <OutArgument x:TypeArguments="x:Int32">[actualTotal]</OutArgument>
+              </Assign.To>
+              <Assign.Value>
+                <InArgument x:TypeArguments="x:Int32">[cartDataTable.Rows.Count]</InArgument>
+              </Assign.Value>
+            </Assign>
+            <ui:InterruptibleWhile CurrentIndex="{x:Null}" DisplayName="While - Retry products scraping" sap:VirtualizedContainerService.HintSize="586,1116" sap2010:WorkflowViewState.IdRef="InterruptibleWhile_1" MaxIterations="4">
+              <ui:InterruptibleWhile.Body>
+                <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="476,980" sap2010:WorkflowViewState.IdRef="Sequence_18">
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                  <ui:LogMessage DisplayName="Log Message - Products not added properly" sap:VirtualizedContainerService.HintSize="434,141" sap2010:WorkflowViewState.IdRef="LogMessage_9" Level="[UiPath.Core.Activities.LogLevel.Info]" Message="[String.Format(&quot;Cart contains an incorrect number of products. Expected: {0}, Found: {1}. Retrying...&quot;, expectedTotal, actualTotal)]" />
+                  <ui:ClearDataTable DataTable="[cartDatatable]" DisplayName="Clear Data Table - Clear scraped products dt" sap:VirtualizedContainerService.HintSize="434,80" sap2010:WorkflowViewState.IdRef="ClearDataTable_1" />
+                  <ui:ExtractData DelayBetweenPagesMS="{x:Null}" NextLinkSelector="{x:Null}" SimulateClick="{x:Null}" DataTable="[cartDatatable]" DisplayName="Extract Structured Data - Products in cart" ExtractMetadata="[&quot;&lt;extract&gt;&quot; &amp;&#xA;&quot;&lt;row exact='1'&gt;&lt;webctrl tag='TR' /&gt;&lt;/row&gt;&quot; &amp;&#xA;&quot;&lt;column exact='1' name='Title' attr='text'&gt;&quot; &amp;&#xA;&quot;&lt;webctrl tag='TR' /&gt;&quot; &amp;&#xA;&quot;&lt;webctrl tag='TD' idx='2' /&gt;&quot; &amp;&#xA;&quot;&lt;/column&gt;&quot; &amp;&#xA;&quot;&lt;column exact='1' name='Price' attr='text'&gt;&quot; &amp;&#xA;&quot;&lt;webctrl tag='TR' /&gt;&quot; &amp;&#xA;&quot;&lt;webctrl tag='TD' idx='3' /&gt;&quot; &amp;&#xA;&quot;&lt;/column&gt;&quot; &amp;&#xA;&quot;&lt;/extract&gt;&quot;]" sap:VirtualizedContainerService.HintSize="434,107" sap2010:WorkflowViewState.IdRef="ExtractData_2" MaxNumberOfResults="100">
+                    <ui:ExtractData.Target>
+                      <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="4ef0f0e9-4db6-4155-b1a6-690e742dab25" InformativeScreenshot="6d8c2a2cad7d85c32e90407d3451c98c" Selector="&lt;html app='chrome.exe' title='STORE' /&gt;&#xA;&lt;webctrl id='tbodyid' tag='TBODY' /&gt;" TimeoutMS="30000" WaitForReady="COMPLETE" />
+                    </ui:ExtractData.Target>
+                  </ui:ExtractData>
+                  <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="434,141" sap2010:WorkflowViewState.IdRef="LogMessage_10" Level="[UiPath.Core.Activities.LogLevel.Info]" Message="[String.Format(&quot;Products extracted from cart: {0}&quot;, cartDataTable.Rows.Count)]" />
+                  <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="434,141" sap2010:WorkflowViewState.IdRef="LogMessage_11" Level="[UiPath.Core.Activities.LogLevel.Info]" Message="[String.Join(&quot;, &quot;, cartDataTable.AsEnumerable().Select(Function(row) row(&quot;Title&quot;).ToString))]" />
+                  <Assign DisplayName="Assign - Actual total qty" sap:VirtualizedContainerService.HintSize="434,82" sap2010:WorkflowViewState.IdRef="Assign_7">
+                    <Assign.To>
+                      <OutArgument x:TypeArguments="x:Int32">[actualTotal]</OutArgument>
+                    </Assign.To>
+                    <Assign.Value>
+                      <InArgument x:TypeArguments="x:Int32">[cartDataTable.Rows.Count]</InArgument>
+                    </Assign.Value>
+                  </Assign>
+                </Sequence>
+              </ui:InterruptibleWhile.Body>
+              <ui:InterruptibleWhile.Condition>
+                <VisualBasicValue x:TypeArguments="x:Boolean" ExpressionText="expectedTotal&lt;&gt;actualTotal" />
+              </ui:InterruptibleWhile.Condition>
+            </ui:InterruptibleWhile>
+            <If Condition="[expectedTotal&lt;&gt;actualTotal]" DisplayName="If - Wrong number of products" sap:VirtualizedContainerService.HintSize="586,541" sap2010:WorkflowViewState.IdRef="If_6">
+              <sap:WorkflowViewStateService.ViewState>
+                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                  <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                </scg:Dictionary>
+              </sap:WorkflowViewStateService.ViewState>
+              <If.Then>
+                <Sequence sap:VirtualizedContainerService.HintSize="376,359" sap2010:WorkflowViewState.IdRef="Sequence_14">
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                  <ui:LogMessage DisplayName="Log Message - Products not added properly" sap:VirtualizedContainerService.HintSize="334,141" sap2010:WorkflowViewState.IdRef="LogMessage_5" Level="[UiPath.Core.Activities.LogLevel.Error]" Message="[String.Format(&quot;Cart contains an incorrect number of products. Expected: {0}, Found: {1}&quot;, expectedTotal, actualTotal)]" />
+                  <Throw DisplayName="Throw - Products not added properly" Exception="[New Exception(String.Format(&quot;Cart contains an incorrect number of products. Expected: {0}, Found: {1}&quot;, expectedTotal, actualTotal))]" sap:VirtualizedContainerService.HintSize="334,90" sap2010:WorkflowViewState.IdRef="Throw_3" />
+                </Sequence>
+              </If.Then>
+              <If.Else>
+                <Sequence sap2010:WorkflowViewState.IdRef="Sequence_15" />
+              </If.Else>
+            </If>
+            <If Condition="[expectedTotal=0]" DisplayName="If - No products in cart" sap:VirtualizedContainerService.HintSize="586,541" sap2010:WorkflowViewState.IdRef="If_7">
+              <sap:WorkflowViewStateService.ViewState>
+                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                  <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                </scg:Dictionary>
+              </sap:WorkflowViewStateService.ViewState>
+              <If.Then>
+                <Sequence sap:VirtualizedContainerService.HintSize="376,359" sap2010:WorkflowViewState.IdRef="Sequence_16">
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                  <ui:LogMessage DisplayName="Log Message - No products to order" sap:VirtualizedContainerService.HintSize="334,141" sap2010:WorkflowViewState.IdRef="LogMessage_6" Level="[UiPath.Core.Activities.LogLevel.Error]" Message="[&quot;No products matching the Excel filters were found. The cart is empty and the order cannot be placed.&quot;]" />
+                  <Throw DisplayName="Throw - No products to order" Exception="[New Exception(&quot;No products matching the excel filters were found. The cart is empty and the order cannot be placed.&quot;)]" sap:VirtualizedContainerService.HintSize="334,90" sap2010:WorkflowViewState.IdRef="Throw_4" />
+                </Sequence>
+              </If.Then>
+              <If.Else>
+                <Sequence sap2010:WorkflowViewState.IdRef="Sequence_17" />
+              </If.Else>
+            </If>
             <ui:ForEachRow ColumnNames="{x:Null}" CurrentIndex="{x:Null}" DataTable="[in_productsDataTable]" DisplayName="For Each Row in Data Table " sap:VirtualizedContainerService.HintSize="586,1330" sap2010:WorkflowViewState.IdRef="ForEachRow_2">
               <ui:ForEachRow.Body>
                 <ActivityAction x:TypeArguments="sd:DataRow">
@@ -258,68 +353,6 @@ Sum(Function(row) Convert.ToInt32(row("Qty")))]</InArgument>
                 </scg:Dictionary>
               </sap:WorkflowViewStateService.ViewState>
             </ui:ForEachRow>
-            <Assign DisplayName="Assign - Expected total qty" sap:VirtualizedContainerService.HintSize="586,83" sap2010:WorkflowViewState.IdRef="Assign_5">
-              <Assign.To>
-                <OutArgument x:TypeArguments="x:Int32">[expectedTotal]</OutArgument>
-              </Assign.To>
-              <Assign.Value>
-                <InArgument x:TypeArguments="x:Int32" xml:space="preserve">[in_productsDataTable.AsEnumerable().
-Where(Function(row) row("Product found").ToString.Trim &lt;&gt; "-1").
-Sum(Function(row) Convert.ToInt32(row("Qty")))]</InArgument>
-              </Assign.Value>
-            </Assign>
-            <Assign DisplayName="Assign - Actual total qty" sap:VirtualizedContainerService.HintSize="586,82" sap2010:WorkflowViewState.IdRef="Assign_6">
-              <Assign.To>
-                <OutArgument x:TypeArguments="x:Int32">[actualTotal]</OutArgument>
-              </Assign.To>
-              <Assign.Value>
-                <InArgument x:TypeArguments="x:Int32">[cartDataTable.Rows.Count]</InArgument>
-              </Assign.Value>
-            </Assign>
-            <If Condition="[expectedTotal&lt;&gt;actualTotal]" DisplayName="If - Unwanted suplimnetary products" sap:VirtualizedContainerService.HintSize="586,541" sap2010:WorkflowViewState.IdRef="If_6">
-              <sap:WorkflowViewStateService.ViewState>
-                <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                  <x:Boolean x:Key="IsPinned">False</x:Boolean>
-                </scg:Dictionary>
-              </sap:WorkflowViewStateService.ViewState>
-              <If.Then>
-                <Sequence sap:VirtualizedContainerService.HintSize="376,359" sap2010:WorkflowViewState.IdRef="Sequence_14">
-                  <sap:WorkflowViewStateService.ViewState>
-                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                    </scg:Dictionary>
-                  </sap:WorkflowViewStateService.ViewState>
-                  <ui:LogMessage DisplayName="Log Message - Products not added properly" sap:VirtualizedContainerService.HintSize="334,141" sap2010:WorkflowViewState.IdRef="LogMessage_5" Level="[UiPath.Core.Activities.LogLevel.Error]" Message="[String.Format(&quot;Cart contains an incorrect number of products. Expected: {0}, Found: {1}&quot;, expectedTotal, actualTotal)]" />
-                  <Throw DisplayName="Throw - Products not added properly" Exception="[New Exception(String.Format(&quot;Cart contains an incorrect number of products. Expected: {0}, Found: {1}&quot;, expectedTotal, actualTotal))]" sap:VirtualizedContainerService.HintSize="334,90" sap2010:WorkflowViewState.IdRef="Throw_3" />
-                </Sequence>
-              </If.Then>
-              <If.Else>
-                <Sequence sap2010:WorkflowViewState.IdRef="Sequence_15" />
-              </If.Else>
-            </If>
-            <If Condition="[expectedTotal=0]" DisplayName="If - No products in cart" sap:VirtualizedContainerService.HintSize="586,541" sap2010:WorkflowViewState.IdRef="If_7">
-              <sap:WorkflowViewStateService.ViewState>
-                <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                  <x:Boolean x:Key="IsPinned">False</x:Boolean>
-                </scg:Dictionary>
-              </sap:WorkflowViewStateService.ViewState>
-              <If.Then>
-                <Sequence sap:VirtualizedContainerService.HintSize="376,359" sap2010:WorkflowViewState.IdRef="Sequence_16">
-                  <sap:WorkflowViewStateService.ViewState>
-                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                    </scg:Dictionary>
-                  </sap:WorkflowViewStateService.ViewState>
-                  <ui:LogMessage DisplayName="Log Message - No products to order" sap:VirtualizedContainerService.HintSize="334,141" sap2010:WorkflowViewState.IdRef="LogMessage_6" Level="[UiPath.Core.Activities.LogLevel.Error]" Message="[&quot;No products matching the Excel filters were found. The cart is empty and the order cannot be placed.&quot;]" />
-                  <Throw DisplayName="Throw - No products to order" Exception="[New Exception(&quot;No products matching the excel filters were found. The cart is empty and the order cannot be placed.&quot;)]" sap:VirtualizedContainerService.HintSize="334,90" sap2010:WorkflowViewState.IdRef="Throw_4" />
-                </Sequence>
-              </If.Then>
-              <If.Else>
-                <Sequence sap2010:WorkflowViewState.IdRef="Sequence_17" />
-              </If.Else>
-            </If>
           </Sequence>
         </ActivityAction>
       </ui:BrowserScope.Body>

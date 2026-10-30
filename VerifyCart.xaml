@@ -5,7 +5,7 @@
   <VisualBasic.Settings>
     <x:Null />
   </VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>1466,3822</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>1524,4108</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>VerifyCart_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <sco:Collection x:TypeArguments="x:String">
@@ -101,7 +101,7 @@
       <AssemblyReference>System.ComponentModel.Primitives</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="VerifyCart" sap:VirtualizedContainerService.HintSize="1476,3757" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="VerifyCart" sap:VirtualizedContainerService.HintSize="1534,4043" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="ui:Browser" Name="openedBrowser" />
     </Sequence.Variables>
@@ -110,14 +110,14 @@
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <ui:LogMessage DisplayName="Log Message - Cart Workflow started" sap:VirtualizedContainerService.HintSize="1414,141" sap2010:WorkflowViewState.IdRef="LogMessage_7" Level="[UiPath.Core.Activities.LogLevel.Info]" Message="[&quot;The verify cart workflow started.&quot;]" />
-    <ui:BrowserScope SearchScope="{x:Null}" Selector="{x:Null}" TimeoutMS="{x:Null}" Browser="[io_browser]" BrowserType="Chrome" DisplayName="Attach Browser - Opened demoblaze browser" sap:VirtualizedContainerService.HintSize="1414,3282" sap2010:WorkflowViewState.IdRef="BrowserScope_3" UiBrowser="[io_browser]">
+    <ui:LogMessage DisplayName="Log Message - Cart Workflow started" sap:VirtualizedContainerService.HintSize="1472,141" sap2010:WorkflowViewState.IdRef="LogMessage_7" Level="[UiPath.Core.Activities.LogLevel.Info]" Message="[&quot;The verify cart workflow started.&quot;]" />
+    <ui:BrowserScope SearchScope="{x:Null}" Selector="{x:Null}" TimeoutMS="{x:Null}" Browser="[io_browser]" BrowserType="Chrome" DisplayName="Attach Browser - Opened demoblaze browser" sap:VirtualizedContainerService.HintSize="1472,3568" sap2010:WorkflowViewState.IdRef="BrowserScope_3" UiBrowser="[io_browser]">
       <ui:BrowserScope.Body>
         <ActivityAction x:TypeArguments="x:Object">
           <ActivityAction.Argument>
             <DelegateInArgument x:TypeArguments="x:Object" Name="ContextTarget" />
           </ActivityAction.Argument>
-          <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="1380,3173" sap2010:WorkflowViewState.IdRef="Sequence_11">
+          <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="1438,3459" sap2010:WorkflowViewState.IdRef="Sequence_11">
             <Sequence.Variables>
               <Variable x:TypeArguments="x:Boolean" Name="isProductInCart" />
               <Variable x:TypeArguments="x:Boolean" Name="isCartUpdated" />
@@ -135,7 +135,7 @@
                 <x:Boolean x:Key="IsPinned">False</x:Boolean>
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
-            <ui:Click AlterIfDisabled="{x:Null}" DelayBefore="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" ClickType="CLICK_SINGLE" DisplayName="Click - Cart button" sap:VirtualizedContainerService.HintSize="1318,107" sap2010:WorkflowViewState.IdRef="Click_5" KeyModifiers="None" MouseButton="BTN_LEFT" SimulateClick="True">
+            <ui:Click AlterIfDisabled="{x:Null}" DelayBefore="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" ClickType="CLICK_SINGLE" DisplayName="Click - Cart button" sap:VirtualizedContainerService.HintSize="1376,107" sap2010:WorkflowViewState.IdRef="Click_5" KeyModifiers="None" MouseButton="BTN_LEFT" SimulateClick="True">
               <ui:Click.CursorPosition>
                 <ui:CursorPosition Position="Center">
                   <ui:CursorPosition.OffsetX>
@@ -150,23 +150,21 @@
                 <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="ab772fe1-07f8-4fec-9e65-f81290d84124" InformativeScreenshot="882d5ffeb9ca8cac14f343924dcdfa6f" Selector="&lt;html app='chrome.exe' url='*demoblaze*' /&gt;&lt;webctrl tag='A' aaname='Cart' /&gt;" TimeoutMS="12000" WaitForReady="COMPLETE" />
               </ui:Click.Target>
             </ui:Click>
-            <ui:LogMessage DisplayName="Log Message - Shopping cart opened" sap:VirtualizedContainerService.HintSize="1318,141" sap2010:WorkflowViewState.IdRef="LogMessage_10" Level="[UiPath.Core.Activities.LogLevel.Info]" Message="[&quot;The shopping cart page has been opened.&quot;]" />
-            <ui:UiElementExists DisplayName="Element Exists - Product delete link" Exists="[isProductInCart]" sap:VirtualizedContainerService.HintSize="1318,107" sap2010:WorkflowViewState.IdRef="UiElementExists_3">
+            <ui:LogMessage DisplayName="Log Message - Shopping cart opened" sap:VirtualizedContainerService.HintSize="1376,141" sap2010:WorkflowViewState.IdRef="LogMessage_10" Level="[UiPath.Core.Activities.LogLevel.Info]" Message="[&quot;The shopping cart page has been opened.&quot;]" />
+            <ui:UiElementExists DisplayName="Element Exists - Product delete link" Exists="[isProductInCart]" sap:VirtualizedContainerService.HintSize="1376,107" sap2010:WorkflowViewState.IdRef="UiElementExists_3">
               <ui:UiElementExists.Target>
                 <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="bf814de9-de99-4627-ad93-291cc15bcd79" InformativeScreenshot="027d229799450e4c5b802d15b62e9197" Selector="&lt;html app='chrome.exe' url='*demoblaze*cart*' /&gt;&lt;webctrl tag='TABLE' /&gt;&lt;webctrl tag='A' aaname='Delete' /&gt;" TimeoutMS="7000" WaitForReady="COMPLETE" />
               </ui:UiElementExists.Target>
             </ui:UiElementExists>
-            <Parallel DisplayName="Parallel - Deleting products from cart" sap:VirtualizedContainerService.HintSize="1318,2259" sap2010:WorkflowViewState.IdRef="Parallel_2">
+            <Parallel DisplayName="Parallel - Deleting products from cart" sap:VirtualizedContainerService.HintSize="1376,2545" sap2010:WorkflowViewState.IdRef="Parallel_2">
               <sap:WorkflowViewStateService.ViewState>
                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
                   <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                   <x:Boolean x:Key="IsPinned">False</x:Boolean>
                 </scg:Dictionary>
               </sap:WorkflowViewStateService.ViewState>
-              <Parallel.CompletionCondition>
-                <VisualBasicValue x:TypeArguments="x:Boolean" ExpressionText="not isProductInCart" />
-              </Parallel.CompletionCondition>
-              <While DisplayName="While - Products exist in cart" sap:VirtualizedContainerService.HintSize="694,2212" sap2010:WorkflowViewState.IdRef="While_1">
+              <Parallel.CompletionCondition>[not isProductInCart]</Parallel.CompletionCondition>
+              <While DisplayName="While - Products exist in cart" sap:VirtualizedContainerService.HintSize="752,2498" sap2010:WorkflowViewState.IdRef="While_1">
                 <sap:WorkflowViewStateService.ViewState>
                   <scg:Dictionary x:TypeArguments="x:String, x:Object">
                     <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -174,7 +172,7 @@
                   </scg:Dictionary>
                 </sap:WorkflowViewStateService.ViewState>
                 <While.Condition>[isProductInCart]</While.Condition>
-                <Sequence DisplayName="Sequence - Remove current product" sap:VirtualizedContainerService.HintSize="648,2054" sap2010:WorkflowViewState.IdRef="Sequence_13">
+                <Sequence DisplayName="Sequence - Remove current product" sap:VirtualizedContainerService.HintSize="706,2340" sap2010:WorkflowViewState.IdRef="Sequence_13">
                   <Sequence.Variables>
                     <Variable x:TypeArguments="x:Boolean" Name="totalChanged" />
                   </Sequence.Variables>
@@ -184,7 +182,7 @@
                       <x:Boolean x:Key="IsPinned">False</x:Boolean>
                     </scg:Dictionary>
                   </sap:WorkflowViewStateService.ViewState>
-                  <ui:GetValue ContinueOnError="{x:Null}" DisplayName="Get Text - Old total" sap:VirtualizedContainerService.HintSize="586,107" sap2010:WorkflowViewState.IdRef="GetValue_1">
+                  <ui:GetValue ContinueOnError="{x:Null}" DisplayName="Get Text - Old total" sap:VirtualizedContainerService.HintSize="644,107" sap2010:WorkflowViewState.IdRef="GetValue_1">
                     <ui:GetValue.Target>
                       <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="07ea6433-9ee5-486b-9356-5194aa255ab5" InformativeScreenshot="64da782277badf10d40ee97bce6937c6" Selector="&lt;html app='chrome.exe' url='*demoblaze*cart*' /&gt;&lt;webctrl tag='DIV' visibleinnertext='*Total*Place*' /&gt;&lt;webctrl innertext='*' tag='H3' /&gt;" TimeoutMS="4000" WaitForReady="COMPLETE" />
                     </ui:GetValue.Target>
@@ -192,7 +190,7 @@
                       <OutArgument x:TypeArguments="x:String">[oldTotal]</OutArgument>
                     </ui:GetValue.Value>
                   </ui:GetValue>
-                  <ui:Click DelayBefore="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" AlterIfDisabled="True" ClickType="CLICK_SINGLE" DisplayName="Click - Delete current product" sap:VirtualizedContainerService.HintSize="586,87" sap2010:WorkflowViewState.IdRef="Click_6" KeyModifiers="None" MouseButton="BTN_LEFT" SimulateClick="True">
+                  <ui:Click DelayBefore="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" AlterIfDisabled="True" ClickType="CLICK_SINGLE" ContinueOnError="False" DisplayName="Click - Delete current product" sap:VirtualizedContainerService.HintSize="644,87" sap2010:WorkflowViewState.IdRef="Click_6" KeyModifiers="None" MouseButton="BTN_LEFT" SimulateClick="True">
                     <ui:Click.CursorPosition>
                       <ui:CursorPosition Position="Center">
                         <ui:CursorPosition.OffsetX>
@@ -204,10 +202,10 @@
                       </ui:CursorPosition>
                     </ui:Click.CursorPosition>
                     <ui:Click.Target>
-                      <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="6da70afb-3a74-4920-abe7-3f8abcd55899" Selector="&lt;html app='chrome.exe' url='*demoblaze*' /&gt;&lt;webctrl tag='TABLE' /&gt;&lt;webctrl tag='A' aaname='Delete' /&gt;" TimeoutMS="10000" WaitForReady="COMPLETE" />
+                      <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="6da70afb-3a74-4920-abe7-3f8abcd55899" Selector="&lt;html app='chrome.exe' url='*demoblaze*cart*' /&gt;&lt;webctrl tag='TABLE' /&gt;&lt;webctrl tag='A' aaname='Delete' /&gt;" TimeoutMS="10000" WaitForReady="COMPLETE" />
                     </ui:Click.Target>
                   </ui:Click>
-                  <Assign DisplayName="Assign - Total in cart changed" sap:VirtualizedContainerService.HintSize="586,82" sap2010:WorkflowViewState.IdRef="Assign_1">
+                  <Assign DisplayName="Assign - Total in cart changed" sap:VirtualizedContainerService.HintSize="644,82" sap2010:WorkflowViewState.IdRef="Assign_1">
                     <Assign.To>
                       <OutArgument x:TypeArguments="x:Boolean">[totalChanged]</OutArgument>
                     </Assign.To>
@@ -215,9 +213,9 @@
                       <InArgument x:TypeArguments="x:Boolean">False</InArgument>
                     </Assign.Value>
                   </Assign>
-                  <ui:InterruptibleWhile CurrentIndex="{x:Null}" DisplayName="While - Total not changed" sap:VirtualizedContainerService.HintSize="586,1020" sap2010:WorkflowViewState.IdRef="InterruptibleWhile_1" MaxIterations="4">
+                  <ui:InterruptibleWhile CurrentIndex="{x:Null}" Condition="[not totalChanged]" DisplayName="While - Total not changed" sap:VirtualizedContainerService.HintSize="644,1306" sap2010:WorkflowViewState.IdRef="InterruptibleWhile_1" MaxIterations="5">
                     <ui:InterruptibleWhile.Body>
-                      <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="552,884" sap2010:WorkflowViewState.IdRef="Sequence_16">
+                      <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="610,1170" sap2010:WorkflowViewState.IdRef="Sequence_16">
                         <Sequence.Variables>
                           <Variable x:TypeArguments="x:String" Name="newTotal" />
                           <Variable x:TypeArguments="x:Boolean" Name="totalExists" />
@@ -227,12 +225,12 @@
                             <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                           </scg:Dictionary>
                         </sap:WorkflowViewStateService.ViewState>
-                        <ui:UiElementExists DisplayName="Element Exists - Total label" Exists="[totalExists]" sap:VirtualizedContainerService.HintSize="510,87" sap2010:WorkflowViewState.IdRef="UiElementExists_8">
+                        <ui:UiElementExists DisplayName="Element Exists - Total label" Exists="[totalExists]" sap:VirtualizedContainerService.HintSize="568,87" sap2010:WorkflowViewState.IdRef="UiElementExists_8">
                           <ui:UiElementExists.Target>
-                            <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="65572fcc-3da7-444d-a036-39b4734d0213" Selector="&lt;html app='chrome.exe' url='*demoblaze*cart*' /&gt;&lt;webctrl tag='DIV' visibleinnertext='*Total*Place*' /&gt;&lt;webctrl innertext='*' tag='H3' /&gt;" TimeoutMS="4000" WaitForReady="COMPLETE" />
+                            <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="65572fcc-3da7-444d-a036-39b4734d0213" Selector="&lt;html app='chrome.exe' url='*demoblaze*cart*' /&gt;&lt;webctrl tag='DIV' visibleinnertext='*Total*Place*' /&gt;&lt;webctrl innertext='*' tag='H3' /&gt;" TimeoutMS="10000" WaitForReady="COMPLETE" />
                           </ui:UiElementExists.Target>
                         </ui:UiElementExists>
-                        <If Condition="[totalExists]" DisplayName="If - Label exists" sap:VirtualizedContainerService.HintSize="510,669" sap2010:WorkflowViewState.IdRef="If_2">
+                        <If Condition="[totalExists]" DisplayName="If - Label exists" sap:VirtualizedContainerService.HintSize="568,955" sap2010:WorkflowViewState.IdRef="If_2">
                           <sap:WorkflowViewStateService.ViewState>
                             <scg:Dictionary x:TypeArguments="x:String, x:Object">
                               <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -240,21 +238,37 @@
                             </scg:Dictionary>
                           </sap:WorkflowViewStateService.ViewState>
                           <If.Then>
-                            <Sequence sap:VirtualizedContainerService.HintSize="476,317" sap2010:WorkflowViewState.IdRef="Sequence_17">
+                            <Sequence sap:VirtualizedContainerService.HintSize="534,603" sap2010:WorkflowViewState.IdRef="Sequence_17">
                               <sap:WorkflowViewStateService.ViewState>
                                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                   <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                                 </scg:Dictionary>
                               </sap:WorkflowViewStateService.ViewState>
-                              <ui:GetValue ContinueOnError="{x:Null}" DisplayName="Get Text - New total" sap:VirtualizedContainerService.HintSize="434,107" sap2010:WorkflowViewState.IdRef="GetValue_2">
-                                <ui:GetValue.Target>
-                                  <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="07ea6433-9ee5-486b-9356-5194aa255ab5" InformativeScreenshot="64da782277badf10d40ee97bce6937c6" Selector="&lt;html app='chrome.exe' url='*demoblaze*cart*' /&gt;&lt;webctrl tag='DIV' visibleinnertext='*Total*Place*' /&gt;&lt;webctrl innertext='*' tag='H3' /&gt;" TimeoutMS="4000" WaitForReady="COMPLETE" />
-                                </ui:GetValue.Target>
-                                <ui:GetValue.Value>
-                                  <OutArgument x:TypeArguments="x:String">[newTotal]</OutArgument>
-                                </ui:GetValue.Value>
-                              </ui:GetValue>
-                              <Assign DisplayName="Assign - Total changed verification" sap:VirtualizedContainerService.HintSize="434,82" sap2010:WorkflowViewState.IdRef="Assign_2">
+                              <ui:RetryScope ContinueOnError="False" DisplayName="Retry Scope" sap:VirtualizedContainerService.HintSize="492,393" sap2010:WorkflowViewState.IdRef="RetryScope_1" NumberOfRetries="3" RetryInterval="00:00:01">
+                                <ui:RetryScope.ActivityBody>
+                                  <ActivityAction>
+                                    <Sequence DisplayName="Action" sap:VirtualizedContainerService.HintSize="450,218" sap2010:WorkflowViewState.IdRef="Sequence_21">
+                                      <sap:WorkflowViewStateService.ViewState>
+                                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                        </scg:Dictionary>
+                                      </sap:WorkflowViewStateService.ViewState>
+                                      <ui:GetValue ContinueOnError="False" DisplayName="Get Text - New total" sap:VirtualizedContainerService.HintSize="388,107" sap2010:WorkflowViewState.IdRef="GetValue_2">
+                                        <ui:GetValue.Target>
+                                          <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="07ea6433-9ee5-486b-9356-5194aa255ab5" InformativeScreenshot="64da782277badf10d40ee97bce6937c6" Selector="&lt;html app='chrome.exe' url='*demoblaze*cart*' /&gt;&lt;webctrl tag='DIV' visibleinnertext='*Total*Place*' /&gt;&lt;webctrl innertext='*' tag='H3' /&gt;" TimeoutMS="6000" WaitForReady="COMPLETE" />
+                                        </ui:GetValue.Target>
+                                        <ui:GetValue.Value>
+                                          <OutArgument x:TypeArguments="x:String">[newTotal]</OutArgument>
+                                        </ui:GetValue.Value>
+                                      </ui:GetValue>
+                                    </Sequence>
+                                  </ActivityAction>
+                                </ui:RetryScope.ActivityBody>
+                                <ui:RetryScope.Condition>
+                                  <ActivityFunc x:TypeArguments="x:Boolean" />
+                                </ui:RetryScope.Condition>
+                              </ui:RetryScope>
+                              <Assign DisplayName="Assign - Total changed verification" sap:VirtualizedContainerService.HintSize="492,82" sap2010:WorkflowViewState.IdRef="Assign_2">
                                 <Assign.To>
                                   <OutArgument x:TypeArguments="x:Boolean">[totalChanged]</OutArgument>
                                 </Assign.To>
@@ -284,11 +298,8 @@
                         </If>
                       </Sequence>
                     </ui:InterruptibleWhile.Body>
-                    <ui:InterruptibleWhile.Condition>
-                      <VisualBasicValue x:TypeArguments="x:Boolean" ExpressionText="not totalChanged" />
-                    </ui:InterruptibleWhile.Condition>
                   </ui:InterruptibleWhile>
-                  <If Condition="[not totalChanged]" DisplayName="If - Page still not updated" sap:VirtualizedContainerService.HintSize="586,360" sap2010:WorkflowViewState.IdRef="If_3">
+                  <If Condition="[not totalChanged]" DisplayName="If - Page still not updated" sap:VirtualizedContainerService.HintSize="644,360" sap2010:WorkflowViewState.IdRef="If_3">
                     <If.Then>
                       <Sequence sap:VirtualizedContainerService.HintSize="376,178" sap2010:WorkflowViewState.IdRef="Sequence_19">
                         <sap:WorkflowViewStateService.ViewState>
@@ -310,7 +321,7 @@
                   </ui:UiElementExists>
                 </Sequence>
               </While>
-              <Sequence DisplayName="Timeout for deleting products" sap:VirtualizedContainerService.HintSize="450,2212" sap2010:WorkflowViewState.IdRef="Sequence_14">
+              <Sequence DisplayName="Timeout for deleting products" sap:VirtualizedContainerService.HintSize="450,2498" sap2010:WorkflowViewState.IdRef="Sequence_14">
                 <sap:WorkflowViewStateService.ViewState>
                   <scg:Dictionary x:TypeArguments="x:String, x:Object">
                     <x:Boolean x:Key="IsExpanded">True</x:Boolean>

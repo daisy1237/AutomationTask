@@ -115,7 +115,7 @@
               <x:Boolean x:Key="IsExpanded">True</x:Boolean>
             </scg:Dictionary>
           </sap:WorkflowViewStateService.ViewState>
-          <ui:CustomInput DisplayName="Custom Input - All filter criterias" Height="450" sap:VirtualizedContainerService.HintSize="586,87" sap2010:WorkflowViewState.IdRef="CustomInput_1" Result="[filterFormResult]" URI="FilterForm.html" Width="400">
+          <ui:CustomInput DisplayName="Custom Input - All filter criterias" Height="450" sap:VirtualizedContainerService.HintSize="586,87" sap2010:WorkflowViewState.IdRef="CustomInput_1" Result="[filterFormResult]" URI="Forms\FilterForm.html" Width="400">
             <sap:WorkflowViewStateService.ViewState>
               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>

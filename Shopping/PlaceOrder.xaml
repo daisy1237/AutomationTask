@@ -2,11 +2,12 @@
   <x:Members>
     <x:Property Name="io_browser" Type="InOutArgument(ui:Browser)" />
     <x:Property Name="out_printscreen" Type="OutArgument(ui:Image)" />
+    <x:Property Name="out_file" Type="OutArgument(x:String)" />
   </x:Members>
   <VisualBasic.Settings>
     <x:Null />
   </VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>1254,3138</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>1254,4973</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>PlaceOrder_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <sco:Collection x:TypeArguments="x:String">
@@ -97,22 +98,71 @@
       <AssemblyReference>System.Runtime.Serialization.Formatters</AssemblyReference>
       <AssemblyReference>System.Private.DataContractSerialization</AssemblyReference>
       <AssemblyReference>System.Runtime.Serialization.Primitives</AssemblyReference>
+      <AssemblyReference>System.IO.FileSystem.Watcher</AssemblyReference>
+      <AssemblyReference>System.IO.Packaging</AssemblyReference>
+      <AssemblyReference>System.IO.FileSystem.AccessControl</AssemblyReference>
+      <AssemblyReference>System.IO.FileSystem.DriveInfo</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="PlaceOrder" sap:VirtualizedContainerService.HintSize="608,3073" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="PlaceOrder" sap:VirtualizedContainerService.HintSize="668,4908" sap2010:WorkflowViewState.IdRef="Sequence_1">
+    <Sequence.Variables>
+      <Variable x:TypeArguments="x:String" Name="name" />
+      <Variable x:TypeArguments="x:String" Name="city" />
+      <Variable x:TypeArguments="x:String" Name="country" />
+      <Variable x:TypeArguments="x:String" Name="card" />
+      <Variable x:TypeArguments="x:String" Name="month" />
+      <Variable x:TypeArguments="x:String" Name="year" />
+    </Sequence.Variables>
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <ui:LogMessage DisplayName="Log Message - Workflow Started" sap:VirtualizedContainerService.HintSize="546,141" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="[UiPath.Core.Activities.LogLevel.Info]" Message="[&quot;The order placing workflow started.&quot;]" />
-    <ui:BrowserScope SearchScope="{x:Null}" Selector="{x:Null}" TimeoutMS="{x:Null}" Browser="[io_browser]" BrowserType="Chrome" DisplayName="Attach Browser" sap:VirtualizedContainerService.HintSize="546,2600" sap2010:WorkflowViewState.IdRef="BrowserScope_1" UiBrowser="[io_browser]">
+    <ui:LogMessage DisplayName="Log Message - Workflow Started" sap:VirtualizedContainerService.HintSize="606,141" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="[UiPath.Core.Activities.LogLevel.Info]" Message="[&quot;The order placing workflow started.&quot;]" />
+    <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="GetOrderInputs.xaml - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="606,113" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_1" UnSafe="False" WorkflowFileName="Forms\GetOrderInputs.xaml">
+      <ui:InvokeWorkflowFile.Arguments>
+        <OutArgument x:TypeArguments="x:String" x:Key="out_name">
+          <VisualBasicReference x:TypeArguments="x:String" ExpressionText="name" />
+        </OutArgument>
+        <OutArgument x:TypeArguments="x:String" x:Key="out_city">
+          <VisualBasicReference x:TypeArguments="x:String" ExpressionText="city" />
+        </OutArgument>
+        <OutArgument x:TypeArguments="x:String" x:Key="out_country">
+          <VisualBasicReference x:TypeArguments="x:String" ExpressionText="country" />
+        </OutArgument>
+        <OutArgument x:TypeArguments="x:String" x:Key="out_card">
+          <VisualBasicReference x:TypeArguments="x:String" ExpressionText="card" />
+        </OutArgument>
+        <OutArgument x:TypeArguments="x:String" x:Key="out_month">
+          <VisualBasicReference x:TypeArguments="x:String" ExpressionText="month" />
+        </OutArgument>
+        <OutArgument x:TypeArguments="x:String" x:Key="out_year">
+          <VisualBasicReference x:TypeArguments="x:String" ExpressionText="year" />
+        </OutArgument>
+      </ui:InvokeWorkflowFile.Arguments>
+    </ui:InvokeWorkflowFile>
+    <If Condition="[String.IsNullOrWhiteSpace(name) OrElse&#xD;&#xA; String.IsNullOrWhiteSpace(city) OrElse&#xD;&#xA; String.IsNullOrWhiteSpace(country) OrElse&#xD;&#xA; String.IsNullOrWhiteSpace(card) OrElse&#xD;&#xA; String.IsNullOrWhiteSpace(month) OrElse&#xD;&#xA; String.IsNullOrWhiteSpace(year)]" DisplayName="If - Invalid data" sap:VirtualizedContainerService.HintSize="606,360" sap2010:WorkflowViewState.IdRef="If_3">
+      <If.Then>
+        <Sequence sap:VirtualizedContainerService.HintSize="376,178" sap2010:WorkflowViewState.IdRef="Sequence_8">
+          <sap:WorkflowViewStateService.ViewState>
+            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+            </scg:Dictionary>
+          </sap:WorkflowViewStateService.ViewState>
+          <Throw DisplayName="Throw - Invalid data exception" Exception="[new exception(&quot;Order details data is not valid.&quot;)]" sap:VirtualizedContainerService.HintSize="334,90" sap2010:WorkflowViewState.IdRef="Throw_3" />
+        </Sequence>
+      </If.Then>
+      <If.Else>
+        <Sequence sap2010:WorkflowViewState.IdRef="Sequence_9" />
+      </If.Else>
+    </If>
+    <ui:BrowserScope SearchScope="{x:Null}" Selector="{x:Null}" TimeoutMS="{x:Null}" Browser="[io_browser]" BrowserType="Chrome" DisplayName="Attach Browser" sap:VirtualizedContainerService.HintSize="606,3882" sap2010:WorkflowViewState.IdRef="BrowserScope_1" UiBrowser="[io_browser]">
       <ui:BrowserScope.Body>
         <ActivityAction x:TypeArguments="x:Object">
           <ActivityAction.Argument>
             <DelegateInArgument x:TypeArguments="x:Object" Name="ContextTarget" />
           </ActivityAction.Argument>
-          <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="512,2491" sap2010:WorkflowViewState.IdRef="Sequence_2">
+          <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="572,3773" sap2010:WorkflowViewState.IdRef="Sequence_2">
             <Sequence.Variables>
               <Variable x:TypeArguments="x:Boolean" Name="expectedPage" />
               <Variable x:TypeArguments="x:Boolean" Name="confirmationShows" />
@@ -122,12 +172,12 @@
                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
-            <ui:UiElementExists DisplayName="Element Exists - Place order button" Exists="[expectedPage]" sap:VirtualizedContainerService.HintSize="450,107" sap2010:WorkflowViewState.IdRef="UiElementExists_1">
+            <ui:UiElementExists DisplayName="Element Exists - Place order button" Exists="[expectedPage]" sap:VirtualizedContainerService.HintSize="510,107" sap2010:WorkflowViewState.IdRef="UiElementExists_1">
               <ui:UiElementExists.Target>
                 <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="efff10db-259a-414c-a78b-ad8f11fceccb" InformativeScreenshot="499a31b8eef1f3f688a13ae041e86b07" Selector="&lt;html app='chrome.exe' url='*demoblaze*' /&gt;&lt;webctrl tag='BUTTON' visibleinnertext='Place Order' /&gt;" TimeoutMS="6000" WaitForReady="COMPLETE" />
               </ui:UiElementExists.Target>
             </ui:UiElementExists>
-            <If Condition="[not expectedPage]" DisplayName="If - Not expected page" sap:VirtualizedContainerService.HintSize="450,541" sap2010:WorkflowViewState.IdRef="If_1">
+            <If Condition="[not expectedPage]" DisplayName="If - Not expected page" sap:VirtualizedContainerService.HintSize="510,541" sap2010:WorkflowViewState.IdRef="If_1">
               <sap:WorkflowViewStateService.ViewState>
                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
                   <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -149,7 +199,7 @@
                 <Sequence sap2010:WorkflowViewState.IdRef="Sequence_5" />
               </If.Else>
             </If>
-            <ui:Click AlterIfDisabled="{x:Null}" DelayBefore="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" ClickType="CLICK_SINGLE" DisplayName="Click - Place order" sap:VirtualizedContainerService.HintSize="450,107" sap2010:WorkflowViewState.IdRef="Click_1" KeyModifiers="None" MouseButton="BTN_LEFT" SimulateClick="True">
+            <ui:Click AlterIfDisabled="{x:Null}" DelayBefore="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" ClickType="CLICK_SINGLE" DisplayName="Click - Place order" sap:VirtualizedContainerService.HintSize="510,107" sap2010:WorkflowViewState.IdRef="Click_1" KeyModifiers="None" MouseButton="BTN_LEFT" SimulateClick="True">
               <ui:Click.CursorPosition>
                 <ui:CursorPosition Position="Center">
                   <ui:CursorPosition.OffsetX>
@@ -164,45 +214,45 @@
                 <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="89c5a3ad-71b7-49cc-9d11-d299c0f57a91" InformativeScreenshot="d6a24617e1b978239dd56f310478439d" Selector="&lt;html app='chrome.exe' url='*demoblaze*' /&gt;&lt;webctrl tag='BUTTON' visibleinnertext='Place Order' /&gt;" TimeoutMS="5000" WaitForReady="COMPLETE" />
               </ui:Click.Target>
             </ui:Click>
-            <Sequence DisplayName="Fill out form" sap:VirtualizedContainerService.HintSize="450,81" sap2010:WorkflowViewState.IdRef="Sequence_3">
+            <Sequence DisplayName="Fill out form" sap:VirtualizedContainerService.HintSize="510,1241" sap2010:WorkflowViewState.IdRef="Sequence_3">
               <sap:WorkflowViewStateService.ViewState>
                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                  <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                   <x:Boolean x:Key="IsPinned">False</x:Boolean>
                 </scg:Dictionary>
               </sap:WorkflowViewStateService.ViewState>
-              <ui:TypeInto AlterIfDisabled="{x:Null}" ClickBeforeTyping="{x:Null}" DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" EmptyField="{x:Null}" SendWindowMessages="{x:Null}" SimulateType="{x:Null}" Activate="True" DisplayName="Type Into - Name" sap:VirtualizedContainerService.HintSize="388,155" sap2010:WorkflowViewState.IdRef="TypeInto_1" Text="myname">
+              <ui:TypeInto AlterIfDisabled="{x:Null}" ClickBeforeTyping="{x:Null}" DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" EmptyField="{x:Null}" SendWindowMessages="{x:Null}" SimulateType="{x:Null}" Activate="True" DisplayName="Type Into - Name" sap:VirtualizedContainerService.HintSize="388,155" sap2010:WorkflowViewState.IdRef="TypeInto_1" Text="[name]">
                 <ui:TypeInto.Target>
                   <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="cecfd073-2141-495f-8eac-cf7b9ac5afa8" InformativeScreenshot="56871cd2a6148cfe6269d5dc52d421e3" Selector="&lt;html app='chrome.exe' url='*demoblaze*' /&gt;&lt;webctrl tag='DIV' visibleinnertext='Name:' /&gt;&lt;webctrl tag='INPUT' /&gt;" TimeoutMS="3000" WaitForReady="COMPLETE" />
                 </ui:TypeInto.Target>
               </ui:TypeInto>
-              <ui:TypeInto AlterIfDisabled="{x:Null}" ClickBeforeTyping="{x:Null}" DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" EmptyField="{x:Null}" SendWindowMessages="{x:Null}" SimulateType="{x:Null}" Activate="True" DisplayName="Type Into - Country" sap:VirtualizedContainerService.HintSize="388,155" sap2010:WorkflowViewState.IdRef="TypeInto_2" Text="mycountry">
+              <ui:TypeInto AlterIfDisabled="{x:Null}" ClickBeforeTyping="{x:Null}" DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" EmptyField="{x:Null}" SendWindowMessages="{x:Null}" SimulateType="{x:Null}" Activate="True" DisplayName="Type Into - Country" sap:VirtualizedContainerService.HintSize="388,155" sap2010:WorkflowViewState.IdRef="TypeInto_2" Text="[country]">
                 <ui:TypeInto.Target>
                   <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="cecfd073-2141-495f-8eac-cf7b9ac5afa8" InformativeScreenshot="56871cd2a6148cfe6269d5dc52d421e3" Selector="&lt;html app='chrome.exe' url='*demoblaze*' /&gt;&lt;webctrl tag='DIV' visibleinnertext='Country:' /&gt;&lt;webctrl tag='INPUT' /&gt;" TimeoutMS="3000" WaitForReady="COMPLETE" />
                 </ui:TypeInto.Target>
               </ui:TypeInto>
-              <ui:TypeInto AlterIfDisabled="{x:Null}" ClickBeforeTyping="{x:Null}" DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" EmptyField="{x:Null}" SendWindowMessages="{x:Null}" SimulateType="{x:Null}" Activate="True" DisplayName="Type Into - City" sap:VirtualizedContainerService.HintSize="388,155" sap2010:WorkflowViewState.IdRef="TypeInto_3" Text="mycity">
+              <ui:TypeInto AlterIfDisabled="{x:Null}" ClickBeforeTyping="{x:Null}" DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" EmptyField="{x:Null}" SendWindowMessages="{x:Null}" SimulateType="{x:Null}" Activate="True" DisplayName="Type Into - City" sap:VirtualizedContainerService.HintSize="388,155" sap2010:WorkflowViewState.IdRef="TypeInto_3" Text="[city]">
                 <ui:TypeInto.Target>
                   <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="cecfd073-2141-495f-8eac-cf7b9ac5afa8" InformativeScreenshot="56871cd2a6148cfe6269d5dc52d421e3" Selector="&lt;html app='chrome.exe' url='*demoblaze*' /&gt;&lt;webctrl tag='DIV' visibleinnertext='City:' /&gt;&lt;webctrl tag='INPUT' /&gt;" TimeoutMS="3000" WaitForReady="COMPLETE" />
                 </ui:TypeInto.Target>
               </ui:TypeInto>
-              <ui:TypeInto AlterIfDisabled="{x:Null}" ClickBeforeTyping="{x:Null}" DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" EmptyField="{x:Null}" SendWindowMessages="{x:Null}" SimulateType="{x:Null}" Activate="True" DisplayName="Type Into - Credit card" sap:VirtualizedContainerService.HintSize="388,155" sap2010:WorkflowViewState.IdRef="TypeInto_4" Text="mycard">
+              <ui:TypeInto AlterIfDisabled="{x:Null}" ClickBeforeTyping="{x:Null}" DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" EmptyField="{x:Null}" SendWindowMessages="{x:Null}" SimulateType="{x:Null}" Activate="True" DisplayName="Type Into - Credit card" sap:VirtualizedContainerService.HintSize="388,155" sap2010:WorkflowViewState.IdRef="TypeInto_4" Text="[card]">
                 <ui:TypeInto.Target>
                   <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="cecfd073-2141-495f-8eac-cf7b9ac5afa8" InformativeScreenshot="56871cd2a6148cfe6269d5dc52d421e3" Selector="&lt;html app='chrome.exe' url='*demoblaze*' /&gt;&lt;webctrl tag='DIV' visibleinnertext='Credit card:' /&gt;&lt;webctrl tag='INPUT' /&gt;" TimeoutMS="3000" WaitForReady="COMPLETE" />
                 </ui:TypeInto.Target>
               </ui:TypeInto>
-              <ui:TypeInto AlterIfDisabled="{x:Null}" ClickBeforeTyping="{x:Null}" DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" EmptyField="{x:Null}" SendWindowMessages="{x:Null}" SimulateType="{x:Null}" Activate="True" DisplayName="Type Into - Month" sap:VirtualizedContainerService.HintSize="388,155" sap2010:WorkflowViewState.IdRef="TypeInto_5" Text="month">
+              <ui:TypeInto AlterIfDisabled="{x:Null}" ClickBeforeTyping="{x:Null}" DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" EmptyField="{x:Null}" SendWindowMessages="{x:Null}" SimulateType="{x:Null}" Activate="True" DisplayName="Type Into - Month" sap:VirtualizedContainerService.HintSize="388,155" sap2010:WorkflowViewState.IdRef="TypeInto_5" Text="[month]">
                 <ui:TypeInto.Target>
                   <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="cecfd073-2141-495f-8eac-cf7b9ac5afa8" InformativeScreenshot="56871cd2a6148cfe6269d5dc52d421e3" Selector="&lt;html app='chrome.exe' url='*demoblaze*' /&gt;&lt;webctrl tag='DIV' visibleinnertext='Month:' /&gt;&lt;webctrl tag='INPUT' /&gt;" TimeoutMS="3000" WaitForReady="COMPLETE" />
                 </ui:TypeInto.Target>
               </ui:TypeInto>
-              <ui:TypeInto AlterIfDisabled="{x:Null}" ClickBeforeTyping="{x:Null}" DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" EmptyField="{x:Null}" SendWindowMessages="{x:Null}" SimulateType="{x:Null}" Activate="True" DisplayName="Type Into - Year" sap:VirtualizedContainerService.HintSize="388,155" sap2010:WorkflowViewState.IdRef="TypeInto_6" Text="year">
+              <ui:TypeInto AlterIfDisabled="{x:Null}" ClickBeforeTyping="{x:Null}" DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" EmptyField="{x:Null}" SendWindowMessages="{x:Null}" SimulateType="{x:Null}" Activate="True" DisplayName="Type Into - Year" sap:VirtualizedContainerService.HintSize="388,155" sap2010:WorkflowViewState.IdRef="TypeInto_6" Text="[year]">
                 <ui:TypeInto.Target>
                   <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="cecfd073-2141-495f-8eac-cf7b9ac5afa8" InformativeScreenshot="56871cd2a6148cfe6269d5dc52d421e3" Selector="&lt;html app='chrome.exe' url='*demoblaze*' /&gt;&lt;webctrl tag='DIV' visibleinnertext='Year:' /&gt;&lt;webctrl tag='INPUT' /&gt;" TimeoutMS="3000" WaitForReady="COMPLETE" />
                 </ui:TypeInto.Target>
               </ui:TypeInto>
             </Sequence>
-            <ui:Click AlterIfDisabled="{x:Null}" DelayBefore="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" ClickType="CLICK_SINGLE" DisplayName="Click - Purchase" sap:VirtualizedContainerService.HintSize="450,107" sap2010:WorkflowViewState.IdRef="Click_2" KeyModifiers="None" MouseButton="BTN_LEFT" SimulateClick="True">
+            <ui:Click AlterIfDisabled="{x:Null}" DelayBefore="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" ClickType="CLICK_SINGLE" DisplayName="Click - Purchase" sap:VirtualizedContainerService.HintSize="510,107" sap2010:WorkflowViewState.IdRef="Click_2" KeyModifiers="None" MouseButton="BTN_LEFT" SimulateClick="True">
               <ui:Click.CursorPosition>
                 <ui:CursorPosition Position="Center">
                   <ui:CursorPosition.OffsetX>
@@ -217,26 +267,37 @@
                 <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="b9648ce0-93c1-496c-a559-b2574bf49116" InformativeScreenshot="63eca69d0247f077bd676fbe5f47a54f" Selector="&lt;html app='chrome.exe' url='*demoblaze*' /&gt;&lt;webctrl tag='BUTTON' visibleinnertext='Purchase' /&gt;" TimeoutMS="4000" WaitForReady="COMPLETE" />
               </ui:Click.Target>
             </ui:Click>
-            <ui:UiElementExists DisplayName="Element Exists - Confirmation label" Exists="[confirmationShows]" sap:VirtualizedContainerService.HintSize="450,107" sap2010:WorkflowViewState.IdRef="UiElementExists_2">
+            <ui:UiElementExists DisplayName="Element Exists - Confirmation label" Exists="[confirmationShows]" sap:VirtualizedContainerService.HintSize="510,107" sap2010:WorkflowViewState.IdRef="UiElementExists_2">
               <ui:UiElementExists.Target>
                 <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="517f04be-60c5-41c4-98f0-82f77e2177da" InformativeScreenshot="6b998d571ce4e6db9f833be109cbbd3c" Selector="&lt;html app='chrome.exe' url='*demoblaze*' /&gt;&lt;webctrl tag='H2' visibleinnertext='Thank you for your purchase!' /&gt;" TimeoutMS="10000" WaitForReady="COMPLETE" />
               </ui:UiElementExists.Target>
             </ui:UiElementExists>
-            <If Condition="[confirmationShows]" DisplayName="If - Confirmation on screen" sap:VirtualizedContainerService.HintSize="450,1090" sap2010:WorkflowViewState.IdRef="If_2">
+            <If Condition="[confirmationShows]" DisplayName="If - Confirmation on screen" sap:VirtualizedContainerService.HintSize="510,1212" sap2010:WorkflowViewState.IdRef="If_2">
               <If.Then>
-                <Sequence sap:VirtualizedContainerService.HintSize="376,549" sap2010:WorkflowViewState.IdRef="Sequence_6">
+                <Sequence sap:VirtualizedContainerService.HintSize="476,671" sap2010:WorkflowViewState.IdRef="Sequence_6">
+                  <Sequence.Variables>
+                    <Variable x:TypeArguments="x:String" Name="file" />
+                  </Sequence.Variables>
                   <sap:WorkflowViewStateService.ViewState>
                     <scg:Dictionary x:TypeArguments="x:String, x:Object">
                       <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                     </scg:Dictionary>
                   </sap:WorkflowViewStateService.ViewState>
-                  <ui:LogMessage DisplayName="Log Message - Order placed successfully" sap:VirtualizedContainerService.HintSize="334,141" sap2010:WorkflowViewState.IdRef="LogMessage_4" Level="[UiPath.Core.Activities.LogLevel.Info]" Message="[&quot;The order was placed successfully.&quot;]" />
-                  <ui:TakeScreenshot WaitBefore="{x:Null}" DisplayName="Take Screenshot - Confirmation " sap:VirtualizedContainerService.HintSize="334,107" sap2010:WorkflowViewState.IdRef="TakeScreenshot_1" Screenshot="[out_printscreen]">
+                  <ui:LogMessage DisplayName="Log Message - Order placed successfully" sap:VirtualizedContainerService.HintSize="434,141" sap2010:WorkflowViewState.IdRef="LogMessage_4" Level="[UiPath.Core.Activities.LogLevel.Info]" Message="[&quot;The order was placed successfully.&quot;]" />
+                  <ui:TakeScreenshot WaitBefore="{x:Null}" DisplayName="Take Screenshot - Confirmation " sap:VirtualizedContainerService.HintSize="434,107" sap2010:WorkflowViewState.IdRef="TakeScreenshot_1" Screenshot="[out_printscreen]">
                     <ui:TakeScreenshot.Target>
                       <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="910fb9bc-b65f-4514-9b27-9552a14af7f4" InformativeScreenshot="ce9361f454b6fc2ee6b6b273d19641c4" Selector="&lt;html app='chrome.exe' url='*demoblaze*' /&gt;&lt;webctrl tag='DIV' visibleinnertext='*Thank you for your purchase!*' /&gt;" TimeoutMS="5000" WaitForReady="COMPLETE" />
                     </ui:TakeScreenshot.Target>
                   </ui:TakeScreenshot>
-                  <ui:SaveImage DisplayName="Save Image - Printscreen" FileName="Confirmation.png" sap:VirtualizedContainerService.HintSize="334,133" sap2010:WorkflowViewState.IdRef="SaveImage_1" Image="[out_printscreen]" />
+                  <Assign DisplayName="Assign - Confirmation printscreen file name" sap:VirtualizedContainerService.HintSize="434,82" sap2010:WorkflowViewState.IdRef="Assign_1">
+                    <Assign.To>
+                      <OutArgument x:TypeArguments="x:String">[out_file]</OutArgument>
+                    </Assign.To>
+                    <Assign.Value>
+                      <InArgument x:TypeArguments="x:String">["Confirmation_"+DateTime.Now.ToString("yyyyMMdd_HHmmss")+".png"]</InArgument>
+                    </Assign.Value>
+                  </Assign>
+                  <ui:SaveImage DisplayName="Save Image - Printscreen" FileName="[System.IO.Path.Combine(&#xD;&#xA;    Environment.CurrentDirectory,&#xD;&#xA;    &quot;printscreens&quot;,&#xD;&#xA;   &#x9;out_file&#xD;&#xA;)]" sap:VirtualizedContainerService.HintSize="434,133" sap2010:WorkflowViewState.IdRef="SaveImage_1" Image="[out_printscreen]" />
                 </Sequence>
               </If.Then>
               <If.Else>
@@ -255,6 +316,6 @@
         </ActivityAction>
       </ui:BrowserScope.Body>
     </ui:BrowserScope>
-    <ui:LogMessage DisplayName="Log Message - Workflow ended" sap:VirtualizedContainerService.HintSize="546,141" sap2010:WorkflowViewState.IdRef="LogMessage_2" Level="[UiPath.Core.Activities.LogLevel.Info]" Message="[&quot;The order placing workflow reached the end.&quot;]" />
+    <ui:LogMessage DisplayName="Log Message - Workflow ended" sap:VirtualizedContainerService.HintSize="606,141" sap2010:WorkflowViewState.IdRef="LogMessage_2" Level="[UiPath.Core.Activities.LogLevel.Info]" Message="[&quot;The order placing workflow reached the end.&quot;]" />
   </Sequence>
 </Activity>

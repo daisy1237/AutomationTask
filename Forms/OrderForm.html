@@ -1,0 +1,77 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+        }
+
+        label {
+            display: block;
+            margin-top: 12px;
+            margin-bottom: 4px;
+        }
+
+        input {
+            width: 95%;
+            padding: 6px;
+        }
+
+        button {
+            margin-top: 20px;
+            padding: 8px 20px;
+        }
+    </style>
+
+    <script type="text/javascript">
+        function submitOrder() {
+            var name = document.getElementById("name").value;
+            var country = document.getElementById("country").value;
+            var city = document.getElementById("city").value;
+            var card = document.getElementById("card").value;
+            var month = document.getElementById("month").value;
+            var year = document.getElementById("year").value;
+
+            var result =
+                name + ";" +
+                country + ";" +
+                city + ";" +
+                card + ";" +
+                month + ";" +
+                year;
+
+            window.external.setResult(result);
+        }
+    </script>
+</head>
+
+<body>
+    <h3>Order Details</h3>
+
+    <label>Name:</label>
+    <input id="name" type="text">
+
+    <label>Country:</label>
+    <input id="country" type="text">
+
+    <label>City:</label>
+    <input id="city" type="text">
+
+    <label>Credit card:</label>
+    <input id="card" type="text">
+
+    <label>Month:</label>
+    <input id="month" type="text">
+
+    <label>Year:</label>
+    <input id="year" type="text">
+
+    <button type="button" onclick="submitOrder();">
+        Submit
+    </button>
+</body>
+</html>

@@ -85,63 +85,63 @@
       <AssemblyReference>System.Runtime.Serialization.Primitives</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="OpenBrowser " sap:VirtualizedContainerService.HintSize="568,1377" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="OpenBrowser " sap:VirtualizedContainerService.HintSize="546,1377" sap2010:WorkflowViewState.IdRef="Sequence_1">
+    <Sequence.Variables>
+      <Variable x:TypeArguments="x:String" Name="pageURL" />
+    </Sequence.Variables>
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <ui:LogMessage DisplayName="Log Message - Workflow started" sap:VirtualizedContainerService.HintSize="506,141" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="[UiPath.Core.Activities.LogLevel.Info]" Message="[&quot;The open browser workflow has started.&quot;]" />
-    <ui:OpenBrowser AutomaticallyDownloadWebDriver="{x:Null}" CommunicationMethod="{x:Null}" Hidden="{x:Null}" NewSession="{x:Null}" BrowserType="Chrome" DisplayName="Open Browser - Demoblaze" sap:VirtualizedContainerService.HintSize="506,904" sap2010:WorkflowViewState.IdRef="OpenBrowser_2" Private="True" UiBrowser="[out_browser]" Url="https://www.demoblaze.com/index.html#">
+    <ui:LogMessage DisplayName="Log Message - Workflow started" sap:VirtualizedContainerService.HintSize="484,141" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="[UiPath.Core.Activities.LogLevel.Info]" Message="[&quot;The open browser workflow has started.&quot;]" />
+    <ui:OpenBrowser AutomaticallyDownloadWebDriver="{x:Null}" CommunicationMethod="{x:Null}" Hidden="{x:Null}" NewSession="{x:Null}" BrowserType="Chrome" DisplayName="Open Browser - Demoblaze" sap:VirtualizedContainerService.HintSize="484,261" sap2010:WorkflowViewState.IdRef="OpenBrowser_2" Private="True" UiBrowser="[out_browser]" Url="https://www.demoblaze.com/index.html#">
       <ui:OpenBrowser.Body>
         <ActivityAction x:TypeArguments="x:Object">
           <ActivityAction.Argument>
             <DelegateInArgument x:TypeArguments="x:Object" Name="ContextTarget" />
           </ActivityAction.Argument>
-          <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="472,779" sap2010:WorkflowViewState.IdRef="Sequence_2">
-            <Sequence.Variables>
-              <Variable x:TypeArguments="x:String" Name="pageURL" />
-            </Sequence.Variables>
+          <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="450,136" sap2010:WorkflowViewState.IdRef="Sequence_2">
             <sap:WorkflowViewStateService.ViewState>
               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
-            <ui:MaximizeWindow Window="{x:Null}" DisplayName="Maximize Window" sap:VirtualizedContainerService.HintSize="410,25" sap2010:WorkflowViewState.IdRef="MaximizeWindow_2" />
-            <ui:GetAttribute ContinueOnError="{x:Null}" Attribute="url" DisplayName="Get Attribute - Page URL" sap:VirtualizedContainerService.HintSize="410,203" sap2010:WorkflowViewState.IdRef="GetAttribute_2">
-              <ui:GetAttribute.Result>
-                <OutArgument x:TypeArguments="x:String">[pageURL]</OutArgument>
-              </ui:GetAttribute.Result>
-              <ui:GetAttribute.Target>
-                <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="2fe5fd4d-9b68-4660-83ef-7b8cac2993bd" InformativeScreenshot="8e006da0e85b52f78ebf1c76bc13e3d8" Selector="&lt;webctrl tag='A' aaname='       PRODUCT STORE' /&gt;">
-                  <ui:Target.TimeoutMS>
-                    <InArgument x:TypeArguments="x:Int32" />
-                  </ui:Target.TimeoutMS>
-                  <ui:Target.WaitForReady>
-                    <InArgument x:TypeArguments="ui:WaitForReady" />
-                  </ui:Target.WaitForReady>
-                </ui:Target>
-              </ui:GetAttribute.Target>
-            </ui:GetAttribute>
-            <If Condition="[not pageURL.Contains(&quot;demoblaze&quot;)]" DisplayName="If - Unexpected browser state" sap:VirtualizedContainerService.HintSize="410,360" sap2010:WorkflowViewState.IdRef="If_2">
-              <If.Then>
-                <Sequence sap:VirtualizedContainerService.HintSize="376,178" sap2010:WorkflowViewState.IdRef="Sequence_6">
-                  <sap:WorkflowViewStateService.ViewState>
-                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                    </scg:Dictionary>
-                  </sap:WorkflowViewStateService.ViewState>
-                  <Throw DisplayName="Throw - Unexpected browser state" Exception="[new Exception(&quot;The browser could not open with the intended URL.&quot;)]" sap:VirtualizedContainerService.HintSize="334,90" sap2010:WorkflowViewState.IdRef="Throw_1" />
-                </Sequence>
-              </If.Then>
-              <If.Else>
-                <Sequence sap2010:WorkflowViewState.IdRef="Sequence_7" />
-              </If.Else>
-            </If>
+            <ui:MaximizeWindow Window="{x:Null}" DisplayName="Maximize Window" sap:VirtualizedContainerService.HintSize="388,25" sap2010:WorkflowViewState.IdRef="MaximizeWindow_2" />
           </Sequence>
         </ActivityAction>
       </ui:OpenBrowser.Body>
     </ui:OpenBrowser>
-    <ui:LogMessage DisplayName="Log Message - Workflow ended" sap:VirtualizedContainerService.HintSize="506,141" sap2010:WorkflowViewState.IdRef="LogMessage_2" Level="[UiPath.Core.Activities.LogLevel.Info]" Message="[&quot;The open browser workflow has reached the end.&quot;]" />
+    <ui:GetAttribute ContinueOnError="{x:Null}" Attribute="url" DisplayName="Get Attribute - Page URL" sap:VirtualizedContainerService.HintSize="484,203" sap2010:WorkflowViewState.IdRef="GetAttribute_2">
+      <ui:GetAttribute.Result>
+        <OutArgument x:TypeArguments="x:String">[pageURL]</OutArgument>
+      </ui:GetAttribute.Result>
+      <ui:GetAttribute.Target>
+        <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="2fe5fd4d-9b68-4660-83ef-7b8cac2993bd" InformativeScreenshot="be23100fe3418095401d076cba6e51e9" Selector="&lt;html app='chrome.exe' /&gt;">
+          <ui:Target.TimeoutMS>
+            <InArgument x:TypeArguments="x:Int32" />
+          </ui:Target.TimeoutMS>
+          <ui:Target.WaitForReady>
+            <InArgument x:TypeArguments="ui:WaitForReady" />
+          </ui:Target.WaitForReady>
+        </ui:Target>
+      </ui:GetAttribute.Target>
+    </ui:GetAttribute>
+    <If Condition="[not pageURL.Contains(&quot;demoblaze&quot;)]" DisplayName="If - Unexpected browser state" sap:VirtualizedContainerService.HintSize="484,360" sap2010:WorkflowViewState.IdRef="If_2">
+      <If.Then>
+        <Sequence sap:VirtualizedContainerService.HintSize="376,178" sap2010:WorkflowViewState.IdRef="Sequence_6">
+          <sap:WorkflowViewStateService.ViewState>
+            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+            </scg:Dictionary>
+          </sap:WorkflowViewStateService.ViewState>
+          <Throw DisplayName="Throw - Unexpected browser state" Exception="[new Exception(&quot;The browser could not open with the intended URL.&quot;)]" sap:VirtualizedContainerService.HintSize="334,90" sap2010:WorkflowViewState.IdRef="Throw_1" />
+        </Sequence>
+      </If.Then>
+      <If.Else>
+        <Sequence sap2010:WorkflowViewState.IdRef="Sequence_7" />
+      </If.Else>
+    </If>
+    <ui:LogMessage DisplayName="Log Message - Workflow ended" sap:VirtualizedContainerService.HintSize="484,141" sap2010:WorkflowViewState.IdRef="LogMessage_2" Level="[UiPath.Core.Activities.LogLevel.Info]" Message="[&quot;The open browser workflow has reached the end.&quot;]" />
   </Sequence>
 </Activity>

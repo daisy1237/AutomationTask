@@ -138,6 +138,7 @@
         <Sequence DisplayName="Sequence - Place order from excel" sap:VirtualizedContainerService.HintSize="450,1295" sap2010:WorkflowViewState.IdRef="Sequence_2">
           <Sequence.Variables>
             <Variable x:TypeArguments="x:String" Name="confirmationFileName" />
+            <Variable x:TypeArguments="x:String" Name="reportPath" />
           </Sequence.Variables>
           <sap:WorkflowViewStateService.ViewState>
             <scg:Dictionary x:TypeArguments="x:String, x:Object">
@@ -191,9 +192,18 @@
           </ui:InvokeWorkflowFile>
           <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="ExcelFileProcessing.xaml - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="388,113" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_16" UnSafe="False" WorkflowFileName="Utilities\ExcelFileProcessing.xaml">
             <ui:InvokeWorkflowFile.Arguments>
-              <OutArgument x:TypeArguments="x:String" x:Key="out_errors">[mailErrorsMessage]</OutArgument>
-              <InOutArgument x:TypeArguments="ui:Browser" x:Key="io_browser">[browser]</InOutArgument>
-              <OutArgument x:TypeArguments="sd:DataTable" x:Key="out_productsDataTable">[productsDataTable]</OutArgument>
+              <OutArgument x:TypeArguments="x:String" x:Key="out_errors">
+                <VisualBasicReference x:TypeArguments="x:String" ExpressionText="mailErrorsMessage" />
+              </OutArgument>
+              <InOutArgument x:TypeArguments="ui:Browser" x:Key="io_browser">
+                <VisualBasicReference x:TypeArguments="ui:Browser" ExpressionText="browser" />
+              </InOutArgument>
+              <OutArgument x:TypeArguments="sd:DataTable" x:Key="out_productsDataTable">
+                <VisualBasicReference x:TypeArguments="sd:DataTable" ExpressionText="productsDataTable" />
+              </OutArgument>
+              <OutArgument x:TypeArguments="x:String" x:Key="out_report">
+                <VisualBasicReference x:TypeArguments="x:String" ExpressionText="reportPath" />
+              </OutArgument>
             </ui:InvokeWorkflowFile.Arguments>
             <sap:WorkflowViewStateService.ViewState>
               <scg:Dictionary x:TypeArguments="x:String, x:Object">
@@ -247,6 +257,9 @@
               <InArgument x:TypeArguments="x:String" x:Key="in_pngFile">
                 <VisualBasicValue x:TypeArguments="x:String" ExpressionText="confirmationFileName" />
               </InArgument>
+              <InArgument x:TypeArguments="x:String" x:Key="in_excelReport">
+                <VisualBasicValue x:TypeArguments="x:String" ExpressionText="reportPath" />
+              </InArgument>
             </ui:InvokeWorkflowFile.Arguments>
           </ui:InvokeWorkflowFile>
         </Sequence>
@@ -283,6 +296,9 @@
                     <Literal x:TypeArguments="x:Boolean" />
                   </InArgument>
                   <InArgument x:TypeArguments="x:String" x:Key="in_pngFile">
+                    <Literal x:TypeArguments="x:String" Value="" />
+                  </InArgument>
+                  <InArgument x:TypeArguments="x:String" x:Key="in_excelReport">
                     <Literal x:TypeArguments="x:String" Value="" />
                   </InArgument>
                 </ui:InvokeWorkflowFile.Arguments>

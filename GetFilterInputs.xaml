@@ -100,7 +100,7 @@
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <ui:LogMessage DisplayName="Log Message - Workflow started" sap:VirtualizedContainerService.HintSize="662,141" sap2010:WorkflowViewState.IdRef="LogMessage_4" Level="[UiPath.Core.Activities.LogLevel.Info]" Message="[String.Format(&quot;The filter inputs workflow started.&quot;)]" />
+    <ui:LogMessage DisplayName="Log Message - Workflow started" sap:VirtualizedContainerService.HintSize="662,141" sap2010:WorkflowViewState.IdRef="LogMessage_4" Level="[UiPath.Core.Activities.LogLevel.Info]" Message="[&quot;The filter inputs workflow started.&quot;]" />
     <ui:InterruptibleWhile Condition="[not dataIsValid]" CurrentIndex="[tryIndex]" DisplayName="While - Data not valid, repeat form" sap:VirtualizedContainerService.HintSize="662,4669" sap2010:WorkflowViewState.IdRef="InterruptibleWhile_1" MaxIterations="10">
       <ui:InterruptibleWhile.Body>
         <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="628,4533" sap2010:WorkflowViewState.IdRef="Sequence_2">
@@ -231,7 +231,7 @@
                     <InArgument x:TypeArguments="x:String">[productCategory]</InArgument>
                   </Assign.Value>
                 </Assign>
-                <ui:LogMessage DisplayName="Log Message - Output arguments " sap:VirtualizedContainerService.HintSize="434,141" sap2010:WorkflowViewState.IdRef="LogMessage_6" Message="[String.Format(&quot;The output arguments are {0},{1},{2},{3}&quot;,out_category,out_brand,out_minBudget,out_maxBudget)]" />
+                <ui:LogMessage DisplayName="Log Message - Output arguments " sap:VirtualizedContainerService.HintSize="434,141" sap2010:WorkflowViewState.IdRef="LogMessage_6" Level="[UiPath.Core.Activities.LogLevel.Info]" Message="[String.Format(&quot;The output arguments are {0},{1},{2},{3}&quot;,out_category,out_brand,out_minBudget,out_maxBudget)]" />
               </Sequence>
             </If.Then>
             <If.Else>
@@ -384,6 +384,6 @@
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
     </ui:InterruptibleWhile>
-    <ui:LogMessage DisplayName="Log Message - Workflow ended" sap:VirtualizedContainerService.HintSize="662,141" sap2010:WorkflowViewState.IdRef="LogMessage_5" Level="[UiPath.Core.Activities.LogLevel.Info]" Message="[String.Format(&quot;The filter inputs workflow has reached the end.&quot;)]" />
+    <ui:LogMessage DisplayName="Log Message - Workflow ended" sap:VirtualizedContainerService.HintSize="662,141" sap2010:WorkflowViewState.IdRef="LogMessage_5" Level="[UiPath.Core.Activities.LogLevel.Info]" Message="[&quot;The filter inputs workflow has reached the end.&quot;]" />
   </Sequence>
 </Activity>

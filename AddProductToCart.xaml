@@ -10,7 +10,7 @@
   <VisualBasic.Settings>
     <x:Null />
   </VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>1254,4780</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>1254,6435</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>AddProductToCart_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <sco:Collection x:TypeArguments="x:String">
@@ -93,20 +93,20 @@
       <AssemblyReference>UiPath.UIAutomationNext</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="AddProductToCart" sap:VirtualizedContainerService.HintSize="730,4715" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="AddProductToCart" sap:VirtualizedContainerService.HintSize="730,6370" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
     <ui:LogMessage DisplayName="Log Message - workflow started" sap:VirtualizedContainerService.HintSize="668,141" sap2010:WorkflowViewState.IdRef="LogMessage_3" Level="[UiPath.Core.Activities.LogLevel.Info]" Message="[String.Format(&quot;The AddProductToCart workflow started with {0}, {1}, {2} input arguments.&quot;,in_productName,in_productPrice,in_productDescription)]" />
-    <ui:BrowserScope SearchScope="{x:Null}" Selector="{x:Null}" TimeoutMS="{x:Null}" Browser="[io_browser]" BrowserType="Chrome" DisplayName="Attach Browser - Opened demoblaze website" sap:VirtualizedContainerService.HintSize="668,4242" sap2010:WorkflowViewState.IdRef="BrowserScope_1" UiBrowser="[io_browser]">
+    <ui:BrowserScope SearchScope="{x:Null}" Selector="{x:Null}" TimeoutMS="{x:Null}" Browser="[io_browser]" BrowserType="Chrome" DisplayName="Attach Browser - Opened demoblaze website" sap:VirtualizedContainerService.HintSize="668,5897" sap2010:WorkflowViewState.IdRef="BrowserScope_1" UiBrowser="[io_browser]">
       <ui:BrowserScope.Body>
         <ActivityAction x:TypeArguments="x:Object">
           <ActivityAction.Argument>
             <DelegateInArgument x:TypeArguments="x:Object" Name="ContextTarget" />
           </ActivityAction.Argument>
-          <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="634,4133" sap2010:WorkflowViewState.IdRef="Sequence_2">
+          <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="634,5788" sap2010:WorkflowViewState.IdRef="Sequence_2">
             <Sequence.Variables>
               <Variable x:TypeArguments="x:Boolean" Name="pageIsLoaded" />
             </Sequence.Variables>
@@ -115,17 +115,17 @@
                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
-            <Sequence DisplayName="Verify input arguments " sap:VirtualizedContainerService.HintSize="572,163" sap2010:WorkflowViewState.IdRef="Sequence_3">
+            <Sequence DisplayName="Verify input arguments " sap:VirtualizedContainerService.HintSize="572,893" sap2010:WorkflowViewState.IdRef="Sequence_3">
               <sap:WorkflowViewStateService.ViewState>
                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
                   <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                   <x:Boolean x:Key="IsPinned">False</x:Boolean>
                 </scg:Dictionary>
               </sap:WorkflowViewStateService.ViewState>
-              <If Condition="[String.IsNullOrEmpty(in_productName) or String.IsNullOrEmpty(in_productDescription) or in_productPrice.Equals(0)]" DisplayName="If - Arguments are empty " sap:VirtualizedContainerService.HintSize="388,52" sap2010:WorkflowViewState.IdRef="If_1">
+              <If Condition="[String.IsNullOrEmpty(in_productName) or String.IsNullOrEmpty(in_productDescription) or in_productPrice.Equals(0)]" DisplayName="If - Arguments are empty " sap:VirtualizedContainerService.HintSize="410,782" sap2010:WorkflowViewState.IdRef="If_1">
                 <sap:WorkflowViewStateService.ViewState>
                   <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                    <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                     <x:Boolean x:Key="IsPinned">False</x:Boolean>
                   </scg:Dictionary>
                 </sap:WorkflowViewStateService.ViewState>
@@ -136,7 +136,7 @@
                         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                       </scg:Dictionary>
                     </sap:WorkflowViewStateService.ViewState>
-                    <ui:LogMessage DisplayName="Log Message - No product to add" sap:VirtualizedContainerService.HintSize="334,141" sap2010:WorkflowViewState.IdRef="LogMessage_2" Level="[UiPath.Core.Activities.LogLevel.Info]" Message="[String.Format(&quot;There is no product identified to add to cart.&quot;)]" />
+                    <ui:LogMessage DisplayName="Log Message - No product to add" sap:VirtualizedContainerService.HintSize="334,141" sap2010:WorkflowViewState.IdRef="LogMessage_2" Level="[UiPath.Core.Activities.LogLevel.Info]" Message="[&quot;There is no product identified to add to cart.&quot;]" />
                     <ui:MessageBox Caption="{x:Null}" ChosenButton="{x:Null}" AutoCloseAfter="00:00:00" DisplayName="Message Box - No product" sap:VirtualizedContainerService.HintSize="334,85" sap2010:WorkflowViewState.IdRef="MessageBox_1" Text="[&quot;No product was found to match the filter. None was added to the cart.&quot;]" />
                     <ui:LogMessage DisplayName="Log Message - Workflow ended for no product case " sap:VirtualizedContainerService.HintSize="334,141" sap2010:WorkflowViewState.IdRef="LogMessage_4" Level="[UiPath.Core.Activities.LogLevel.Info]" Message="[&quot;The AddProductToCart workslow ended.&quot;]" />
                     <ui:Return sap:VirtualizedContainerService.HintSize="334,25" sap2010:WorkflowViewState.IdRef="Return_1" />
@@ -153,7 +153,7 @@
                 </If.Else>
               </If>
             </Sequence>
-            <Sequence DisplayName="Navigate to category and find the product " sap:VirtualizedContainerService.HintSize="572,2274" sap2010:WorkflowViewState.IdRef="Sequence_8">
+            <Sequence DisplayName="Navigate to category and find the product " sap:VirtualizedContainerService.HintSize="572,2811" sap2010:WorkflowViewState.IdRef="Sequence_8">
               <Sequence.Variables>
                 <Variable x:TypeArguments="x:Boolean" Name="productIsOnPage" />
                 <Variable x:TypeArguments="x:String" Name="formattedCategory" />
@@ -204,10 +204,10 @@
                   </scg:Dictionary>
                 </sap:WorkflowViewStateService.ViewState>
               </ui:UiElementExists>
-              <If Condition="[pageIsLoaded]" DisplayName="If - Page is loaded" sap:VirtualizedContainerService.HintSize="486,52" sap2010:WorkflowViewState.IdRef="If_2">
+              <If Condition="[pageIsLoaded]" DisplayName="If - Page is loaded" sap:VirtualizedContainerService.HintSize="486,589" sap2010:WorkflowViewState.IdRef="If_2">
                 <sap:WorkflowViewStateService.ViewState>
                   <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                    <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                     <x:Boolean x:Key="IsPinned">False</x:Boolean>
                   </scg:Dictionary>
                 </sap:WorkflowViewStateService.ViewState>
@@ -285,7 +285,7 @@
                               <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                             </scg:Dictionary>
                           </sap:WorkflowViewStateService.ViewState>
-                          <ui:LogMessage DisplayName="Log Message - Page has loaded" sap:VirtualizedContainerService.HintSize="334,141" sap2010:WorkflowViewState.IdRef="LogMessage_6" Level="[UiPath.Core.Activities.LogLevel.Info]" Message="[String.Format(&quot;The next page has loaded.&quot;)]" />
+                          <ui:LogMessage DisplayName="Log Message - Page has loaded" sap:VirtualizedContainerService.HintSize="334,141" sap2010:WorkflowViewState.IdRef="LogMessage_6" Level="[UiPath.Core.Activities.LogLevel.Info]" Message="[&quot;The next page has loaded.&quot;]" />
                         </Sequence>
                       </If.Then>
                       <If.Else>
@@ -295,7 +295,7 @@
                               <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                             </scg:Dictionary>
                           </sap:WorkflowViewStateService.ViewState>
-                          <Throw DisplayName="Throw - Page not loaded error" Exception="[New Exception(String.Format(&quot;The next page did not load within the expected time.&quot;))]" sap:VirtualizedContainerService.HintSize="334,90" sap2010:WorkflowViewState.IdRef="Throw_3" />
+                          <Throw DisplayName="Throw - Page not loaded error" Exception="[New Exception(&quot;The next page did not load within the expected time.&quot;)]" sap:VirtualizedContainerService.HintSize="334,90" sap2010:WorkflowViewState.IdRef="Throw_3" />
                         </Sequence>
                       </If.Else>
                     </If>
@@ -314,7 +314,7 @@
                 </sap:WorkflowViewStateService.ViewState>
               </ui:InterruptibleWhile>
             </Sequence>
-            <Sequence DisplayName="Add product to cart" sap:VirtualizedContainerService.HintSize="572,1505" sap2010:WorkflowViewState.IdRef="Sequence_15">
+            <Sequence DisplayName="Add product to cart" sap:VirtualizedContainerService.HintSize="572,1893" sap2010:WorkflowViewState.IdRef="Sequence_15">
               <sap:WorkflowViewStateService.ViewState>
                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
                   <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -342,10 +342,10 @@
                   <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="a3bafa27-6f04-4280-9a9b-fe319165dd8e" InformativeScreenshot="202864440df7b92caec169bf327d5ec3" Selector="&lt;html app='chrome.exe' url='*demoblaze*' /&gt;&lt;webctrl tag='A' innertext='Add to cart' /&gt;" TimeoutMS="10000" WaitForReady="COMPLETE" />
                 </ui:UiElementExists.Target>
               </ui:UiElementExists>
-              <If Condition="[not pageIsLoaded]" DisplayName="If - Page not loaded" sap:VirtualizedContainerService.HintSize="510,52" sap2010:WorkflowViewState.IdRef="If_5">
+              <If Condition="[not pageIsLoaded]" DisplayName="If - Page not loaded" sap:VirtualizedContainerService.HintSize="510,440" sap2010:WorkflowViewState.IdRef="If_5">
                 <sap:WorkflowViewStateService.ViewState>
                   <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                    <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                     <x:Boolean x:Key="IsPinned">False</x:Boolean>
                   </scg:Dictionary>
                 </sap:WorkflowViewStateService.ViewState>
@@ -356,7 +356,7 @@
                         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                       </scg:Dictionary>
                     </sap:WorkflowViewStateService.ViewState>
-                    <Throw DisplayName="Throw - Page not loaded in time" Exception="[New Exception(String.Format(&quot;The product page did not load within the expected time.&quot;))]" sap:VirtualizedContainerService.HintSize="334,90" sap2010:WorkflowViewState.IdRef="Throw_4" />
+                    <Throw DisplayName="Throw - Page not loaded in time" Exception="[New Exception(&quot;The product page did not load within the expected time.&quot;)]" sap:VirtualizedContainerService.HintSize="334,90" sap2010:WorkflowViewState.IdRef="Throw_4" />
                   </Sequence>
                 </If.Then>
                 <If.Else>

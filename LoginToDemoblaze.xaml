@@ -230,7 +230,7 @@
                             <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                           </scg:Dictionary>
                         </sap:WorkflowViewStateService.ViewState>
-                        <ui:LogMessage DisplayName="Log Message - Unknown user logged" sap:VirtualizedContainerService.HintSize="334,141" sap2010:WorkflowViewState.IdRef="LogMessage_27" Level="[UiPath.Core.Activities.LogLevel.Info]" Message="[string.Format(&quot;A foreign user is logged in. It will be logged out. &quot;)]" />
+                        <ui:LogMessage DisplayName="Log Message - Unknown user logged" sap:VirtualizedContainerService.HintSize="334,141" sap2010:WorkflowViewState.IdRef="LogMessage_27" Level="[UiPath.Core.Activities.LogLevel.Info]" Message="[&quot;A foreign user is logged in. It will be logged out. &quot;]" />
                         <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="LogoutSteps.xaml - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="334,113" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_3" UnSafe="False" WorkflowFileName="LogoutSteps.xaml">
                           <ui:InvokeWorkflowFile.Arguments>
                             <InOutArgument x:TypeArguments="ui:Browser" x:Key="io_browser">[io_browser]</InOutArgument>
@@ -271,6 +271,6 @@
         </ActivityAction>
       </ui:BrowserScope.Body>
     </ui:BrowserScope>
-    <ui:LogMessage DisplayName="Log Message - Login workflow ended" sap:VirtualizedContainerService.HintSize="1035,141" sap2010:WorkflowViewState.IdRef="LogMessage_23" Level="[UiPath.Core.Activities.LogLevel.Info]" Message="[&quot;Login workflow has reached the end.&quot;]" />
+    <ui:LogMessage DisplayName="Log Message - Login workflow ended" sap:VirtualizedContainerService.HintSize="1832,141" sap2010:WorkflowViewState.IdRef="LogMessage_23" Level="[UiPath.Core.Activities.LogLevel.Info]" Message="[&quot;Login workflow has reached the end.&quot;]" />
   </Sequence>
 </Activity>

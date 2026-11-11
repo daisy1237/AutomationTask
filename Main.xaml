@@ -279,7 +279,7 @@
               <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="EmailAutomation.xaml - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="388,113" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_20" UnSafe="False" WorkflowFileName="Utilities\EmailAutomation.xaml">
                 <ui:InvokeWorkflowFile.Arguments>
                   <InArgument x:TypeArguments="x:String" x:Key="in_errors">
-                    <VisualBasicValue x:TypeArguments="x:String" ExpressionText="exception.ToString" />
+                    <VisualBasicValue x:TypeArguments="x:String" ExpressionText="errorMessage" />
                   </InArgument>
                   <InArgument x:TypeArguments="x:String" x:Key="in_recipientEmail">
                     <Literal x:TypeArguments="x:String">alexandrachsm@gmail.com</Literal>

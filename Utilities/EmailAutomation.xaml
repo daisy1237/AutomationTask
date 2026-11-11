@@ -214,7 +214,7 @@ Environment.NewLine &amp; Environment.NewLine &amp;
 in_errors]</InArgument>
             </Assign.Value>
           </Assign>
-          <If Condition="[in_pngFile is &quot;&quot;]" DisplayName="If - Printscreen was not taken the previous step" sap:VirtualizedContainerService.HintSize="434,742" sap2010:WorkflowViewState.IdRef="If_5">
+          <If Condition="[string.IsNullOrWhiteSpace(in_pngFile)]" DisplayName="If - Printscreen was not taken the previous step" sap:VirtualizedContainerService.HintSize="434,742" sap2010:WorkflowViewState.IdRef="If_5">
             <If.Then>
               <Sequence sap:VirtualizedContainerService.HintSize="376,234" sap2010:WorkflowViewState.IdRef="Sequence_10">
                 <sap:WorkflowViewStateService.ViewState>

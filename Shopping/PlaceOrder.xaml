@@ -121,27 +121,15 @@
     <ui:LogMessage DisplayName="Log Message - Workflow Started" sap:VirtualizedContainerService.HintSize="606,141" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="[UiPath.Core.Activities.LogLevel.Info]" Message="[&quot;The order placing workflow started.&quot;]" />
     <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="GetOrderInputs.xaml - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="606,113" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_1" UnSafe="False" WorkflowFileName="Forms\GetOrderInputs.xaml">
       <ui:InvokeWorkflowFile.Arguments>
-        <OutArgument x:TypeArguments="x:String" x:Key="out_name">
-          <VisualBasicReference x:TypeArguments="x:String" ExpressionText="name" />
-        </OutArgument>
-        <OutArgument x:TypeArguments="x:String" x:Key="out_city">
-          <VisualBasicReference x:TypeArguments="x:String" ExpressionText="city" />
-        </OutArgument>
-        <OutArgument x:TypeArguments="x:String" x:Key="out_country">
-          <VisualBasicReference x:TypeArguments="x:String" ExpressionText="country" />
-        </OutArgument>
-        <OutArgument x:TypeArguments="x:String" x:Key="out_card">
-          <VisualBasicReference x:TypeArguments="x:String" ExpressionText="card" />
-        </OutArgument>
-        <OutArgument x:TypeArguments="x:String" x:Key="out_month">
-          <VisualBasicReference x:TypeArguments="x:String" ExpressionText="month" />
-        </OutArgument>
-        <OutArgument x:TypeArguments="x:String" x:Key="out_year">
-          <VisualBasicReference x:TypeArguments="x:String" ExpressionText="year" />
-        </OutArgument>
+        <OutArgument x:TypeArguments="x:String" x:Key="out_name">[name]</OutArgument>
+        <OutArgument x:TypeArguments="x:String" x:Key="out_city">[city]</OutArgument>
+        <OutArgument x:TypeArguments="x:String" x:Key="out_country">[country]</OutArgument>
+        <OutArgument x:TypeArguments="x:String" x:Key="out_card">[card]</OutArgument>
+        <OutArgument x:TypeArguments="x:String" x:Key="out_month">[month]</OutArgument>
+        <OutArgument x:TypeArguments="x:String" x:Key="out_year">[year]</OutArgument>
       </ui:InvokeWorkflowFile.Arguments>
     </ui:InvokeWorkflowFile>
-    <If Condition="[String.IsNullOrWhiteSpace(name) OrElse&#xD;&#xA; String.IsNullOrWhiteSpace(city) OrElse&#xD;&#xA; String.IsNullOrWhiteSpace(country) OrElse&#xD;&#xA; String.IsNullOrWhiteSpace(card) OrElse&#xD;&#xA; String.IsNullOrWhiteSpace(month) OrElse&#xD;&#xA; String.IsNullOrWhiteSpace(year)]" DisplayName="If - Invalid data" sap:VirtualizedContainerService.HintSize="606,360" sap2010:WorkflowViewState.IdRef="If_3">
+    <If Condition="[String.IsNullOrWhiteSpace(name) OrElse&#xA; String.IsNullOrWhiteSpace(city) OrElse&#xA; String.IsNullOrWhiteSpace(country) OrElse&#xA; String.IsNullOrWhiteSpace(card) OrElse&#xA; String.IsNullOrWhiteSpace(month) OrElse&#xA; String.IsNullOrWhiteSpace(year)]" DisplayName="If - Invalid data" sap:VirtualizedContainerService.HintSize="606,360" sap2010:WorkflowViewState.IdRef="If_3">
       <If.Then>
         <Sequence sap:VirtualizedContainerService.HintSize="376,178" sap2010:WorkflowViewState.IdRef="Sequence_8">
           <sap:WorkflowViewStateService.ViewState>
@@ -149,7 +137,7 @@
               <x:Boolean x:Key="IsExpanded">True</x:Boolean>
             </scg:Dictionary>
           </sap:WorkflowViewStateService.ViewState>
-          <Throw DisplayName="Throw - Invalid data exception" Exception="[new exception(&quot;Order details data is not valid.&quot;)]" sap:VirtualizedContainerService.HintSize="334,90" sap2010:WorkflowViewState.IdRef="Throw_3" />
+          <Throw DisplayName="Throw - Invalid data exception" Exception="[new BusinessRuleException(&quot;Order details data is not valid.&quot;)]" sap:VirtualizedContainerService.HintSize="334,90" sap2010:WorkflowViewState.IdRef="Throw_3" />
         </Sequence>
       </If.Then>
       <If.Else>
@@ -192,7 +180,7 @@
                     </scg:Dictionary>
                   </sap:WorkflowViewStateService.ViewState>
                   <ui:LogMessage DisplayName="Log Message - Not the expected page" sap:VirtualizedContainerService.HintSize="334,141" sap2010:WorkflowViewState.IdRef="LogMessage_3" Level="[UiPath.Core.Activities.LogLevel.Error]" Message="[&quot;Browser not opened on the expected page. Cannot place the order.&quot;]" />
-                  <Throw DisplayName="Throw - Not the expected page" Exception="[new exception(&quot;Browser not opened on the expected page. Cannot place the order.&quot;)]" sap:VirtualizedContainerService.HintSize="334,90" sap2010:WorkflowViewState.IdRef="Throw_1" />
+                  <Throw DisplayName="Throw - Not the expected page" Exception="[new SystemException(&quot;Browser not opened on the expected page. Cannot place the order.&quot;)]" sap:VirtualizedContainerService.HintSize="334,90" sap2010:WorkflowViewState.IdRef="Throw_1" />
                 </Sequence>
               </If.Then>
               <If.Else>
@@ -297,7 +285,7 @@
                       <InArgument x:TypeArguments="x:String">["Confirmation_"+DateTime.Now.ToString("yyyyMMdd_HHmmss")+".png"]</InArgument>
                     </Assign.Value>
                   </Assign>
-                  <ui:SaveImage DisplayName="Save Image - Printscreen" FileName="[System.IO.Path.Combine(&#xD;&#xA;    Environment.CurrentDirectory,&#xD;&#xA;    &quot;printscreens&quot;,&#xD;&#xA;   &#x9;out_file&#xD;&#xA;)]" sap:VirtualizedContainerService.HintSize="434,133" sap2010:WorkflowViewState.IdRef="SaveImage_1" Image="[out_printscreen]" />
+                  <ui:SaveImage DisplayName="Save Image - Printscreen" FileName="[System.IO.Path.Combine(&#xD;&#xA;    Environment.CurrentDirectory,&#xD;&#xA;    &quot;printscreens&quot;,&quot;confirmations&quot;,&#xD;&#xA;   &#x9;out_file&#xD;&#xA;)]" sap:VirtualizedContainerService.HintSize="434,133" sap2010:WorkflowViewState.IdRef="SaveImage_1" Image="[out_printscreen]" />
                 </Sequence>
               </If.Then>
               <If.Else>
@@ -308,7 +296,7 @@
                     </scg:Dictionary>
                   </sap:WorkflowViewStateService.ViewState>
                   <ui:LogMessage DisplayName="Log Message - Order not placed" sap:VirtualizedContainerService.HintSize="334,141" sap2010:WorkflowViewState.IdRef="LogMessage_5" Level="[UiPath.Core.Activities.LogLevel.Error]" Message="[&quot;Something went wrong. The order could not be placed.&quot;]" />
-                  <Throw DisplayName="Throw - Order not placed" Exception="[new exception(&quot;Something went wrong. The order could not be placed.&quot;)]" sap:VirtualizedContainerService.HintSize="334,90" sap2010:WorkflowViewState.IdRef="Throw_2" />
+                  <Throw DisplayName="Throw - Order not placed" Exception="[new SystemException(&quot;Something went wrong. The order could not be placed.&quot;)]" sap:VirtualizedContainerService.HintSize="334,90" sap2010:WorkflowViewState.IdRef="Throw_2" />
                 </Sequence>
               </If.Else>
             </If>

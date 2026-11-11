@@ -91,11 +91,7 @@
   <Sequence DisplayName="GetOrderInputs" sap:VirtualizedContainerService.HintSize="740,4628" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="x:Int32" Name="currentTry" />
-      <Variable x:TypeArguments="x:Boolean" Name="dataIsValid">
-        <Variable.Default>
-          <Literal x:TypeArguments="x:Boolean" />
-        </Variable.Default>
-      </Variable>
+      <Variable x:TypeArguments="x:Boolean" Default="False" Name="dataIsValid" />
     </Sequence.Variables>
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
@@ -171,7 +167,7 @@
         </Assign.Value>
       </Assign>
     </Sequence>
-    <ui:InterruptibleWhile CurrentIndex="[currentTry]" DisplayName="While - Data not valid" sap:VirtualizedContainerService.HintSize="678,3312" sap2010:WorkflowViewState.IdRef="InterruptibleWhile_1" MaxIterations="10">
+    <ui:InterruptibleWhile Condition="[not dataIsValid]" CurrentIndex="[currentTry]" DisplayName="While - Data not valid" sap:VirtualizedContainerService.HintSize="678,3312" sap2010:WorkflowViewState.IdRef="InterruptibleWhile_1" MaxIterations="10">
       <ui:InterruptibleWhile.Body>
         <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="644,3176" sap2010:WorkflowViewState.IdRef="Sequence_2">
           <Sequence.Variables>
@@ -265,7 +261,7 @@
 Integer.TryParse(out_year, New Integer)]</InArgument>
             </Assign.Value>
           </Assign>
-          <If Condition="[orderData.Length = 6 AndAlso&#xD;&#xA;Not String.IsNullOrWhiteSpace(out_name) AndAlso&#xD;&#xA;Not String.IsNullOrWhiteSpace(out_country) AndAlso&#xD;&#xA;Not String.IsNullOrWhiteSpace(out_city) AndAlso&#xD;&#xA;Not String.IsNullOrWhiteSpace(out_card) AndAlso&#xD;&#xA;isDateValid AndAlso&#xD;&#xA;If(isDateValid, CInt(out_month) &gt;= 1 AndAlso CInt(out_month) &lt;= 12 AndAlso out_year.Length = 4, False)]" DisplayName="If - Data is valid" sap:VirtualizedContainerService.HintSize="602,1533" sap2010:WorkflowViewState.IdRef="If_1">
+          <If Condition="[orderData.Length = 6 AndAlso&#xA;Not String.IsNullOrWhiteSpace(out_name) AndAlso&#xA;Not String.IsNullOrWhiteSpace(out_country) AndAlso&#xA;Not String.IsNullOrWhiteSpace(out_city) AndAlso&#xA;Not String.IsNullOrWhiteSpace(out_card) AndAlso&#xA;isDateValid AndAlso&#xA;If(isDateValid, CInt(out_month) &gt;= 1 AndAlso CInt(out_month) &lt;= 12 AndAlso out_year.Length = 4, False)]" DisplayName="If - Data is valid" sap:VirtualizedContainerService.HintSize="602,1533" sap2010:WorkflowViewState.IdRef="If_1">
             <sap:WorkflowViewStateService.ViewState>
               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -382,7 +378,7 @@ Integer.TryParse(out_year, New Integer)]</InArgument>
                         </Assign>
                       </Sequence>
                       <ui:MessageBox Caption="{x:Null}" ChosenButton="{x:Null}" AutoCloseAfter="00:00:00" DisplayName="Message Box - No tries remaining" sap:VirtualizedContainerService.HintSize="450,85" sap2010:WorkflowViewState.IdRef="MessageBox_2" Text="[&quot;You used up the number of tries. Sorry :[&quot;]" />
-                      <Throw DisplayName="Throw - No input tries remining error" Exception="[new Exception(&quot;The number of tries for completing the order details form has been used up.&quot;)]" sap:VirtualizedContainerService.HintSize="450,90" sap2010:WorkflowViewState.IdRef="Throw_1" />
+                      <Throw DisplayName="Throw - No input tries remining error" Exception="[new BusinessRuleException(&quot;The number of tries for completing the order details form has been used up.&quot;)]" sap:VirtualizedContainerService.HintSize="450,90" sap2010:WorkflowViewState.IdRef="Throw_1" />
                     </Sequence>
                   </If.Then>
                   <If.Else>
@@ -394,9 +390,6 @@ Integer.TryParse(out_year, New Integer)]</InArgument>
           </If>
         </Sequence>
       </ui:InterruptibleWhile.Body>
-      <ui:InterruptibleWhile.Condition>
-        <VisualBasicValue x:TypeArguments="x:Boolean" ExpressionText="not dataIsValid" />
-      </ui:InterruptibleWhile.Condition>
     </ui:InterruptibleWhile>
     <ui:LogMessage DisplayName="Log Message - Workflow ended" sap:VirtualizedContainerService.HintSize="678,141" sap2010:WorkflowViewState.IdRef="LogMessage_2" Level="[UiPath.Core.Activities.LogLevel.Info]" Message="[&quot;The order form workflow has reached the end.&quot;]" />
   </Sequence>

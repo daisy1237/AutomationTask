@@ -307,7 +307,7 @@
                             <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                           </scg:Dictionary>
                         </sap:WorkflowViewStateService.ViewState>
-                        <Throw DisplayName="Throw - Page can't reload" Exception="[new exception(&quot;The cart page can not reload at the moment.&quot;)]" sap:VirtualizedContainerService.HintSize="334,90" sap2010:WorkflowViewState.IdRef="Throw_3" />
+                        <Throw DisplayName="Throw - Page can't reload" Exception="[new SystemException(&quot;The cart page can not reload at the moment.&quot;)]" sap:VirtualizedContainerService.HintSize="334,90" sap2010:WorkflowViewState.IdRef="Throw_3" />
                       </Sequence>
                     </If.Then>
                     <If.Else>
@@ -329,7 +329,7 @@
                   </scg:Dictionary>
                 </sap:WorkflowViewStateService.ViewState>
                 <Delay DisplayName="Delay - Empty cart time" Duration="00:05:00" sap:VirtualizedContainerService.HintSize="388,90" sap2010:WorkflowViewState.IdRef="Delay_2" />
-                <Throw DisplayName="Throw - Time ran out" Exception="[new Exception(&quot;There has been an error while attempting to empty the cart.&quot;)]" sap:VirtualizedContainerService.HintSize="388,90" sap2010:WorkflowViewState.IdRef="Throw_2" />
+                <Throw DisplayName="Throw - Time ran out" Exception="[new SystemException(&quot;There has been an error while attempting to empty the cart.&quot;)]" sap:VirtualizedContainerService.HintSize="388,90" sap2010:WorkflowViewState.IdRef="Throw_2" />
               </Sequence>
             </Parallel>
             <ui:LogMessage DisplayName="Log Message - Shopping cart empty" sap:VirtualizedContainerService.HintSize="1376,141" sap2010:WorkflowViewState.IdRef="LogMessage_11" Level="[UiPath.Core.Activities.LogLevel.Info]" Message="[&quot; Shopping cart is now empty.&quot;]" />

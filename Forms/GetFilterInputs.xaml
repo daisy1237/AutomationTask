@@ -355,7 +355,7 @@
                         </scg:Dictionary>
                       </sap:WorkflowViewStateService.ViewState>
                       <ui:MessageBox Caption="{x:Null}" ChosenButton="{x:Null}" AutoCloseAfter="00:00:00" DisplayName="Message Box - No tries remaining" sap:VirtualizedContainerService.HintSize="334,85" sap2010:WorkflowViewState.IdRef="MessageBox_2" Text="[&quot;You used up the number of tries. Sorry :[&quot;]" />
-                      <Throw DisplayName="Throw - No input tries remining error" Exception="[new Exception(&quot;The number of tries for completing the filters form has been used up.&quot;)]" sap:VirtualizedContainerService.HintSize="334,90" sap2010:WorkflowViewState.IdRef="Throw_1" />
+                      <Throw DisplayName="Throw - No input tries remining error" Exception="[new BusinessRuleException(&quot;The number of tries for completing the filters form has been used up.&quot;)]" sap:VirtualizedContainerService.HintSize="334,90" sap2010:WorkflowViewState.IdRef="Throw_1" />
                     </Sequence>
                   </If.Then>
                   <If.Else>

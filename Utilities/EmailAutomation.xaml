@@ -9,7 +9,7 @@
   <VisualBasic.Settings>
     <x:Null />
   </VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>1254,2364</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>1254,2960</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>EmailAutomation_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <sco:Collection x:TypeArguments="x:String">
@@ -107,7 +107,7 @@
       <AssemblyReference>CredentialManagement</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="EmailAutomation" sap:VirtualizedContainerService.HintSize="572,2299" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="EmailAutomation" sap:VirtualizedContainerService.HintSize="572,2895" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="x:String" Name="mailBody" />
       <Variable x:TypeArguments="ss:SecureString" Name="smtpPassword" />
@@ -120,7 +120,7 @@
     </sap:WorkflowViewStateService.ViewState>
     <ui:LogMessage DisplayName="Log Message - Workflow started" sap:VirtualizedContainerService.HintSize="510,141" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="[UiPath.Core.Activities.LogLevel.Info]" Message="[&quot;The mail automation workflow started.&quot;]" />
     <p:GetSecureCredential CredentialType="Generic" DisplayName="Get Secure Credentials" sap:VirtualizedContainerService.HintSize="510,90" sap2010:WorkflowViewState.IdRef="GetSecureCredential_1" Password="[smtpPassword]" PersistanceType="Enterprise" Target="demoblazesmtp" Username="[smtpUsername]" />
-    <If Condition="[in_successMail = True]" DisplayName="If - Successful order confirmation mail" sap:VirtualizedContainerService.HintSize="510,1696" sap2010:WorkflowViewState.IdRef="If_2">
+    <If Condition="[in_successMail = True]" DisplayName="If - Successful order confirmation mail" sap:VirtualizedContainerService.HintSize="510,2292" sap2010:WorkflowViewState.IdRef="If_2">
       <If.Then>
         <Sequence sap:VirtualizedContainerService.HintSize="476,1157" sap2010:WorkflowViewState.IdRef="Sequence_4">
           <sap:WorkflowViewStateService.ViewState>
@@ -141,7 +141,7 @@ Environment.NewLine &amp; Environment.NewLine &amp;
 "Please find the order confirmation screenshot attached." &amp; Environment.NewLine &amp; Environment.NewLine]</InArgument>
             </Assign.Value>
           </Assign>
-          <If Condition="[Not System.IO.File.Exists(&quot;printscreens\&quot;+in_pngFile)]" DisplayName="If - Printscreen not found" sap:VirtualizedContainerService.HintSize="434,360" sap2010:WorkflowViewState.IdRef="If_1">
+          <If Condition="[Not System.IO.File.Exists(&quot;printscreens\confirmations\&quot;+in_pngFile)]" DisplayName="If - Printscreen not found" sap:VirtualizedContainerService.HintSize="434,360" sap2010:WorkflowViewState.IdRef="If_1">
             <sap:WorkflowViewStateService.ViewState>
               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -155,14 +155,14 @@ Environment.NewLine &amp; Environment.NewLine &amp;
                     <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                   </scg:Dictionary>
                 </sap:WorkflowViewStateService.ViewState>
-                <Throw DisplayName="Throw - Confirmation printscreen not found" Exception="[New System.Exception(&quot;Order confirmation screenshot was not found!&quot;)]" sap:VirtualizedContainerService.HintSize="334,90" sap2010:WorkflowViewState.IdRef="Throw_1" />
+                <Throw DisplayName="Throw - Confirmation printscreen not found" Exception="[New SystemException(&quot;Order confirmation screenshot was not found!&quot;)]" sap:VirtualizedContainerService.HintSize="334,90" sap2010:WorkflowViewState.IdRef="Throw_1" />
               </Sequence>
             </If.Then>
             <If.Else>
               <Sequence sap2010:WorkflowViewState.IdRef="Sequence_3" />
             </If.Else>
           </If>
-          <If Condition="[Not System.IO.File.Exists(in_excelReport)]" DisplayName="If - Printscreen not found" sap:VirtualizedContainerService.HintSize="434,360" sap2010:WorkflowViewState.IdRef="If_3">
+          <If Condition="[Not System.IO.File.Exists(in_excelReport)]" DisplayName="If - Report not found" sap:VirtualizedContainerService.HintSize="434,360" sap2010:WorkflowViewState.IdRef="If_3">
             <sap:WorkflowViewStateService.ViewState>
               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -176,14 +176,14 @@ Environment.NewLine &amp; Environment.NewLine &amp;
                     <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                   </scg:Dictionary>
                 </sap:WorkflowViewStateService.ViewState>
-                <Throw DisplayName="Throw - Confirmation printscreen not found" Exception="[New System.Exception(&quot;Order excel report was not found!&quot;)]" sap:VirtualizedContainerService.HintSize="334,90" sap2010:WorkflowViewState.IdRef="Throw_2" />
+                <Throw DisplayName="Throw - Excel report not found" Exception="[New SystemException(&quot;Order excel report was not found!&quot;)]" sap:VirtualizedContainerService.HintSize="334,90" sap2010:WorkflowViewState.IdRef="Throw_2" />
               </Sequence>
             </If.Then>
             <If.Else>
               <Sequence sap2010:WorkflowViewState.IdRef="Sequence_7" />
             </If.Else>
           </If>
-          <ui:SendMail Bcc="{x:Null}" Cc="{x:Null}" ContinueOnError="{x:Null}" MailMessage="{x:Null}" Name="{x:Null}" Password="{x:Null}" ReplyTo="{x:Null}" Result="{x:Null}" TimeoutMS="{x:Null}" UseOAuth="{x:Null}" AttachmentsCollection="[{&quot;printscreens\&quot;+in_pngFile,in_excelReport}]" Body="[mailBody]" DisplayName="Send SMTP Mail Message" Email="[smtpUsername]" EnableSSL="True" From="[smtpUsername]" sap:VirtualizedContainerService.HintSize="434,146" sap2010:WorkflowViewState.IdRef="SendMail_1" IgnoreCRL="False" IsBodyHtml="False" Port="587" SecureConnection="StartTls" SecurePassword="[smtpPassword]" Server="smtp.gmail.com" Subject="demoblaze order confirmation" To="[in_recipientEmail]">
+          <ui:SendMail Bcc="{x:Null}" Cc="{x:Null}" ContinueOnError="{x:Null}" MailMessage="{x:Null}" Name="{x:Null}" Password="{x:Null}" ReplyTo="{x:Null}" Result="{x:Null}" TimeoutMS="{x:Null}" UseOAuth="{x:Null}" AttachmentsCollection="[{&quot;printscreens\confirmations\&quot;+in_pngFile,in_excelReport}]" Body="[mailBody]" DisplayName="Send SMTP Mail Message" Email="[smtpUsername]" EnableSSL="True" From="[smtpUsername]" sap:VirtualizedContainerService.HintSize="434,146" sap2010:WorkflowViewState.IdRef="SendMail_1" IgnoreCRL="False" IsBodyHtml="False" Port="587" SecureConnection="StartTls" SecurePassword="[smtpPassword]" Server="smtp.gmail.com" Subject="demoblaze order confirmation" To="[in_recipientEmail]">
             <ui:SendMail.Files>
               <scg:List x:TypeArguments="InArgument(x:String)" Capacity="0" />
             </ui:SendMail.Files>
@@ -197,7 +197,7 @@ Environment.NewLine &amp; Environment.NewLine &amp;
         </Sequence>
       </If.Then>
       <If.Else>
-        <Sequence sap:VirtualizedContainerService.HintSize="476,357" sap2010:WorkflowViewState.IdRef="Sequence_5">
+        <Sequence sap:VirtualizedContainerService.HintSize="476,953" sap2010:WorkflowViewState.IdRef="Sequence_5">
           <sap:WorkflowViewStateService.ViewState>
             <scg:Dictionary x:TypeArguments="x:String, x:Object">
               <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -209,22 +209,74 @@ Environment.NewLine &amp; Environment.NewLine &amp;
             </Assign.To>
             <Assign.Value>
               <InArgument x:TypeArguments="x:String" xml:space="preserve">["Hello," &amp; Environment.NewLine &amp; Environment.NewLine &amp;
-"An error occurred during the Demoblaze automation. The order could not be confirmed as successfully completed." &amp; Environment.NewLine &amp; Environment.NewLine &amp;
+"An error occurred during the Demoblaze automation." &amp; Environment.NewLine &amp; Environment.NewLine &amp;
 "Error details:" &amp; Environment.NewLine &amp;
 in_errors]</InArgument>
             </Assign.Value>
           </Assign>
-          <ui:SendMail Bcc="{x:Null}" Cc="{x:Null}" ContinueOnError="{x:Null}" MailMessage="{x:Null}" Name="{x:Null}" Password="{x:Null}" ReplyTo="{x:Null}" Result="{x:Null}" TimeoutMS="{x:Null}" UseOAuth="{x:Null}" Body="[mailBody]" DisplayName="Send SMTP Mail Message" Email="[smtpUsername]" EnableSSL="True" From="[smtpUsername]" sap:VirtualizedContainerService.HintSize="434,146" sap2010:WorkflowViewState.IdRef="SendMail_2" IgnoreCRL="False" IsBodyHtml="False" Port="587" SecureConnection="StartTls" SecurePassword="[smtpPassword]" Server="smtp.gmail.com" Subject="demoblaze order failed" To="[in_recipientEmail]">
-            <ui:SendMail.Files>
-              <scg:List x:TypeArguments="InArgument(x:String)" Capacity="0" />
-            </ui:SendMail.Files>
-            <sap:WorkflowViewStateService.ViewState>
-              <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                <x:Boolean x:Key="IsPinned">False</x:Boolean>
-              </scg:Dictionary>
-            </sap:WorkflowViewStateService.ViewState>
-          </ui:SendMail>
+          <If Condition="[in_pngFile is &quot;&quot;]" DisplayName="If - Printscreen was not taken the previous step" sap:VirtualizedContainerService.HintSize="434,742" sap2010:WorkflowViewState.IdRef="If_5">
+            <If.Then>
+              <Sequence sap:VirtualizedContainerService.HintSize="376,234" sap2010:WorkflowViewState.IdRef="Sequence_10">
+                <sap:WorkflowViewStateService.ViewState>
+                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                  </scg:Dictionary>
+                </sap:WorkflowViewStateService.ViewState>
+                <ui:SendMail Bcc="{x:Null}" Cc="{x:Null}" ContinueOnError="{x:Null}" MailMessage="{x:Null}" Name="{x:Null}" Password="{x:Null}" ReplyTo="{x:Null}" Result="{x:Null}" TimeoutMS="{x:Null}" UseOAuth="{x:Null}" Body="[mailBody]" DisplayName="Send SMTP Mail Message" Email="[smtpUsername]" EnableSSL="True" From="[smtpUsername]" sap:VirtualizedContainerService.HintSize="334,146" sap2010:WorkflowViewState.IdRef="SendMail_2" IgnoreCRL="False" IsBodyHtml="False" Port="587" SecureConnection="StartTls" SecurePassword="[smtpPassword]" Server="smtp.gmail.com" Subject="demoblaze order failed" To="[in_recipientEmail]">
+                  <ui:SendMail.Files>
+                    <scg:List x:TypeArguments="InArgument(x:String)" Capacity="0" />
+                  </ui:SendMail.Files>
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                      <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                </ui:SendMail>
+              </Sequence>
+            </If.Then>
+            <If.Else>
+              <Sequence sap:VirtualizedContainerService.HintSize="376,326" sap2010:WorkflowViewState.IdRef="Sequence_11">
+                <sap:WorkflowViewStateService.ViewState>
+                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                  </scg:Dictionary>
+                </sap:WorkflowViewStateService.ViewState>
+                <If Condition="[Not System.IO.File.Exists(in_pngFile)]" DisplayName="If - Printscreen not found" sap:VirtualizedContainerService.HintSize="334,52" sap2010:WorkflowViewState.IdRef="If_4">
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                      <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                  <If.Then>
+                    <Sequence sap:VirtualizedContainerService.HintSize="376,178" sap2010:WorkflowViewState.IdRef="Sequence_8">
+                      <sap:WorkflowViewStateService.ViewState>
+                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                        </scg:Dictionary>
+                      </sap:WorkflowViewStateService.ViewState>
+                      <Throw DisplayName="Throw - Error proof printscreen not found" Exception="[New SystemException(&quot;Error screenshot was not found!&quot;)]" sap:VirtualizedContainerService.HintSize="334,90" sap2010:WorkflowViewState.IdRef="Throw_3" />
+                    </Sequence>
+                  </If.Then>
+                  <If.Else>
+                    <Sequence sap2010:WorkflowViewState.IdRef="Sequence_9" />
+                  </If.Else>
+                </If>
+                <ui:SendMail Bcc="{x:Null}" Cc="{x:Null}" ContinueOnError="{x:Null}" MailMessage="{x:Null}" Name="{x:Null}" Password="{x:Null}" ReplyTo="{x:Null}" Result="{x:Null}" TimeoutMS="{x:Null}" UseOAuth="{x:Null}" AttachmentsCollection="[{in_pngFile}]" Body="[mailBody]" DisplayName="Send SMTP Mail Message" Email="[smtpUsername]" EnableSSL="True" From="[smtpUsername]" sap:VirtualizedContainerService.HintSize="334,146" sap2010:WorkflowViewState.IdRef="SendMail_3" IgnoreCRL="False" IsBodyHtml="False" Port="587" SecureConnection="StartTls" SecurePassword="[smtpPassword]" Server="smtp.gmail.com" Subject="demoblaze order failed" To="[in_recipientEmail]">
+                  <ui:SendMail.Files>
+                    <scg:List x:TypeArguments="InArgument(x:String)" Capacity="0" />
+                  </ui:SendMail.Files>
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                      <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                </ui:SendMail>
+              </Sequence>
+            </If.Else>
+          </If>
         </Sequence>
       </If.Else>
     </If>

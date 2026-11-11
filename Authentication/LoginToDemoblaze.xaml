@@ -256,14 +256,13 @@
                 <PickBranch.Trigger>
                   <Delay DisplayName="Delay - Unexpected state timeout" Duration="00:00:06" sap:VirtualizedContainerService.HintSize="334,90" sap2010:WorkflowViewState.IdRef="Delay_2" />
                 </PickBranch.Trigger>
-                <Sequence DisplayName="Handle unexpected browser state" sap:VirtualizedContainerService.HintSize="450,382" sap2010:WorkflowViewState.IdRef="Sequence_18">
+                <Sequence DisplayName="Handle unexpected browser state" sap:VirtualizedContainerService.HintSize="450,201" sap2010:WorkflowViewState.IdRef="Sequence_18">
                   <sap:WorkflowViewStateService.ViewState>
                     <scg:Dictionary x:TypeArguments="x:String, x:Object">
                       <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                     </scg:Dictionary>
                   </sap:WorkflowViewStateService.ViewState>
-                  <ui:LogMessage DisplayName="Log Message - Unexpected browser state" sap:VirtualizedContainerService.HintSize="388,141" sap2010:WorkflowViewState.IdRef="LogMessage_28" Level="[UiPath.Core.Activities.LogLevel.Warn]" Message="[&quot;Unexpected browser state. Neither the Login nor Logout button was detected within the expected time.&quot;]" />
-                  <Throw DisplayName="Throw - Unexpected login state" Exception="[New Exception(&quot;Unexpected login state on Demoblaze.&quot;)]" sap:VirtualizedContainerService.HintSize="388,90" sap2010:WorkflowViewState.IdRef="Throw_3" />
+                  <Throw DisplayName="Throw - Unexpected login state" Exception="[New SystemException(&quot;Unexpected login state on Demoblaze.&quot;)]" sap:VirtualizedContainerService.HintSize="388,90" sap2010:WorkflowViewState.IdRef="Throw_3" />
                 </Sequence>
               </PickBranch>
             </Pick>

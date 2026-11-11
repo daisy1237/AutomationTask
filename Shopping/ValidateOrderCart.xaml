@@ -165,7 +165,7 @@
                       <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                     </scg:Dictionary>
                   </sap:WorkflowViewStateService.ViewState>
-                  <Throw DisplayName="Throw - Page not loaded" Exception="[new Exception(&quot;The page could not load within the expected time.&quot;)]" sap:VirtualizedContainerService.HintSize="334,90" sap2010:WorkflowViewState.IdRef="Throw_1" />
+                  <Throw DisplayName="Throw - Page not loaded" Exception="[new SystemException(&quot;The page could not load within the expected time.&quot;)]" sap:VirtualizedContainerService.HintSize="334,90" sap2010:WorkflowViewState.IdRef="Throw_1" />
                 </Sequence>
               </If.Then>
               <If.Else>
@@ -237,7 +237,7 @@ Sum(Function(row) Convert.ToInt32(row("Qty")))]</InArgument>
                     </scg:Dictionary>
                   </sap:WorkflowViewStateService.ViewState>
                   <ui:LogMessage DisplayName="Log Message - Products not added properly" sap:VirtualizedContainerService.HintSize="334,141" sap2010:WorkflowViewState.IdRef="LogMessage_5" Level="[UiPath.Core.Activities.LogLevel.Error]" Message="[String.Format(&quot;Cart contains an incorrect number of products. Expected: {0}, Found: {1}&quot;, expectedTotal, actualTotal)]" />
-                  <Throw DisplayName="Throw - Products not added properly" Exception="[New Exception(String.Format(&quot;Cart contains an incorrect number of products. Expected: {0}, Found: {1}&quot;, expectedTotal, actualTotal))]" sap:VirtualizedContainerService.HintSize="334,90" sap2010:WorkflowViewState.IdRef="Throw_3" />
+                  <Throw DisplayName="Throw - Products not added properly" Exception="[New SystemException(String.Format(&quot;Cart contains an incorrect number of products. Expected: {0}, Found: {1}&quot;, expectedTotal, actualTotal))]" sap:VirtualizedContainerService.HintSize="334,90" sap2010:WorkflowViewState.IdRef="Throw_3" />
                 </Sequence>
               </If.Then>
               <If.Else>
@@ -259,7 +259,7 @@ Sum(Function(row) Convert.ToInt32(row("Qty")))]</InArgument>
                     </scg:Dictionary>
                   </sap:WorkflowViewStateService.ViewState>
                   <ui:LogMessage DisplayName="Log Message - No products to order" sap:VirtualizedContainerService.HintSize="334,141" sap2010:WorkflowViewState.IdRef="LogMessage_6" Level="[UiPath.Core.Activities.LogLevel.Error]" Message="[&quot;No products matching the Excel filters were found. The cart is empty and the order cannot be placed.&quot;]" />
-                  <Throw DisplayName="Throw - No products to order" Exception="[New Exception(&quot;No products matching the excel filters were found. The cart is empty and the order cannot be placed.&quot;)]" sap:VirtualizedContainerService.HintSize="334,90" sap2010:WorkflowViewState.IdRef="Throw_4" />
+                  <Throw DisplayName="Throw - No products to order" Exception="[New BusinessRuleException(&quot;No products matching the excel filters were found. The cart is empty and the order cannot be placed.&quot;)]" sap:VirtualizedContainerService.HintSize="334,90" sap2010:WorkflowViewState.IdRef="Throw_4" />
                 </Sequence>
               </If.Then>
               <If.Else>
@@ -323,7 +323,7 @@ Sum(Function(row) Convert.ToInt32(row("Qty")))]</InArgument>
                                   </scg:Dictionary>
                                 </sap:WorkflowViewStateService.ViewState>
                                 <ui:LogMessage DisplayName="Log Message - Products not added properly" sap:VirtualizedContainerService.HintSize="334,141" sap2010:WorkflowViewState.IdRef="LogMessage_4" Level="[UiPath.Core.Activities.LogLevel.Error]" Message="[String.Format(&quot;Incorrect quantity for product {0}. Expected: {1}, Found: {2}&quot;, product(&quot;Product found&quot;).ToString, expectedQuantity, quantityInCart)]" />
-                                <Throw DisplayName="Throw - Products not added properly" Exception="[new exception(String.Format(&quot;Incorrect quantity for product {0}. Expected: {1}, Found: {2}&quot;, product(&quot;Product found&quot;).ToString, expectedQuantity, quantityInCart))]" sap:VirtualizedContainerService.HintSize="334,90" sap2010:WorkflowViewState.IdRef="Throw_2" />
+                                <Throw DisplayName="Throw - Products not added properly" Exception="[new SystemException(String.Format(&quot;Incorrect quantity for product {0}. Expected: {1}, Found: {2}&quot;, product(&quot;Product found&quot;).ToString, expectedQuantity, quantityInCart))]" sap:VirtualizedContainerService.HintSize="334,90" sap2010:WorkflowViewState.IdRef="Throw_2" />
                               </Sequence>
                             </If.Then>
                             <If.Else>

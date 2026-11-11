@@ -228,7 +228,7 @@
                         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                       </scg:Dictionary>
                     </sap:WorkflowViewStateService.ViewState>
-                    <Throw DisplayName="Throw - Page not loaded error" Exception="[New Exception(String.Format(&quot;The {0} page did not load within the expected time.&quot;, in_productCategory))]" sap:VirtualizedContainerService.HintSize="334,90" sap2010:WorkflowViewState.IdRef="Throw_2" />
+                    <Throw DisplayName="Throw - Page not loaded error" Exception="[New SystemException(String.Format(&quot;The {0} page did not load within the expected time.&quot;, in_productCategory))]" sap:VirtualizedContainerService.HintSize="334,90" sap2010:WorkflowViewState.IdRef="Throw_2" />
                   </Sequence>
                 </If.Else>
               </If>
@@ -295,7 +295,7 @@
                               <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                             </scg:Dictionary>
                           </sap:WorkflowViewStateService.ViewState>
-                          <Throw DisplayName="Throw - Page not loaded error" Exception="[New Exception(&quot;The next page did not load within the expected time.&quot;)]" sap:VirtualizedContainerService.HintSize="334,90" sap2010:WorkflowViewState.IdRef="Throw_3" />
+                          <Throw DisplayName="Throw - Page not loaded error" Exception="[New SystemException(&quot;The next page did not load within the expected time.&quot;)]" sap:VirtualizedContainerService.HintSize="334,90" sap2010:WorkflowViewState.IdRef="Throw_3" />
                         </Sequence>
                       </If.Else>
                     </If>
@@ -356,7 +356,7 @@
                         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                       </scg:Dictionary>
                     </sap:WorkflowViewStateService.ViewState>
-                    <Throw DisplayName="Throw - Page not loaded in time" Exception="[New Exception(&quot;The product page did not load within the expected time.&quot;)]" sap:VirtualizedContainerService.HintSize="334,90" sap2010:WorkflowViewState.IdRef="Throw_4" />
+                    <Throw DisplayName="Throw - Page not loaded in time" Exception="[New SystemException(&quot;The product page did not load within the expected time.&quot;)]" sap:VirtualizedContainerService.HintSize="334,90" sap2010:WorkflowViewState.IdRef="Throw_4" />
                   </Sequence>
                 </If.Then>
                 <If.Else>

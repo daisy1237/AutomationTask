@@ -1,4 +1,4 @@
-<Activity mc:Ignorable="sap sap2010" x:Class="Main" VisualBasic.Settings="{x:Null}" sap:VirtualizedContainerService.HintSize="1254,2702" sap2010:WorkflowViewState.IdRef="ActivityBuilder_1" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:s="clr-namespace:System;assembly=System.Private.CoreLib" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=System.Private.CoreLib" xmlns:sd="clr-namespace:System.Data;assembly=System.Data.Common" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+<Activity mc:Ignorable="sap sap2010" x:Class="Main" VisualBasic.Settings="{x:Null}" sap:VirtualizedContainerService.HintSize="1254,2674" sap2010:WorkflowViewState.IdRef="ActivityBuilder_1" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:s="clr-namespace:System;assembly=System.Private.CoreLib" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=System.Private.CoreLib" xmlns:sd="clr-namespace:System.Data;assembly=System.Data.Common" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
   <TextExpression.NamespacesForImplementation>
     <sco:Collection x:TypeArguments="x:String">
       <x:String>System.Activities</x:String>
@@ -105,7 +105,7 @@
       <x:Boolean x:Key="ShouldExpandAll">True</x:Boolean>
     </scg:Dictionary>
   </sap:WorkflowViewStateService.ViewState>
-  <Sequence sap2010:Annotation.AnnotationText="" DisplayName="Task 2:Make order and send mail confirmation" sap:VirtualizedContainerService.HintSize="552,2637" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence sap2010:Annotation.AnnotationText="" DisplayName="Task 2:Make order and send mail confirmation" sap:VirtualizedContainerService.HintSize="552,2609" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="ui:Browser" Name="browser" />
       <Variable x:TypeArguments="x:String" Name="brand" />
@@ -133,7 +133,7 @@
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
     </ui:LogMessage>
-    <TryCatch DisplayName="Try Catch - Order" sap:VirtualizedContainerService.HintSize="490,2133" sap2010:WorkflowViewState.IdRef="TryCatch_1">
+    <TryCatch DisplayName="Try Catch - Order" sap:VirtualizedContainerService.HintSize="490,2105" sap2010:WorkflowViewState.IdRef="TryCatch_1">
       <TryCatch.Try>
         <Sequence DisplayName="Sequence - Place order from excel" sap:VirtualizedContainerService.HintSize="450,1295" sap2010:WorkflowViewState.IdRef="Sequence_2">
           <Sequence.Variables>
@@ -192,18 +192,10 @@
           </ui:InvokeWorkflowFile>
           <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="ExcelFileProcessing.xaml - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="388,113" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_16" UnSafe="False" WorkflowFileName="Utilities\ExcelFileProcessing.xaml">
             <ui:InvokeWorkflowFile.Arguments>
-              <OutArgument x:TypeArguments="x:String" x:Key="out_errors">
-                <VisualBasicReference x:TypeArguments="x:String" ExpressionText="mailErrorsMessage" />
-              </OutArgument>
-              <InOutArgument x:TypeArguments="ui:Browser" x:Key="io_browser">
-                <VisualBasicReference x:TypeArguments="ui:Browser" ExpressionText="browser" />
-              </InOutArgument>
-              <OutArgument x:TypeArguments="sd:DataTable" x:Key="out_productsDataTable">
-                <VisualBasicReference x:TypeArguments="sd:DataTable" ExpressionText="productsDataTable" />
-              </OutArgument>
-              <OutArgument x:TypeArguments="x:String" x:Key="out_report">
-                <VisualBasicReference x:TypeArguments="x:String" ExpressionText="reportPath" />
-              </OutArgument>
+              <OutArgument x:TypeArguments="x:String" x:Key="out_errors">[mailErrorsMessage]</OutArgument>
+              <InOutArgument x:TypeArguments="ui:Browser" x:Key="io_browser">[browser]</InOutArgument>
+              <OutArgument x:TypeArguments="sd:DataTable" x:Key="out_productsDataTable">[productsDataTable]</OutArgument>
+              <OutArgument x:TypeArguments="x:String" x:Key="out_report">[reportPath]</OutArgument>
             </ui:InvokeWorkflowFile.Arguments>
             <sap:WorkflowViewStateService.ViewState>
               <scg:Dictionary x:TypeArguments="x:String, x:Object">
@@ -226,15 +218,9 @@
           </ui:InvokeWorkflowFile>
           <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="PlaceOrder.xaml - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="388,113" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_18" UnSafe="False" WorkflowFileName="Shopping\PlaceOrder.xaml">
             <ui:InvokeWorkflowFile.Arguments>
-              <InOutArgument x:TypeArguments="ui:Browser" x:Key="io_browser">
-                <VisualBasicReference x:TypeArguments="ui:Browser" ExpressionText="browser" />
-              </InOutArgument>
-              <OutArgument x:TypeArguments="ui:Image" x:Key="out_printscreen">
-                <VisualBasicReference x:TypeArguments="ui:Image" ExpressionText="confirmationPrintscreen" />
-              </OutArgument>
-              <OutArgument x:TypeArguments="x:String" x:Key="out_file">
-                <VisualBasicReference x:TypeArguments="x:String" ExpressionText="confirmationFileName" />
-              </OutArgument>
+              <InOutArgument x:TypeArguments="ui:Browser" x:Key="io_browser">[browser]</InOutArgument>
+              <OutArgument x:TypeArguments="ui:Image" x:Key="out_printscreen">[confirmationPrintscreen]</OutArgument>
+              <OutArgument x:TypeArguments="x:String" x:Key="out_file">[confirmationFileName]</OutArgument>
             </ui:InvokeWorkflowFile.Arguments>
             <sap:WorkflowViewStateService.ViewState>
               <scg:Dictionary x:TypeArguments="x:String, x:Object">
@@ -245,27 +231,17 @@
           </ui:InvokeWorkflowFile>
           <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="EmailAutomation.xaml - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="388,113" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_19" UnSafe="False" WorkflowFileName="Utilities\EmailAutomation.xaml">
             <ui:InvokeWorkflowFile.Arguments>
-              <InArgument x:TypeArguments="x:String" x:Key="in_errors">
-                <VisualBasicValue x:TypeArguments="x:String" ExpressionText="mailErrorsMessage" />
-              </InArgument>
-              <InArgument x:TypeArguments="x:String" x:Key="in_recipientEmail">
-                <Literal x:TypeArguments="x:String">alexandrachsm@gmail.com</Literal>
-              </InArgument>
-              <InArgument x:TypeArguments="x:Boolean" x:Key="in_successMail">
-                <Literal x:TypeArguments="x:Boolean" Value="True" />
-              </InArgument>
-              <InArgument x:TypeArguments="x:String" x:Key="in_pngFile">
-                <VisualBasicValue x:TypeArguments="x:String" ExpressionText="confirmationFileName" />
-              </InArgument>
-              <InArgument x:TypeArguments="x:String" x:Key="in_excelReport">
-                <VisualBasicValue x:TypeArguments="x:String" ExpressionText="reportPath" />
-              </InArgument>
+              <InArgument x:TypeArguments="x:String" x:Key="in_errors">[mailErrorsMessage]</InArgument>
+              <InArgument x:TypeArguments="x:String" x:Key="in_recipientEmail">alexandrachsm@gmail.com</InArgument>
+              <InArgument x:TypeArguments="x:Boolean" x:Key="in_successMail">True</InArgument>
+              <InArgument x:TypeArguments="x:String" x:Key="in_pngFile">[confirmationFileName]</InArgument>
+              <InArgument x:TypeArguments="x:String" x:Key="in_excelReport">[reportPath]</InArgument>
             </ui:InvokeWorkflowFile.Arguments>
           </ui:InvokeWorkflowFile>
         </Sequence>
       </TryCatch.Try>
       <TryCatch.Catches>
-        <Catch x:TypeArguments="s:Exception" sap:VirtualizedContainerService.HintSize="456,474" sap2010:WorkflowViewState.IdRef="Catch`1_1">
+        <Catch x:TypeArguments="s:Exception" sap:VirtualizedContainerService.HintSize="456,446" sap2010:WorkflowViewState.IdRef="Catch`1_1">
           <sap:WorkflowViewStateService.ViewState>
             <scg:Dictionary x:TypeArguments="x:String, x:Object">
               <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -276,14 +252,30 @@
             <ActivityAction.Argument>
               <DelegateInArgument x:TypeArguments="s:Exception" Name="exception" />
             </ActivityAction.Argument>
-            <Sequence DisplayName="Send mail for failure" sap:VirtualizedContainerService.HintSize="450,405" sap2010:WorkflowViewState.IdRef="Sequence_3">
+            <Sequence DisplayName="Send mail for failure" sap:VirtualizedContainerService.HintSize="450,377" sap2010:WorkflowViewState.IdRef="Sequence_3">
+              <Sequence.Variables>
+                <Variable x:TypeArguments="x:String" Name="errorMessage" />
+                <Variable x:TypeArguments="x:String" Name="printscreen" />
+              </Sequence.Variables>
               <sap:WorkflowViewStateService.ViewState>
                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
                   <x:Boolean x:Key="IsExpanded">False</x:Boolean>
                   <x:Boolean x:Key="IsPinned">False</x:Boolean>
                 </scg:Dictionary>
               </sap:WorkflowViewStateService.ViewState>
-              <ui:LogMessage DisplayName="Log Message - Something went wrong" sap:VirtualizedContainerService.HintSize="388,141" sap2010:WorkflowViewState.IdRef="LogMessage_12" Level="[UiPath.Core.Activities.LogLevel.Error]" Message="[String.Format(&quot;Demoblaze automation failed! Exception details: {0}{1}&quot;, Environment.NewLine, exception.ToString)]" />
+              <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="HandleException.xaml - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="388,113" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_21" UnSafe="False" WorkflowFileName="Utilities\HandleException.xaml">
+                <ui:InvokeWorkflowFile.Arguments>
+                  <InArgument x:TypeArguments="s:Exception" x:Key="in_exception">
+                    <VisualBasicValue x:TypeArguments="s:Exception" ExpressionText="exception" />
+                  </InArgument>
+                  <OutArgument x:TypeArguments="x:String" x:Key="out_errorMsg">
+                    <VisualBasicReference x:TypeArguments="x:String" ExpressionText="errorMessage" />
+                  </OutArgument>
+                  <OutArgument x:TypeArguments="x:String" x:Key="out_printscreenPath">
+                    <VisualBasicReference x:TypeArguments="x:String" ExpressionText="printscreen" />
+                  </OutArgument>
+                </ui:InvokeWorkflowFile.Arguments>
+              </ui:InvokeWorkflowFile>
               <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="EmailAutomation.xaml - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="388,113" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_20" UnSafe="False" WorkflowFileName="Utilities\EmailAutomation.xaml">
                 <ui:InvokeWorkflowFile.Arguments>
                   <InArgument x:TypeArguments="x:String" x:Key="in_errors">
@@ -296,7 +288,7 @@
                     <Literal x:TypeArguments="x:Boolean" />
                   </InArgument>
                   <InArgument x:TypeArguments="x:String" x:Key="in_pngFile">
-                    <Literal x:TypeArguments="x:String" Value="" />
+                    <VisualBasicValue x:TypeArguments="x:String" ExpressionText="printscreen" />
                   </InArgument>
                   <InArgument x:TypeArguments="x:String" x:Key="in_excelReport">
                     <Literal x:TypeArguments="x:String" Value="" />

@@ -1,4 +1,4 @@
-<Activity mc:Ignorable="sap sap2010" x:Class="ExcelFileProcessing" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=System.Private.CoreLib" xmlns:sd="clr-namespace:System.Data;assembly=System.Data.Common" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+<Activity mc:Ignorable="sap sap2010" x:Class="ExcelFileProcessing" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:s="clr-namespace:System;assembly=System.Private.CoreLib" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=System.Private.CoreLib" xmlns:sd="clr-namespace:System.Data;assembly=System.Data.Common" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
   <x:Members>
     <x:Property Name="out_errors" Type="OutArgument(x:String)" />
     <x:Property Name="io_browser" Type="InOutArgument(ui:Browser)" />
@@ -8,7 +8,7 @@
   <VisualBasic.Settings>
     <x:Null />
   </VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>1254,7971</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>1254,7170</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>ExcelFileProcessing_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <sco:Collection x:TypeArguments="x:String">
@@ -46,6 +46,7 @@
       <x:String>Microsoft.VisualBasic.CompilerServices</x:String>
       <x:String>UiPath.UIAutomationNext.Enums</x:String>
       <x:String>UiPath.UIAutomationCore.Contracts</x:String>
+      <x:String>System.Activities.Runtime.Collections</x:String>
     </sco:Collection>
   </TextExpression.NamespacesForImplementation>
   <TextExpression.ReferencesForImplementation>
@@ -120,7 +121,7 @@
       <x:Boolean x:Key="ShouldExpandAll">True</x:Boolean>
     </scg:Dictionary>
   </sap:WorkflowViewStateService.ViewState>
-  <Sequence DisplayName="ExcelFileProcessing" sap:VirtualizedContainerService.HintSize="882,7906" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="ExcelFileProcessing" sap:VirtualizedContainerService.HintSize="862,7105" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="x:String" Name="reportPath" />
     </Sequence.Variables>
@@ -129,8 +130,8 @@
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <ui:LogMessage DisplayName="Log Message - workflow started" sap:VirtualizedContainerService.HintSize="820,141" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="[UiPath.Core.Activities.LogLevel.Info]" Message="[&quot;The excel file processing workflow has started.&quot;]" />
-    <Assign DisplayName="Assign - Initialize errors string" sap:VirtualizedContainerService.HintSize="820,82" sap2010:WorkflowViewState.IdRef="Assign_1">
+    <ui:LogMessage DisplayName="Log Message - workflow started" sap:VirtualizedContainerService.HintSize="800,141" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="[UiPath.Core.Activities.LogLevel.Info]" Message="[&quot;The excel file processing workflow has started.&quot;]" />
+    <Assign DisplayName="Assign - Initialize errors string" sap:VirtualizedContainerService.HintSize="800,82" sap2010:WorkflowViewState.IdRef="Assign_1">
       <Assign.To>
         <OutArgument x:TypeArguments="x:String">[out_errors]</OutArgument>
       </Assign.To>
@@ -140,7 +141,7 @@
         </InArgument>
       </Assign.Value>
     </Assign>
-    <If Condition="[Not System.IO.File.Exists(&quot;PO.xlsx&quot;)]" DisplayName="If - Order file not found" sap:VirtualizedContainerService.HintSize="820,440" sap2010:WorkflowViewState.IdRef="If_9">
+    <If Condition="[Not System.IO.File.Exists(&quot;PO.xlsx&quot;)]" DisplayName="If - Order file not found" sap:VirtualizedContainerService.HintSize="800,440" sap2010:WorkflowViewState.IdRef="If_9">
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
           <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -167,13 +168,13 @@
         </Sequence>
       </If.Else>
     </If>
-    <ui:ExcelApplicationScope Password="{x:Null}" DisplayName="Excel Application Scope - Use order excel file" sap:VirtualizedContainerService.HintSize="820,6553" sap2010:WorkflowViewState.IdRef="ExcelApplicationScope_1" InstanceCachePeriod="3000" WorkbookPath="PO.xlsx">
+    <ui:ExcelApplicationScope Password="{x:Null}" DisplayName="Excel Application Scope - Use order excel file" sap:VirtualizedContainerService.HintSize="800,5752" sap2010:WorkflowViewState.IdRef="ExcelApplicationScope_1" InstanceCachePeriod="3000" WorkbookPath="PO.xlsx">
       <ui:ExcelApplicationScope.Body>
         <ActivityAction x:TypeArguments="ui:WorkbookApplication">
           <ActivityAction.Argument>
             <DelegateInArgument x:TypeArguments="ui:WorkbookApplication" Name="ExcelWorkbookScope" />
           </ActivityAction.Argument>
-          <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="786,6443" sap2010:WorkflowViewState.IdRef="Sequence_2">
+          <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="766,5642" sap2010:WorkflowViewState.IdRef="Sequence_2">
             <Sequence.Variables>
               <Variable x:TypeArguments="x:Int32" Name="rowIndex" />
             </Sequence.Variables>
@@ -182,14 +183,14 @@
                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
-            <ui:ExcelReadRange AddHeaders="True" DataTable="[out_productsDataTable]" DisplayName="Read Range - Order products" sap:VirtualizedContainerService.HintSize="724,60" sap2010:WorkflowViewState.IdRef="ExcelReadRange_1" SheetName="Sheet1">
+            <ui:ExcelReadRange AddHeaders="True" DataTable="[out_productsDataTable]" DisplayName="Read Range - Order products" sap:VirtualizedContainerService.HintSize="704,60" sap2010:WorkflowViewState.IdRef="ExcelReadRange_1" SheetName="Sheet1">
               <ui:ExcelReadRange.Range>
                 <InArgument x:TypeArguments="x:String">
                   <Literal x:TypeArguments="x:String" Value="" />
                 </InArgument>
               </ui:ExcelReadRange.Range>
             </ui:ExcelReadRange>
-            <If sap2010:Annotation.AnnotationText="The excel file info is not valid if it doesnt contain all the required data." Condition="[Not (out_productsDataTable.Columns.Contains(&quot;Category&quot;) AndAlso out_productsDataTable.Columns.Contains(&quot;Brand&quot;) AndAlso&#x9;out_productsDataTable.Columns.Contains(&quot;Qty&quot;) AndAlso&#xA;out_productsDataTable.Columns.Contains(&quot;Min price per unit&quot;) AndAlso out_productsDataTable.Columns.Contains(&quot;Max price per unit&quot;))]" DisplayName="If - Data not valid" sap:VirtualizedContainerService.HintSize="724,572" sap2010:WorkflowViewState.IdRef="If_1">
+            <If sap2010:Annotation.AnnotationText="The excel file info is not valid if it doesnt contain all the required data." Condition="[Not (out_productsDataTable.Columns.Contains(&quot;Category&quot;) AndAlso out_productsDataTable.Columns.Contains(&quot;Brand&quot;) AndAlso&#x9;out_productsDataTable.Columns.Contains(&quot;Qty&quot;) AndAlso&#xA;out_productsDataTable.Columns.Contains(&quot;Min price per unit&quot;) AndAlso out_productsDataTable.Columns.Contains(&quot;Max price per unit&quot;))]" DisplayName="If - Data not valid" sap:VirtualizedContainerService.HintSize="704,572" sap2010:WorkflowViewState.IdRef="If_1">
               <sap:WorkflowViewStateService.ViewState>
                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
                   <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
@@ -212,28 +213,28 @@
                 <Sequence sap2010:WorkflowViewState.IdRef="Sequence_12" />
               </If.Else>
             </If>
-            <ui:AddDataColumn x:TypeArguments="x:Object" AllowDBNull="{x:Null}" AutoIncrement="{x:Null}" Column="{x:Null}" DefaultValue="{x:Null}" MaxLength="{x:Null}" Unique="{x:Null}" sap2010:Annotation.AnnotationText="For each row data, if we find a product that matches the filter, we save the name of the product here" ColumnName="Product found" DataTable="[out_productsDataTable]" DisplayName="Add Data Column - The name of the found product" sap:VirtualizedContainerService.HintSize="724,228" sap2010:WorkflowViewState.IdRef="AddDataColumn`1_1">
+            <ui:AddDataColumn x:TypeArguments="x:Object" AllowDBNull="{x:Null}" AutoIncrement="{x:Null}" Column="{x:Null}" DefaultValue="{x:Null}" MaxLength="{x:Null}" Unique="{x:Null}" sap2010:Annotation.AnnotationText="For each row data, if we find a product that matches the filter, we save the name of the product here" ColumnName="Product found" DataTable="[out_productsDataTable]" DisplayName="Add Data Column - The name of the found product" sap:VirtualizedContainerService.HintSize="704,228" sap2010:WorkflowViewState.IdRef="AddDataColumn`1_1">
               <sap:WorkflowViewStateService.ViewState>
                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
                   <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
                 </scg:Dictionary>
               </sap:WorkflowViewStateService.ViewState>
             </ui:AddDataColumn>
-            <ui:AddDataColumn x:TypeArguments="x:Object" AllowDBNull="{x:Null}" AutoIncrement="{x:Null}" Column="{x:Null}" DefaultValue="{x:Null}" MaxLength="{x:Null}" Unique="{x:Null}" ColumnName="Issue" DataTable="[out_productsDataTable]" DisplayName="Add Data Column - Issue for no match/invalid filtering" sap:VirtualizedContainerService.HintSize="724,186" sap2010:WorkflowViewState.IdRef="AddDataColumn`1_2" />
-            <ui:LogMessage DisplayName="Log Message - Rows validation starts" sap:VirtualizedContainerService.HintSize="724,141" sap2010:WorkflowViewState.IdRef="LogMessage_5" Level="[UiPath.Core.Activities.LogLevel.Info]" Message="[&quot;The excel file meets all the requirements. Rows validation and processing starts now.&quot;]" />
-            <ui:ForEachRow ColumnNames="{x:Null}" CurrentIndex="[rowIndex]" DataTable="[out_productsDataTable]" DisplayName="For Each Row in Data Table - Verify product attributes" sap:VirtualizedContainerService.HintSize="724,4822" sap2010:WorkflowViewState.IdRef="ForEachRow_1">
+            <ui:AddDataColumn x:TypeArguments="x:Object" AllowDBNull="{x:Null}" AutoIncrement="{x:Null}" Column="{x:Null}" DefaultValue="{x:Null}" MaxLength="{x:Null}" Unique="{x:Null}" ColumnName="Issue" DataTable="[out_productsDataTable]" DisplayName="Add Data Column - Issue for no match/invalid filtering" sap:VirtualizedContainerService.HintSize="704,186" sap2010:WorkflowViewState.IdRef="AddDataColumn`1_2" />
+            <ui:LogMessage DisplayName="Log Message - Rows validation starts" sap:VirtualizedContainerService.HintSize="704,141" sap2010:WorkflowViewState.IdRef="LogMessage_5" Level="[UiPath.Core.Activities.LogLevel.Info]" Message="[&quot;The excel file meets all the requirements. Rows validation and processing starts now.&quot;]" />
+            <ui:ForEachRow ColumnNames="{x:Null}" CurrentIndex="[rowIndex]" DataTable="[out_productsDataTable]" DisplayName="For Each Row in Data Table - Verify product attributes" sap:VirtualizedContainerService.HintSize="704,4021" sap2010:WorkflowViewState.IdRef="ForEachRow_1">
               <ui:ForEachRow.Body>
                 <ActivityAction x:TypeArguments="sd:DataRow">
                   <ActivityAction.Argument>
                     <DelegateInArgument x:TypeArguments="sd:DataRow" Name="product" />
                   </ActivityAction.Argument>
-                  <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="690,4636" sap2010:WorkflowViewState.IdRef="Sequence_4">
+                  <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="670,3835" sap2010:WorkflowViewState.IdRef="Sequence_4">
                     <sap:WorkflowViewStateService.ViewState>
                       <scg:Dictionary x:TypeArguments="x:String, x:Object">
                         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                       </scg:Dictionary>
                     </sap:WorkflowViewStateService.ViewState>
-                    <If Condition="[Not ({&quot;laptops&quot;, &quot;phones&quot;, &quot;monitors&quot;}.Contains(product(&quot;Category&quot;).ToString.Trim.ToLower)) OrElse&#xA;(Not String.IsNullOrWhiteSpace(product(&quot;Brand&quot;).ToString) AndAlso IsNumeric(product(&quot;Brand&quot;).ToString)) OrElse&#xA;Not IsNumeric(product(&quot;Min price per unit&quot;).ToString) OrElse&#xA;Not IsNumeric(product(&quot;Max price per unit&quot;).ToString) OrElse&#xA;Not IsNumeric(product(&quot;Qty&quot;).ToString) OrElse&#xA;Convert.ToDecimal(If(IsNumeric(product(&quot;Qty&quot;).ToString), product(&quot;Qty&quot;), 0)) &lt; 1 OrElse&#xA;Convert.ToDecimal(If(IsNumeric(product(&quot;Qty&quot;).ToString), product(&quot;Qty&quot;), 0)) Mod 1 &lt;&gt; 0 OrElse&#xA;Convert.ToDecimal(If(IsNumeric(product(&quot;Min price per unit&quot;).ToString), product(&quot;Min price per unit&quot;), 0)) &lt; 1 OrElse&#xA;Convert.ToDecimal(If(IsNumeric(product(&quot;Max price per unit&quot;).ToString), product(&quot;Max price per unit&quot;), 0)) &lt; 2 OrElse&#xA;Convert.ToDecimal(If(IsNumeric(product(&quot;Min price per unit&quot;).ToString), product(&quot;Min price per unit&quot;), 0)) &gt;=&#xA;Convert.ToDecimal(If(IsNumeric(product(&quot;Max price per unit&quot;).ToString), product(&quot;Max price per unit&quot;), 0))]" DisplayName="If - Attribute values wrong" sap:VirtualizedContainerService.HintSize="648,4548" sap2010:WorkflowViewState.IdRef="If_3">
+                    <If Condition="[Not ({&quot;laptops&quot;, &quot;phones&quot;, &quot;monitors&quot;}.Contains(product(&quot;Category&quot;).ToString.Trim.ToLower)) OrElse&#xA;(Not String.IsNullOrWhiteSpace(product(&quot;Brand&quot;).ToString) AndAlso IsNumeric(product(&quot;Brand&quot;).ToString)) OrElse&#xA;Not IsNumeric(product(&quot;Min price per unit&quot;).ToString) OrElse&#xA;Not IsNumeric(product(&quot;Max price per unit&quot;).ToString) OrElse&#xA;Not IsNumeric(product(&quot;Qty&quot;).ToString) OrElse&#xA;Convert.ToDecimal(If(IsNumeric(product(&quot;Qty&quot;).ToString), product(&quot;Qty&quot;), 0)) &lt; 1 OrElse&#xA;Convert.ToDecimal(If(IsNumeric(product(&quot;Qty&quot;).ToString), product(&quot;Qty&quot;), 0)) Mod 1 &lt;&gt; 0 OrElse&#xA;Convert.ToDecimal(If(IsNumeric(product(&quot;Min price per unit&quot;).ToString), product(&quot;Min price per unit&quot;), 0)) &lt; 1 OrElse&#xA;Convert.ToDecimal(If(IsNumeric(product(&quot;Max price per unit&quot;).ToString), product(&quot;Max price per unit&quot;), 0)) &lt; 2 OrElse&#xA;Convert.ToDecimal(If(IsNumeric(product(&quot;Min price per unit&quot;).ToString), product(&quot;Min price per unit&quot;), 0)) &gt;=&#xA;Convert.ToDecimal(If(IsNumeric(product(&quot;Max price per unit&quot;).ToString), product(&quot;Max price per unit&quot;), 0))]" DisplayName="If - Attribute values wrong" sap:VirtualizedContainerService.HintSize="628,3747" sap2010:WorkflowViewState.IdRef="If_3">
                       <sap:WorkflowViewStateService.ViewState>
                         <scg:Dictionary x:TypeArguments="x:String, x:Object">
                           <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -241,14 +242,14 @@
                         </scg:Dictionary>
                       </sap:WorkflowViewStateService.ViewState>
                       <If.Then>
-                        <Sequence sap:VirtualizedContainerService.HintSize="614,2518" sap2010:WorkflowViewState.IdRef="Sequence_5">
+                        <Sequence sap:VirtualizedContainerService.HintSize="594,1717" sap2010:WorkflowViewState.IdRef="Sequence_5">
                           <sap:WorkflowViewStateService.ViewState>
                             <scg:Dictionary x:TypeArguments="x:String, x:Object">
                               <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                             </scg:Dictionary>
                           </sap:WorkflowViewStateService.ViewState>
-                          <ui:LogMessage DisplayName="Log Message - Row values not valid" sap:VirtualizedContainerService.HintSize="572,141" sap2010:WorkflowViewState.IdRef="LogMessage_6" Level="[UiPath.Core.Activities.LogLevel.Info]" Message="[string.format(&quot;The row with index {0} has invalid values for the filter attributes.&quot;,(rowIndex+2).tostring)]" />
-                          <Assign DisplayName="Assign - &quot;product found&quot; to -1" sap:VirtualizedContainerService.HintSize="572,82" sap2010:WorkflowViewState.IdRef="Assign_11">
+                          <ui:LogMessage DisplayName="Log Message - Row values not valid" sap:VirtualizedContainerService.HintSize="552,141" sap2010:WorkflowViewState.IdRef="LogMessage_6" Level="[UiPath.Core.Activities.LogLevel.Info]" Message="[string.format(&quot;The row with index {0} has invalid values for the filter attributes.&quot;,(rowIndex+2).tostring)]" />
+                          <Assign DisplayName="Assign - &quot;product found&quot; to -1" sap:VirtualizedContainerService.HintSize="552,82" sap2010:WorkflowViewState.IdRef="Assign_11">
                             <Assign.To>
                               <OutArgument x:TypeArguments="x:Object">[product("Product found")]</OutArgument>
                             </Assign.To>
@@ -256,18 +257,18 @@
                               <InArgument x:TypeArguments="x:Object">["-1"]</InArgument>
                             </Assign.Value>
                           </Assign>
-                          <Sequence DisplayName="Add attribute error to an error string for the final mail" sap:VirtualizedContainerService.HintSize="572,2127" sap2010:WorkflowViewState.IdRef="Sequence_6">
+                          <Sequence DisplayName="Add attribute error to an error string for the final mail" sap:VirtualizedContainerService.HintSize="552,1326" sap2010:WorkflowViewState.IdRef="Sequence_6">
                             <sap:WorkflowViewStateService.ViewState>
                               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                                 <x:Boolean x:Key="IsPinned">False</x:Boolean>
                               </scg:Dictionary>
                             </sap:WorkflowViewStateService.ViewState>
-                            <If Condition="[Not ({&quot;laptops&quot;, &quot;phones&quot;, &quot;monitors&quot;}.Contains(product(&quot;Category&quot;).ToString.Trim.ToLower))]" DisplayName="If - Category wrong" sap:VirtualizedContainerService.HintSize="510,474" sap2010:WorkflowViewState.IdRef="If_4">
+                            <If Condition="[Not ({&quot;laptops&quot;, &quot;phones&quot;, &quot;monitors&quot;}.Contains(product(&quot;Category&quot;).ToString.Trim.ToLower))]" DisplayName="If - Category wrong" sap:VirtualizedContainerService.HintSize="490,52" sap2010:WorkflowViewState.IdRef="If_4">
                               <sap:WorkflowViewStateService.ViewState>
                                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                   <x:Boolean x:Key="IsExpanded">False</x:Boolean>
-                                  <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                  <x:Boolean x:Key="IsPinned">True</x:Boolean>
                                 </scg:Dictionary>
                               </sap:WorkflowViewStateService.ViewState>
                               <If.Then>
@@ -296,14 +297,20 @@
                                 </Sequence>
                               </If.Then>
                               <If.Else>
-                                <Sequence sap2010:WorkflowViewState.IdRef="Sequence_13" />
+                                <Sequence sap:VirtualizedContainerService.HintSize="300,80" sap2010:WorkflowViewState.IdRef="Sequence_13">
+                                  <sap:WorkflowViewStateService.ViewState>
+                                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                    </scg:Dictionary>
+                                  </sap:WorkflowViewStateService.ViewState>
+                                </Sequence>
                               </If.Else>
                             </If>
-                            <If Condition="[(Not String.IsNullOrWhiteSpace(product(&quot;Brand&quot;).ToString) AndAlso IsNumeric(product(&quot;Brand&quot;).ToString))]" DisplayName="If - Brand wrong" sap:VirtualizedContainerService.HintSize="510,474" sap2010:WorkflowViewState.IdRef="If_5">
+                            <If Condition="[(Not String.IsNullOrWhiteSpace(product(&quot;Brand&quot;).ToString) AndAlso IsNumeric(product(&quot;Brand&quot;).ToString))]" DisplayName="If - Brand wrong" sap:VirtualizedContainerService.HintSize="490,52" sap2010:WorkflowViewState.IdRef="If_5">
                               <sap:WorkflowViewStateService.ViewState>
                                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                   <x:Boolean x:Key="IsExpanded">False</x:Boolean>
-                                  <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                  <x:Boolean x:Key="IsPinned">True</x:Boolean>
                                 </scg:Dictionary>
                               </sap:WorkflowViewStateService.ViewState>
                               <If.Then>
@@ -335,11 +342,11 @@
                                 <Sequence sap2010:WorkflowViewState.IdRef="Sequence_15" />
                               </If.Else>
                             </If>
-                            <If Condition="[Not IsNumeric(product(&quot;Qty&quot;).ToString) OrElse&#xA;Convert.ToDecimal(If(IsNumeric(product(&quot;Qty&quot;).ToString), product(&quot;Qty&quot;), 0)) &lt; 1 OrElse&#xA;Convert.ToDecimal(If(IsNumeric(product(&quot;Qty&quot;).ToString), product(&quot;Qty&quot;), 0)) Mod 1 &lt;&gt; 0]" DisplayName="If - Qty wrong" sap:VirtualizedContainerService.HintSize="510,474" sap2010:WorkflowViewState.IdRef="If_6">
+                            <If Condition="[Not IsNumeric(product(&quot;Qty&quot;).ToString) OrElse&#xA;Convert.ToDecimal(If(IsNumeric(product(&quot;Qty&quot;).ToString), product(&quot;Qty&quot;), 0)) &lt; 1 OrElse&#xA;Convert.ToDecimal(If(IsNumeric(product(&quot;Qty&quot;).ToString), product(&quot;Qty&quot;), 0)) Mod 1 &lt;&gt; 0]" DisplayName="If - Qty wrong" sap:VirtualizedContainerService.HintSize="490,52" sap2010:WorkflowViewState.IdRef="If_6">
                               <sap:WorkflowViewStateService.ViewState>
                                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                                  <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                  <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                                  <x:Boolean x:Key="IsPinned">True</x:Boolean>
                                 </scg:Dictionary>
                               </sap:WorkflowViewStateService.ViewState>
                               <If.Then>
@@ -371,11 +378,11 @@
                                 <Sequence sap2010:WorkflowViewState.IdRef="Sequence_17" />
                               </If.Else>
                             </If>
-                            <If Condition="[Not IsNumeric(product(&quot;Min price per unit&quot;).ToString) OrElse&#xA;Not IsNumeric(product(&quot;Max price per unit&quot;).ToString) OrElse&#xA;Convert.ToDecimal(If(IsNumeric(product(&quot;Min price per unit&quot;).ToString), product(&quot;Min price per unit&quot;), 0)) &lt; 1 OrElse&#xA;Convert.ToDecimal(If(IsNumeric(product(&quot;Max price per unit&quot;).ToString), product(&quot;Max price per unit&quot;), 0)) &lt; 2 OrElse&#xA;Convert.ToDecimal(If(IsNumeric(product(&quot;Min price per unit&quot;).ToString), product(&quot;Min price per unit&quot;), 0)) &gt;=&#xA;Convert.ToDecimal(If(IsNumeric(product(&quot;Max price per unit&quot;).ToString), product(&quot;Max price per unit&quot;), 0))]" DisplayName="If - Budget wrong" sap:VirtualizedContainerService.HintSize="510,474" sap2010:WorkflowViewState.IdRef="If_7">
+                            <If Condition="[Not IsNumeric(product(&quot;Min price per unit&quot;).ToString) OrElse&#xA;Not IsNumeric(product(&quot;Max price per unit&quot;).ToString) OrElse&#xA;Convert.ToDecimal(If(IsNumeric(product(&quot;Min price per unit&quot;).ToString), product(&quot;Min price per unit&quot;), 0)) &lt; 1 OrElse&#xA;Convert.ToDecimal(If(IsNumeric(product(&quot;Max price per unit&quot;).ToString), product(&quot;Max price per unit&quot;), 0)) &lt; 2 OrElse&#xA;Convert.ToDecimal(If(IsNumeric(product(&quot;Min price per unit&quot;).ToString), product(&quot;Min price per unit&quot;), 0)) &gt;=&#xA;Convert.ToDecimal(If(IsNumeric(product(&quot;Max price per unit&quot;).ToString), product(&quot;Max price per unit&quot;), 0))]" DisplayName="If - Budget wrong" sap:VirtualizedContainerService.HintSize="490,52" sap2010:WorkflowViewState.IdRef="If_7">
                               <sap:WorkflowViewStateService.ViewState>
                                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                                  <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                  <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                                  <x:Boolean x:Key="IsPinned">True</x:Boolean>
                                 </scg:Dictionary>
                               </sap:WorkflowViewStateService.ViewState>
                               <If.Then>
@@ -407,6 +414,69 @@
                                 <Sequence sap2010:WorkflowViewState.IdRef="Sequence_19" />
                               </If.Else>
                             </If>
+                            <TryCatch DisplayName="Try Catch - Send mail for wrong filter input" sap:VirtualizedContainerService.HintSize="490,847" sap2010:WorkflowViewState.IdRef="TryCatch_1">
+                              <TryCatch.Variables>
+                                <Variable x:TypeArguments="x:String" Name="errorMsg" />
+                                <Variable x:TypeArguments="x:String" Name="printscreen" />
+                              </TryCatch.Variables>
+                              <TryCatch.Try>
+                                <Throw DisplayName="Throw - Row arguments not valid" Exception="[New BusinessRuleException(String.format(&quot;The shopping filter with data: category={0}, brand={1}, quantity={2}, min-max price={3}-{4} contained invalid data. No product was added to the cart. Data issue: {5}&quot;,product(&quot;Category&quot;).tostring,product(&quot;Brand&quot;).tostring,product(&quot;Qty&quot;).tostring,&#xD;&#xA;product(&quot;Min price per unit&quot;).tostring,product(&quot;Max price per unit&quot;).tostring,product(&quot;Issue&quot;).tostring))]" sap:VirtualizedContainerService.HintSize="334,90" sap2010:WorkflowViewState.IdRef="Throw_3" />
+                              </TryCatch.Try>
+                              <TryCatch.Catches>
+                                <Catch x:TypeArguments="s:Exception" sap:VirtualizedContainerService.HintSize="456,446" sap2010:WorkflowViewState.IdRef="Catch`1_1">
+                                  <sap:WorkflowViewStateService.ViewState>
+                                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                      <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                    </scg:Dictionary>
+                                  </sap:WorkflowViewStateService.ViewState>
+                                  <ActivityAction x:TypeArguments="s:Exception">
+                                    <ActivityAction.Argument>
+                                      <DelegateInArgument x:TypeArguments="s:Exception" Name="exception" />
+                                    </ActivityAction.Argument>
+                                    <Sequence sap:VirtualizedContainerService.HintSize="450,377" sap2010:WorkflowViewState.IdRef="Sequence_22">
+                                      <sap:WorkflowViewStateService.ViewState>
+                                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                        </scg:Dictionary>
+                                      </sap:WorkflowViewStateService.ViewState>
+                                      <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="HandleException.xaml - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="388,113" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_3" UnSafe="False" WorkflowFileName="Utilities\HandleException.xaml">
+                                        <ui:InvokeWorkflowFile.Arguments>
+                                          <InArgument x:TypeArguments="s:Exception" x:Key="in_exception">
+                                            <VisualBasicValue x:TypeArguments="s:Exception" ExpressionText="exception" />
+                                          </InArgument>
+                                          <OutArgument x:TypeArguments="x:String" x:Key="out_errorMsg">
+                                            <VisualBasicReference x:TypeArguments="x:String" ExpressionText="errorMsg" />
+                                          </OutArgument>
+                                          <OutArgument x:TypeArguments="x:String" x:Key="out_printscreenPath">
+                                            <VisualBasicReference x:TypeArguments="x:String" ExpressionText="printscreen" />
+                                          </OutArgument>
+                                        </ui:InvokeWorkflowFile.Arguments>
+                                      </ui:InvokeWorkflowFile>
+                                      <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="EmailAutomation.xaml - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="388,113" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_4" UnSafe="False" WorkflowFileName="Utilities\EmailAutomation.xaml">
+                                        <ui:InvokeWorkflowFile.Arguments>
+                                          <InArgument x:TypeArguments="x:String" x:Key="in_errors">
+                                            <VisualBasicValue x:TypeArguments="x:String" ExpressionText="errorMsg" />
+                                          </InArgument>
+                                          <InArgument x:TypeArguments="x:String" x:Key="in_recipientEmail">
+                                            <Literal x:TypeArguments="x:String">alexandrachsm@gmail.com</Literal>
+                                          </InArgument>
+                                          <InArgument x:TypeArguments="x:Boolean" x:Key="in_successMail">
+                                            <Literal x:TypeArguments="x:Boolean" />
+                                          </InArgument>
+                                          <InArgument x:TypeArguments="x:String" x:Key="in_pngFile">
+                                            <VisualBasicValue x:TypeArguments="x:String" ExpressionText="printscreen" />
+                                          </InArgument>
+                                          <InArgument x:TypeArguments="x:String" x:Key="in_excelReport">
+                                            <Literal x:TypeArguments="x:String" Value="" />
+                                          </InArgument>
+                                        </ui:InvokeWorkflowFile.Arguments>
+                                      </ui:InvokeWorkflowFile>
+                                    </Sequence>
+                                  </ActivityAction>
+                                </Catch>
+                              </TryCatch.Catches>
+                            </TryCatch>
                           </Sequence>
                         </Sequence>
                       </If.Then>
@@ -543,7 +613,7 @@
                 </ActivityAction>
               </ui:ForEachRow.Body>
             </ui:ForEachRow>
-            <Assign DisplayName="Assign - Excel Mail Report Path" sap:VirtualizedContainerService.HintSize="662,83" sap2010:WorkflowViewState.IdRef="Assign_17">
+            <Assign DisplayName="Assign - Excel Mail Report Path" sap:VirtualizedContainerService.HintSize="704,83" sap2010:WorkflowViewState.IdRef="Assign_17">
               <Assign.To>
                 <OutArgument x:TypeArguments="x:String">[reportPath]</OutArgument>
               </Assign.To>
